@@ -1,8 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP TPS7A470x
-D TPS7A470x36-V, 1-A, 4-μVRMS, RF LDO Voltage Regulator
-F http://www.ti.com/lit/ds/symlink/tps7a47.pdf
-$ENDCMP
-#
-#End Doc Library

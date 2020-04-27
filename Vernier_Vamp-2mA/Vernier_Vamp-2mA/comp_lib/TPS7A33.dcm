@@ -1,8 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP TPS7A33
-D TPS7A33–36-V, 1-A, Ultralow-Noise Negative Voltage Regulator
-F http://www.ti.com/lit/ds/symlink/tps7a33.pdf
-$ENDCMP
-#
-#End Doc Library
