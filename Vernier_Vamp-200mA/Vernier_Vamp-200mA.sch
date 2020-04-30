@@ -173,7 +173,7 @@ L Connector:Conn_Coaxial J5
 U 1 1 60F24A4B
 P 9600 1650
 F 0 "J5" H 9700 1625 50  0000 L CNN
-F 1 "Conn_Coaxial" H 9700 1534 50  0000 L CNN
+F 1 "Channel 3" H 9700 1534 50  0000 L CNN
 F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 1650 50  0001 C CNN
 F 3 " ~" H 9600 1650 50  0001 C CNN
 	1    9600 1650
@@ -184,7 +184,7 @@ L Connector:Conn_Coaxial J6
 U 1 1 60F273D0
 P 9600 2100
 F 0 "J6" H 9700 2075 50  0000 L CNN
-F 1 "Conn_Coaxial" H 9700 1984 50  0000 L CNN
+F 1 "Channel 2" H 9700 1984 50  0000 L CNN
 F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2100 50  0001 C CNN
 F 3 " ~" H 9600 2100 50  0001 C CNN
 	1    9600 2100
@@ -195,7 +195,7 @@ L Connector:Conn_Coaxial J7
 U 1 1 60F27B80
 P 9600 2500
 F 0 "J7" H 9700 2475 50  0000 L CNN
-F 1 "Conn_Coaxial" H 9700 2384 50  0000 L CNN
+F 1 "Channel 1" H 9700 2384 50  0000 L CNN
 F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2500 50  0001 C CNN
 F 3 " ~" H 9600 2500 50  0001 C CNN
 	1    9600 2500
@@ -259,4 +259,10 @@ Text Notes 4900 6500 0    118  ~ 0
 Enclosure: Hammond 1455N1601BK\n160 X 103 X 53\n\nAnodised aluminium 
 Text Notes 9250 3900 0    50   ~ 0
 RF45 coil driver output\n\n
+$Sheet
+S 700  7050 600  550 
+U 5EB46FDC
+F0 "sheet5EB46FDA" 50
+F1 "Mounting_Holes.sch" 50
+$EndSheet
 $EndSCHEMATC

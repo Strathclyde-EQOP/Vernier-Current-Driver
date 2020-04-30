@@ -714,12 +714,6 @@ Wire Wire Line
 	7350 5350 7300 5350
 Connection ~ 7300 5350
 $Sheet
-S 600  7050 600  550 
-U 5EA8762C
-F0 "Mounting_Holes" 50
-F1 "Mounting_Holes.sch" 50
-$EndSheet
-$Sheet
 S 1250 850  1450 750 
 U 5EA9C7F8
 F0 "Battery_Management" 50

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 7
+Sheet 4 7
 Title "\"Vernier Vamp\" Coil Driver - 200mA"
 Date "2020-04-27"
 Rev "1.0B"
