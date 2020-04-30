@@ -33,3 +33,5 @@ _autosave-*
 *.g3
 *.drl
 *.gbrjob
+#HTML BOMs
+*.html
