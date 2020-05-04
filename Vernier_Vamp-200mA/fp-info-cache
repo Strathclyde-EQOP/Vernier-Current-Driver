@@ -1,4 +1,4 @@
-16975067248495717
+16939485140844941
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -6657,13 +6657,6 @@ SMA THT Female Jack Horizontal
 5
 2
 Connector_Coaxial
-SMA_Samtec_SMA-J-P-H-ST-EM1_EdgeMount
-http://suddendocs.samtec.com/prints/sma-j-p-x-st-em1-mkt.pdf
-SMA
-0
-5
-2
-Connector_Coaxial
 SMA_Samtec_SMA-J-P-X-ST-EM1_EdgeMount
 Connector SMA, 0Hz to 20GHz, 50Ohm, Edge Mount (http://suddendocs.samtec.com/prints/sma-j-p-x-st-em1-mkt.pdf)
 SMA Straight Samtec Edge Mount
@@ -10276,54 +10269,12 @@ connector Hirose  top entry
 17
 16
 Connector_Hirose
-Hirose_DF63-1P-3.96DSA_1x01_P3.96mm_Horizontal
-Molex DF63 through hole, DF63-1P-3.96DSA, 1 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
-connector Hirose  top entry
-0
-1
-1
-Connector_Hirose
-Hirose_DF63-2P-3.96DSA_1x02_P3.96mm_Horizontal
-Molex DF63 through hole, DF63-2P-3.96DSA, 2 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
-connector Hirose  top entry
-0
-2
-2
-Connector_Hirose
-Hirose_DF63-3P-3.96DSA_1x03_P3.96mm_Horizontal
-Molex DF63 through hole, DF63-3P-3.96DSA, 3 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
-connector Hirose  top entry
-0
-3
-3
-Connector_Hirose
-Hirose_DF63-4P-3.96DSA_1x04_P3.96mm_Horizontal
-Molex DF63 through hole, DF63-4P-3.96DSA, 4 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
-connector Hirose  top entry
-0
-4
-4
-Connector_Hirose
-Hirose_DF63-5P-3.96DSA_1x05_P3.96mm_Horizontal
-Molex DF63 through hole, DF63-5P-3.96DSA, 5 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
-connector Hirose  top entry
-0
-5
-5
-Connector_Hirose
 Hirose_DF63-5P-3.96DSA_1x05_P3.96mm_Vertical
 Hirose DF63 through hole, DF63-5P-3.96DSA, 5 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
 connector Hirose DF63 vertical
 0
 5
 5
-Connector_Hirose
-Hirose_DF63-6P-3.96DSA_1x06_P3.96mm_Horizontal
-Molex DF63 through hole, DF63-6P-3.96DSA, 6 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
-connector Hirose  top entry
-0
-6
-6
 Connector_Hirose
 Hirose_DF63-6P-3.96DSA_1x06_P3.96mm_Vertical
 Hirose DF63 through hole, DF63-6P-3.96DSA, 6 Pins per row (https://www.hirose.com/product/en/products/DF63/), generated with kicad-footprint-generator
@@ -18641,26 +18592,12 @@ connector Molex Sabre top entry
 90
 6
 Connector_Molex
-Molex_SlimStack_52991-0200_2x10_P0.50mm_Vertical
-Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0200, 20 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
-connector Molex SlimStack side entry
-0
-20
-20
-Connector_Molex
 Molex_SlimStack_52991-0208_2x10_P0.50mm_Vertical
 Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0208, 20 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
 connector Molex SlimStack vertical
 0
 20
 20
-Connector_Molex
-Molex_SlimStack_52991-0300_2x15_P0.50mm_Vertical
-Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0300, 30 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
-connector Molex SlimStack side entry
-0
-30
-30
 Connector_Molex
 Molex_SlimStack_52991-0308_2x15_P0.50mm_Vertical
 Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0308, 30 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
@@ -18669,26 +18606,12 @@ connector Molex SlimStack vertical
 30
 30
 Connector_Molex
-Molex_SlimStack_52991-0400_2x20_P0.50mm_Vertical
-Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0400, 40 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
-connector Molex SlimStack side entry
-0
-40
-40
-Connector_Molex
 Molex_SlimStack_52991-0408_2x20_P0.50mm_Vertical
 Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0408, 40 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
 connector Molex SlimStack vertical
 0
 40
 40
-Connector_Molex
-Molex_SlimStack_52991-0500_2x25_P0.50mm_Vertical
-Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0500, 50 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
-connector Molex SlimStack side entry
-0
-50
-50
 Connector_Molex
 Molex_SlimStack_52991-0508_2x25_P0.50mm_Vertical
 Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0508, 50 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
@@ -18697,13 +18620,6 @@ connector Molex SlimStack vertical
 50
 50
 Connector_Molex
-Molex_SlimStack_52991-0600_2x30_P0.50mm_Vertical
-Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0600, 60 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
-connector Molex SlimStack side entry
-0
-60
-60
-Connector_Molex
 Molex_SlimStack_52991-0608_2x30_P0.50mm_Vertical
 Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0608, 60 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
 connector Molex SlimStack vertical
@@ -18711,26 +18627,12 @@ connector Molex SlimStack vertical
 60
 60
 Connector_Molex
-Molex_SlimStack_52991-0700_2x35_P0.50mm_Vertical
-Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0700, 70 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
-connector Molex SlimStack side entry
-0
-70
-70
-Connector_Molex
 Molex_SlimStack_52991-0708_2x35_P0.50mm_Vertical
 Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0708, 70 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
 connector Molex SlimStack vertical
 0
 70
 70
-Connector_Molex
-Molex_SlimStack_52991-0800_2x40_P0.50mm_Vertical
-Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0800, 80 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
-connector Molex SlimStack side entry
-0
-80
-80
 Connector_Molex
 Molex_SlimStack_52991-0808_2x40_P0.50mm_Vertical
 Molex SlimStack Fine-Pitch SMT Board-to-Board Connectors, 52991-0808, 80 Pins (http://www.molex.com/pdm_docs/sd/529910308_sd.pdf), generated with kicad-footprint-generator
@@ -19263,13 +19165,6 @@ PCI bus Edge Connector
 0
 240
 120
-Connector_PCBEdge
-BUS_PCIexpress
-PCIexpress Bus Edge Connector
-PCIexpress Bus Edge Connector
-0
-70
-36
 Connector_PCBEdge
 BUS_PCIexpress_x1
 PCIexpress Bus Edge Connector x1 http://www.ritrontek.com/uploadfile/2016/1026/20161026105231124.pdf#page=70
@@ -42503,6 +42398,69 @@ connector
 0
 4
 4
+Connector_Wuerth
+Wuerth_WR-WTB_64800211622_1x02_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800211622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+2
+2
+Connector_Wuerth
+Wuerth_WR-WTB_64800311622_1x03_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800311622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+3
+3
+Connector_Wuerth
+Wuerth_WR-WTB_64800411622_1x04_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800411622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+4
+4
+Connector_Wuerth
+Wuerth_WR-WTB_64800511622_1x05_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800511622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+5
+5
+Connector_Wuerth
+Wuerth_WR-WTB_64800611622_1x06_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800611622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+6
+6
+Connector_Wuerth
+Wuerth_WR-WTB_64800711622_1x07_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800711622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+7
+7
+Connector_Wuerth
+Wuerth_WR-WTB_64800811622_1x08_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800811622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+8
+8
+Connector_Wuerth
+Wuerth_WR-WTB_64800911622_1x09_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64800911622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+9
+9
+Connector_Wuerth
+Wuerth_WR-WTB_64801011622_1x10_P1.50mm_Vertical
+Wuerth WR-WTB series connector, 64801011622 (https://katalog.we-online.com/em/datasheet/6480xx11622.pdf), generated with kicad-footprint-generator
+connector Wuerth WR-WTB vertical
+0
+10
+10
 Converter_ACDC
 Converter_ACDC_CUI_PBO-3-Sxx_THT_Vertical
 ACDC-Converter, 3W, CUI PBO-3, THT https://www.cui.com/product/resource/pbo-3.pdf
@@ -44536,13 +44494,6 @@ Diode MELF Handsoldering
 Diode_SMD
 D_MicroMELF
 Diode, MicroMELF, Reflow Soldering, http://www.vishay.com/docs/85597/bzm55.pdf
-MicroMELF Diode
-0
-2
-2
-Diode_SMD
-D_MicroMELF_Hadsoldering
-Diode, MicroMELF, hand-soldering, http://www.vishay.com/docs/85597/bzm55-se.pdf
 MicroMELF Diode
 0
 2
@@ -53213,6 +53164,13 @@ DIL DIP PDIP 2.54mm 7.62mm 300mil
 0
 4
 4
+PVSON-10_ThermalVias-Tented
+Texas_S-PVSON-10_ThermalVias-Tented
+
+
+0
+39
+11
 Package_BGA
 Analog_BGA-28_4.0x6.25mm_Layout4x7_P0.8mm_Ball0.45mm_Pad0.4
 Analog BGA-28 4.0mm x 6.25mm package, pitch 0.4mm pad, based on https://www.analog.com/media/en/technical-documentation/data-sheets/8063fa.pdf
@@ -57295,13 +57253,6 @@ UDFN-4_1x1mm_P0.65mm
 5
 5
 Package_DFN_QFN
-UDFN-4_1x1mm_P0.65mm
-UDFN-4_1x1mm_P0.65mm
-UDFN-4_1x1mm_P0.65mm
-0
-16
-5
-Package_DFN_QFN
 UDFN-9_1.0x3.8mm_P0.5mm
 9-pin UDFN package, 1.0x3.8mm, (Ref: https://katalog.we-online.de/pbs/datasheet/824014881.pdf)
 UDFN SMD
@@ -59887,13 +59838,6 @@ NXP LGA NoLead
 Package_LGA
 NXP_LGA-8_3x5mm_P1.25mm_H1.2mm
 NXP  LGA, 8 Pin (https://www.nxp.com/docs/en/data-sheet/MPL115A1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
-NXP LGA NoLead
-0
-8
-8
-Package_LGA
-NXP_MPL115A1_LGA-8_3x5mm_P1.25mm
-NXP MPL115A1 LGA, 8 Pin (https://www.nxp.com/docs/en/data-sheet/MPL115A1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 NXP LGA NoLead
 0
 8
@@ -62720,20 +62664,6 @@ LFPAK56 SOT-669 Power-SO8
 18
 5
 Package_TO_SOT_SMD
-LFPAK56_ThermalVias-1
-LFPAK56 https://assets.nexperia.com/documents/outline-drawing/SOT669.pdf
-LFPAK56 SOT669 Thermal Vias 0.4mm Power-SO8
-0
-63
-5
-Package_TO_SOT_SMD
-LFPAK56_ThermalVias-2
-LFPAK56 https://assets.nexperia.com/documents/outline-drawing/SOT669.pdf
-LFPAK56 SOT669 Thermical Vias Power-SO8
-0
-30
-5
-Package_TO_SOT_SMD
 OnSemi_ECH8
 On Semiconductor ECH8, https://www.onsemi.com/pub/Collateral/318BF.PDF
 ECH8 SOT28-FL SOT-28-FL
@@ -63180,13 +63110,6 @@ Power MOSFET package, TDSON-8-1, 5.15x5.9mm (https://www.infineon.com/cms/en/pro
 tdson 
 0
 14
-5
-Package_TO_SOT_SMD
-TDSON-8-1_HandSoldering
-Power MOSFET package, TDSON-8-1, SuperS08, SON-8_5x6mm
-tdson 
-0
-13
 5
 Package_TO_SOT_SMD
 TO-50-3_LongPad-NoHole_Housing
@@ -73017,13 +72940,6 @@ THT Terminal Block WAGO 236-104 45Degree pitch 5mm size 22.3x14mm^2 drill 1.15mm
 4
 4
 TerminalBlock_WAGO
-TerminalBlock_WAGO_236-105_1x05_P5.00mm_45Degree
-Terminal Block WAGO 236-105, 45Degree (cable under 45degree), 5 pins, pitch 5mm, size 26.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-105 45Degree pitch 5mm size 26.5x14mm^2 drill 1mm pad 3mm
-0
-10
-5
-TerminalBlock_WAGO
 TerminalBlock_WAGO_236-106_1x06_P5.00mm_45Degree
 Terminal Block WAGO 236-106, 45Degree (cable under 45degree), 6 pins, pitch 5mm, size 32.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
 THT Terminal Block WAGO 236-106 45Degree pitch 5mm size 32.3x14mm^2 drill 1.15mm pad 3mm
@@ -73031,33 +72947,12 @@ THT Terminal Block WAGO 236-106 45Degree pitch 5mm size 32.3x14mm^2 drill 1.15mm
 6
 6
 TerminalBlock_WAGO
-TerminalBlock_WAGO_236-107_1x07_P5.00mm_45Degree
-Terminal Block WAGO 236-107, 45Degree (cable under 45degree), 7 pins, pitch 5mm, size 36.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-107 45Degree pitch 5mm size 36.5x14mm^2 drill 1mm pad 3mm
-0
-14
-7
-TerminalBlock_WAGO
 TerminalBlock_WAGO_236-108_1x08_P5.00mm_45Degree
 Terminal Block WAGO 236-108, 45Degree (cable under 45degree), 8 pins, pitch 5mm, size 42.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
 THT Terminal Block WAGO 236-108 45Degree pitch 5mm size 42.3x14mm^2 drill 1.15mm pad 3mm
 0
 8
 8
-TerminalBlock_WAGO
-TerminalBlock_WAGO_236-109_1x09_P5.00mm_45Degree
-Terminal Block WAGO 236-109, 45Degree (cable under 45degree), 9 pins, pitch 5mm, size 46.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-109 45Degree pitch 5mm size 46.5x14mm^2 drill 1mm pad 3mm
-0
-18
-9
-TerminalBlock_WAGO
-TerminalBlock_WAGO_236-110_1x10_P5.00mm_45Degree
-Terminal Block WAGO 236-110, 45Degree (cable under 45degree), 10 pins, pitch 5mm, size 51.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-110 45Degree pitch 5mm size 51.5x14mm^2 drill 1mm pad 3mm
-0
-20
-10
 TerminalBlock_WAGO
 TerminalBlock_WAGO_236-112_1x12_P5.00mm_45Degree
 Terminal Block WAGO 236-112, 45Degree (cable under 45degree), 12 pins, pitch 5mm, size 62.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
@@ -73122,13 +73017,6 @@ THT Terminal Block WAGO 236-204 45Degree pitch 7.5mm size 32.3x14mm^2 drill 1.15
 4
 4
 TerminalBlock_WAGO
-TerminalBlock_WAGO_236-205_1x05_P7.50mm_45Degree
-Terminal Block WAGO 236-205, 45Degree (cable under 45degree), 5 pins, pitch 7.5mm, size 39x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-205 45Degree pitch 7.5mm size 39x14mm^2 drill 1mm pad 3mm
-0
-10
-5
-TerminalBlock_WAGO
 TerminalBlock_WAGO_236-206_1x06_P7.50mm_45Degree
 Terminal Block WAGO 236-206, 45Degree (cable under 45degree), 6 pins, pitch 7.5mm, size 47.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
 THT Terminal Block WAGO 236-206 45Degree pitch 7.5mm size 47.3x14mm^2 drill 1.15mm pad 3mm
@@ -73136,33 +73024,12 @@ THT Terminal Block WAGO 236-206 45Degree pitch 7.5mm size 47.3x14mm^2 drill 1.15
 6
 6
 TerminalBlock_WAGO
-TerminalBlock_WAGO_236-207_1x07_P7.50mm_45Degree
-Terminal Block WAGO 236-207, 45Degree (cable under 45degree), 7 pins, pitch 7.5mm, size 54x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-207 45Degree pitch 7.5mm size 54x14mm^2 drill 1mm pad 3mm
-0
-14
-7
-TerminalBlock_WAGO
 TerminalBlock_WAGO_236-208_1x08_P7.50mm_45Degree
 Terminal Block WAGO 236-208, 45Degree (cable under 45degree), 8 pins, pitch 7.5mm, size 62.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
 THT Terminal Block WAGO 236-208 45Degree pitch 7.5mm size 62.3x14mm^2 drill 1.15mm pad 3mm
 0
 8
 8
-TerminalBlock_WAGO
-TerminalBlock_WAGO_236-209_1x09_P7.50mm_45Degree
-Terminal Block WAGO 236-209, 45Degree (cable under 45degree), 9 pins, pitch 7.5mm, size 69x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-209 45Degree pitch 7.5mm size 69x14mm^2 drill 1mm pad 3mm
-0
-18
-9
-TerminalBlock_WAGO
-TerminalBlock_WAGO_236-210_1x10_P7.50mm_45Degree
-Terminal Block WAGO 236-210, 45Degree (cable under 45degree), 10 pins, pitch 7.5mm, size 76.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-210 45Degree pitch 7.5mm size 76.5x14mm^2 drill 1mm pad 3mm
-0
-20
-10
 TerminalBlock_WAGO
 TerminalBlock_WAGO_236-212_1x12_P7.50mm_45Degree
 Terminal Block WAGO 236-212, 45Degree (cable under 45degree), 12 pins, pitch 7.5mm, size 92.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
@@ -73213,13 +73080,6 @@ THT Terminal Block WAGO 236-304 45Degree pitch 10mm size 42.3x14mm^2 drill 1.15m
 4
 4
 TerminalBlock_WAGO
-TerminalBlock_WAGO_236-305_1x05_P10.00mm_45Degree
-Terminal Block WAGO 236-305, 45Degree (cable under 45degree), 5 pins, pitch 10mm, size 51.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-305 45Degree pitch 10mm size 51.5x14mm^2 drill 1mm pad 3mm
-0
-10
-5
-TerminalBlock_WAGO
 TerminalBlock_WAGO_236-306_1x06_P10.00mm_45Degree
 Terminal Block WAGO 236-306, 45Degree (cable under 45degree), 6 pins, pitch 10mm, size 62.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
 THT Terminal Block WAGO 236-306 45Degree pitch 10mm size 62.3x14mm^2 drill 1.15mm pad 3mm
@@ -73227,33 +73087,12 @@ THT Terminal Block WAGO 236-306 45Degree pitch 10mm size 62.3x14mm^2 drill 1.15m
 6
 6
 TerminalBlock_WAGO
-TerminalBlock_WAGO_236-307_1x07_P10.00mm_45Degree
-Terminal Block WAGO 236-307, 45Degree (cable under 45degree), 7 pins, pitch 10mm, size 71.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-307 45Degree pitch 10mm size 71.5x14mm^2 drill 1mm pad 3mm
-0
-14
-7
-TerminalBlock_WAGO
 TerminalBlock_WAGO_236-308_1x08_P10.00mm_45Degree
 Terminal Block WAGO 236-308, 45Degree (cable under 45degree), 8 pins, pitch 10mm, size 82.3x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
 THT Terminal Block WAGO 236-308 45Degree pitch 10mm size 82.3x14mm^2 drill 1.15mm pad 3mm
 0
 8
 8
-TerminalBlock_WAGO
-TerminalBlock_WAGO_236-309_1x09_P10.00mm_45Degree
-Terminal Block WAGO 236-309, 45Degree (cable under 45degree), 9 pins, pitch 10mm, size 91.5x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-309 45Degree pitch 10mm size 91.5x14mm^2 drill 1mm pad 3mm
-0
-18
-9
-TerminalBlock_WAGO
-TerminalBlock_WAGO_236-310_1x10_P10.00mm_45Degree
-Terminal Block WAGO 236-310, 45Degree (cable under 45degree), 10 pins, pitch 10mm, size 102x14mm^2, drill diamater 1mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO
-THT Terminal Block WAGO 236-310 45Degree pitch 10mm size 102x14mm^2 drill 1mm pad 3mm
-0
-20
-10
 TerminalBlock_WAGO
 TerminalBlock_WAGO_236-312_1x12_P10.00mm_45Degree
 Terminal Block WAGO 236-312, 45Degree (cable under 45degree), 12 pins, pitch 10mm, size 122x14mm^2, drill diamater 1.15mm, pad diameter 3mm, see , script-generated with , script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_WAGO

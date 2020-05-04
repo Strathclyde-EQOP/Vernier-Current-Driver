@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 7
+Sheet 6 7
 Title "\"Vernier Vamp\" Coil Driver - 200mA"
 Date "2020-04-27"
 Rev "1.0B"
@@ -489,7 +489,7 @@ U 1 1 5F587955
 P 4150 1400
 F 0 "U15" H 4350 1650 50  0000 C CNN
 F 1 "OPA1622" H 4350 1550 50  0000 C CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 4150 1000 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 4150 1000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 4150 1400 50  0001 C CNN
 	1    4150 1400
 	1    0    0    -1  
@@ -500,7 +500,7 @@ U 2 1 5F588A9B
 P 4150 2500
 F 0 "U15" H 4300 2750 50  0000 C CNN
 F 1 "OPA1622" H 4300 2650 50  0000 C CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 4150 2100 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 4150 2100 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 4150 2500 50  0001 C CNN
 	2    4150 2500
 	1    0    0    -1  
@@ -511,7 +511,7 @@ U 3 1 5F589FE1
 P 4150 1400
 F 0 "U15" H 4194 1400 50  0001 L CNN
 F 1 "OPA1622" H 4194 1355 50  0001 L CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 4150 1000 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 4150 1000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 4150 1400 50  0001 C CNN
 	3    4150 1400
 	1    0    0    -1  
@@ -601,7 +601,7 @@ U 1 1 5F66F28B
 P 4150 4100
 F 0 "U16" H 4350 4350 50  0000 C CNN
 F 1 "OPA1622" H 4350 4250 50  0000 C CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 4150 3700 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 4150 3700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 4150 4100 50  0001 C CNN
 	1    4150 4100
 	1    0    0    -1  
@@ -612,7 +612,7 @@ U 2 1 5F66F291
 P 4150 5200
 F 0 "U16" H 4300 5450 50  0000 C CNN
 F 1 "OPA1622" H 4300 5350 50  0000 C CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 4150 4800 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 4150 4800 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 4150 5200 50  0001 C CNN
 	2    4150 5200
 	1    0    0    -1  
@@ -623,7 +623,7 @@ U 3 1 5F66F297
 P 4150 4100
 F 0 "U16" H 4194 4100 50  0001 L CNN
 F 1 "OPA1622" H 4194 4055 50  0001 L CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 4150 3700 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 4150 3700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 4150 4100 50  0001 C CNN
 	3    4150 4100
 	1    0    0    -1  
@@ -715,7 +715,7 @@ U 1 1 5F6998CD
 P 9350 1400
 F 0 "U17" H 9550 1650 50  0000 C CNN
 F 1 "OPA1622" H 9550 1550 50  0000 C CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 9350 1000 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 9350 1000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 9350 1400 50  0001 C CNN
 	1    9350 1400
 	1    0    0    -1  
@@ -726,7 +726,7 @@ U 2 1 5F6998D3
 P 9350 2500
 F 0 "U17" H 9500 2750 50  0000 C CNN
 F 1 "OPA1622" H 9500 2650 50  0000 C CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 9350 2100 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 9350 2100 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 9350 2500 50  0001 C CNN
 	2    9350 2500
 	1    0    0    -1  
@@ -737,7 +737,7 @@ U 3 1 5F6998D9
 P 9350 1400
 F 0 "U17" H 9394 1400 50  0001 L CNN
 F 1 "OPA1622" H 9394 1355 50  0001 L CNN
-F 2 "Package_SON:Texas_S-PVSON-N10_ThermalVias" H 9350 1000 50  0001 C CNN
+F 2 "PVSON-10_ThermalVias-Tented:Texas_S-PVSON-10_ThermalVias-Tented" H 9350 1000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/opa1622.pdf" H 9350 1400 50  0001 C CNN
 	3    9350 1400
 	1    0    0    -1  
