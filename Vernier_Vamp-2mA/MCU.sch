@@ -3,10 +3,10 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 5
-Title "\"Vernier Vamp\" Coil Driver - 200mA"
-Date "2020-02-04"
-Rev "1.0A"
+Sheet 5 7
+Title "\"Vernier Vamp\" Coil Driver - 2mA"
+Date "2020-05-05"
+Rev "1.0B"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -75,18 +75,8 @@ Wire Wire Line
 	4700 4000 5350 4000
 Wire Wire Line
 	5350 4100 4700 4100
-Text HLabel 7000 3200 2    50   Output ~ 0
+Text HLabel 4150 5900 2    50   Output ~ 0
 ~RS
-Wire Wire Line
-	6350 3200 6500 3200
-Wire Wire Line
-	6350 3300 6500 3300
-Wire Wire Line
-	6500 3300 6500 3200
-Connection ~ 6500 3200
-Wire Wire Line
-	6500 3200 6900 3200
-NoConn ~ 5350 3900
 NoConn ~ 5350 3200
 NoConn ~ 5350 3300
 NoConn ~ 5950 2800
@@ -129,21 +119,18 @@ F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 5850 3800 50
 	1    5850 3800
 	1    0    0    -1  
 $EndComp
-NoConn ~ 5750 2800
 $Comp
 L power:+5VD #PWR0117
 U 1 1 610CFB70
-P 6050 2700
-F 0 "#PWR0117" H 6050 2550 50  0001 C CNN
-F 1 "+5VD" H 6065 2873 50  0000 C CNN
-F 2 "" H 6050 2700 50  0001 C CNN
-F 3 "" H 6050 2700 50  0001 C CNN
-	1    6050 2700
+P 6050 2550
+F 0 "#PWR0117" H 6050 2400 50  0001 C CNN
+F 1 "+5VD" H 6065 2723 50  0000 C CNN
+F 2 "" H 6050 2550 50  0001 C CNN
+F 3 "" H 6050 2550 50  0001 C CNN
+	1    6050 2550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6050 2700 6050 2800
-Text Notes 5700 2450 0    50   ~ 0
+Text Notes 5700 2300 0    50   ~ 0
 Power from +5VD from Arduino\nnot to the Arduino
 $Comp
 L Connector:TestPoint_Probe TP23
@@ -238,31 +225,90 @@ $EndComp
 $Comp
 L Connector:TestPoint_Probe TP30
 U 1 1 62361615
-P 6900 3350
-F 0 "TP30" V 7050 3550 50  0000 C CNN
-F 1 "TestPoint_Probe" V 7099 3405 50  0001 C CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 7100 3350 50  0001 C CNN
-F 3 "~" H 7100 3350 50  0001 C CNN
-	1    6900 3350
-	0    1    1    0   
+P 3500 5900
+F 0 "TP30" V 3650 6100 50  0000 C CNN
+F 1 "TestPoint_Probe" V 3699 5955 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 3700 5900 50  0001 C CNN
+F 3 "~" H 3700 5900 50  0001 C CNN
+	1    3500 5900
+	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	6900 3350 6900 3200
-Connection ~ 6900 3200
-Wire Wire Line
-	6900 3200 7000 3200
 $Comp
 L Connector:TestPoint_Probe TP29
 U 1 1 62363521
-P 5850 2700
-F 0 "TP29" V 5850 2900 50  0000 C CNN
-F 1 "TestPoint_Probe" V 6049 2755 50  0001 C CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 6050 2700 50  0001 C CNN
-F 3 "~" H 6050 2700 50  0001 C CNN
-	1    5850 2700
+P 5850 2550
+F 0 "TP29" V 5850 2750 50  0000 C CNN
+F 1 "TestPoint_Probe" V 6049 2605 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 6050 2550 50  0001 C CNN
+F 3 "~" H 6050 2550 50  0001 C CNN
+	1    5850 2550
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	6050 2700 5850 2700
-Connection ~ 6050 2700
+	6050 2550 5850 2550
+Connection ~ 6050 2550
+$Comp
+L custom_power_rails:+12V_batt_post #PWR?
+U 1 1 5EE2FEC9
+P 4700 2550
+AR Path="/5E1DD6A9/5EC279B2/5EE2FEC9" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DEB8C/5EE2FEC9" Ref="#PWR0182"  Part="1" 
+F 0 "#PWR0182" H 4700 2500 50  0001 C CNN
+F 1 "+12V_batt_post" H 4685 2723 50  0000 C CNN
+F 2 "" H 4700 2550 50  0001 C CNN
+F 3 "" H 4700 2550 50  0001 C CNN
+	1    4700 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 5900 3500 5900
+Text HLabel 4700 3900 0    50   Output ~ 0
+~RS
+Wire Wire Line
+	5350 3900 4700 3900
+NoConn ~ 6350 3200
+NoConn ~ 6350 3300
+NoConn ~ 8000 4750
+Wire Wire Line
+	6050 2550 6050 2800
+Wire Wire Line
+	5750 2650 5750 2800
+Wire Wire Line
+	4700 2650 4700 2550
+Wire Wire Line
+	4700 2650 5100 2650
+Wire Wire Line
+	5300 2650 5750 2650
+$Comp
+L Device:R_Small R?
+U 1 1 5EE38105
+P 5200 2650
+AR Path="/5E1DD6A9/5EE38105" Ref="R?"  Part="1" 
+AR Path="/5E1DD6A9/5EC279B2/5EE38105" Ref="R?"  Part="1" 
+AR Path="/5E1DEB8C/5EE38105" Ref="R50"  Part="1" 
+F 0 "R50" V 5004 2650 50  0000 C CNN
+F 1 "0R" V 5095 2650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5200 2650 50  0001 C CNN
+F 3 "~" H 5200 2650 50  0001 C CNN
+	1    5200 2650
+	0    1    1    0   
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG0107
+U 1 1 5F0A98D5
+P 4150 2450
+AR Path="/5E1DEB8C/5F0A98D5" Ref="#FLG0107"  Part="1" 
+AR Path="/5E1DD6A9/5EC279B2/5F0A98D5" Ref="#FLG?"  Part="1" 
+F 0 "#FLG0107" H 4150 2525 50  0001 C CNN
+F 1 "PWR_FLAG" H 4150 2623 50  0000 C CNN
+F 2 "" H 4150 2450 50  0001 C CNN
+F 3 "~" H 4150 2450 50  0001 C CNN
+	1    4150 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 2450 4150 2650
+Wire Wire Line
+	4700 2650 4150 2650
+Connection ~ 4700 2650
 $EndSCHEMATC

@@ -3,10 +3,10 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 5
-Title "\"Vernier Vamp\" Coil Driver - 200mA"
-Date "2020-02-04"
-Rev "1.0A"
+Sheet 4 7
+Title "\"Vernier Vamp\" Coil Driver - 2mA"
+Date "2020-05-05"
+Rev "1.0B"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -1296,123 +1296,6 @@ Wire Notes Line
 	5900 5000 5900 4700
 Text Notes 5500 5250 0    50   ~ 0
 Low power switching\nno need to connect it \nto digital ground\n
-$Comp
-L power:-8V #PWR?
-U 1 1 61AFD0B1
-P 950 7000
-AR Path="/5E1DD6A9/61AFD0B1" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61AFD0B1" Ref="#PWR0132"  Part="1" 
-F 0 "#PWR0132" H 950 7100 50  0001 C CNN
-F 1 "-8V" H 965 7173 50  0000 C CNN
-F 2 "" H 950 7000 50  0001 C CNN
-F 3 "" H 950 7000 50  0001 C CNN
-	1    950  7000
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:-8V #PWR?
-U 1 1 61B2FD4A
-P 7600 2250
-AR Path="/5E1DD6A9/61B2FD4A" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61B2FD4A" Ref="#PWR0139"  Part="1" 
-F 0 "#PWR0139" H 7600 2350 50  0001 C CNN
-F 1 "-8V" H 7615 2423 50  0000 C CNN
-F 2 "" H 7600 2250 50  0001 C CNN
-F 3 "" H 7600 2250 50  0001 C CNN
-	1    7600 2250
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:-8V #PWR?
-U 1 1 61B3C8E0
-P 7600 3650
-AR Path="/5E1DD6A9/61B3C8E0" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61B3C8E0" Ref="#PWR0141"  Part="1" 
-F 0 "#PWR0141" H 7600 3750 50  0001 C CNN
-F 1 "-8V" H 7615 3823 50  0000 C CNN
-F 2 "" H 7600 3650 50  0001 C CNN
-F 3 "" H 7600 3650 50  0001 C CNN
-	1    7600 3650
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:-8V #PWR?
-U 1 1 61B495DC
-P 7600 5050
-AR Path="/5E1DD6A9/61B495DC" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61B495DC" Ref="#PWR0143"  Part="1" 
-F 0 "#PWR0143" H 7600 5150 50  0001 C CNN
-F 1 "-8V" H 7615 5223 50  0000 C CNN
-F 2 "" H 7600 5050 50  0001 C CNN
-F 3 "" H 7600 5050 50  0001 C CNN
-	1    7600 5050
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:+8V #PWR?
-U 1 1 61C34E64
-P 7600 4450
-AR Path="/5E1DD6A9/61C34E64" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61C34E64" Ref="#PWR0145"  Part="1" 
-F 0 "#PWR0145" H 7600 4300 50  0001 C CNN
-F 1 "+8V" H 7615 4623 50  0000 C CNN
-F 2 "" H 7600 4450 50  0001 C CNN
-F 3 "" H 7600 4450 50  0001 C CNN
-	1    7600 4450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+8V #PWR?
-U 1 1 61C41B21
-P 7600 3050
-AR Path="/5E1DD6A9/61C41B21" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61C41B21" Ref="#PWR0149"  Part="1" 
-F 0 "#PWR0149" H 7600 2900 50  0001 C CNN
-F 1 "+8V" H 7615 3223 50  0000 C CNN
-F 2 "" H 7600 3050 50  0001 C CNN
-F 3 "" H 7600 3050 50  0001 C CNN
-	1    7600 3050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+8V #PWR?
-U 1 1 61C4E787
-P 7600 1650
-AR Path="/5E1DD6A9/61C4E787" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61C4E787" Ref="#PWR0150"  Part="1" 
-F 0 "#PWR0150" H 7600 1500 50  0001 C CNN
-F 1 "+8V" H 7615 1823 50  0000 C CNN
-F 2 "" H 7600 1650 50  0001 C CNN
-F 3 "" H 7600 1650 50  0001 C CNN
-	1    7600 1650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+8V #PWR?
-U 1 1 61C67E10
-P 750 1100
-AR Path="/5E1DD6A9/61C67E10" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61C67E10" Ref="#PWR0151"  Part="1" 
-F 0 "#PWR0151" H 750 950 50  0001 C CNN
-F 1 "+8V" H 765 1273 50  0000 C CNN
-F 2 "" H 750 1100 50  0001 C CNN
-F 3 "" H 750 1100 50  0001 C CNN
-	1    750  1100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+8V #PWR?
-U 1 1 61C813CA
-P 950 5750
-AR Path="/5E1DD6A9/61C813CA" Ref="#PWR?"  Part="1" 
-AR Path="/5E1DD476/61C813CA" Ref="#PWR0152"  Part="1" 
-F 0 "#PWR0152" H 950 5600 50  0001 C CNN
-F 1 "+8V" H 965 5923 50  0000 C CNN
-F 2 "" H 950 5750 50  0001 C CNN
-F 3 "" H 950 5750 50  0001 C CNN
-	1    950  5750
-	1    0    0    -1  
-$EndComp
 Wire Notes Line
 	8150 2750 6600 2750
 Wire Notes Line
@@ -1800,4 +1683,125 @@ $EndComp
 Wire Wire Line
 	5150 4550 5250 4550
 Connection ~ 5250 4550
+$Comp
+L custom_power_rails:+7.5V #PWR?
+U 1 1 5EF43E88
+P 750 1100
+AR Path="/5E1DD6A9/5EC279B2/5EF43E88" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5EF43E88" Ref="#PWR0151"  Part="1" 
+F 0 "#PWR0151" H 750 1050 50  0001 C CNN
+F 1 "+7.5V" H 735 1273 50  0000 C CNN
+F 2 "" H 750 1100 50  0001 C CNN
+F 3 "" H 750 1100 50  0001 C CNN
+	1    750  1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L custom_power_rails:+7.5V #PWR?
+U 1 1 5EF6397B
+P 7600 4450
+AR Path="/5E1DD6A9/5EC279B2/5EF6397B" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5EF6397B" Ref="#PWR0152"  Part="1" 
+F 0 "#PWR0152" H 7600 4400 50  0001 C CNN
+F 1 "+7.5V" H 7585 4623 50  0000 C CNN
+F 2 "" H 7600 4450 50  0001 C CNN
+F 3 "" H 7600 4450 50  0001 C CNN
+	1    7600 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L custom_power_rails:+7.5V #PWR?
+U 1 1 5EF73240
+P 7600 3050
+AR Path="/5E1DD6A9/5EC279B2/5EF73240" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5EF73240" Ref="#PWR0155"  Part="1" 
+F 0 "#PWR0155" H 7600 3000 50  0001 C CNN
+F 1 "+7.5V" H 7585 3223 50  0000 C CNN
+F 2 "" H 7600 3050 50  0001 C CNN
+F 3 "" H 7600 3050 50  0001 C CNN
+	1    7600 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L custom_power_rails:+7.5V #PWR?
+U 1 1 5EF92C6D
+P 7600 1650
+AR Path="/5E1DD6A9/5EC279B2/5EF92C6D" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5EF92C6D" Ref="#PWR0158"  Part="1" 
+F 0 "#PWR0158" H 7600 1600 50  0001 C CNN
+F 1 "+7.5V" H 7585 1823 50  0000 C CNN
+F 2 "" H 7600 1650 50  0001 C CNN
+F 3 "" H 7600 1650 50  0001 C CNN
+	1    7600 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L custom_power_rails:+7.5V #PWR?
+U 1 1 5EFB1CFC
+P 950 5750
+AR Path="/5E1DD6A9/5EC279B2/5EFB1CFC" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5EFB1CFC" Ref="#PWR0162"  Part="1" 
+F 0 "#PWR0162" H 950 5700 50  0001 C CNN
+F 1 "+7.5V" H 935 5923 50  0000 C CNN
+F 2 "" H 950 5750 50  0001 C CNN
+F 3 "" H 950 5750 50  0001 C CNN
+	1    950  5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L custom_power_rails:-7.5V #PWR?
+U 1 1 5EFF5F28
+P 950 7000
+AR Path="/5E1DD6A9/5EC279B2/5EFF5F28" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD6A9/5EFF5F28" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5EFF5F28" Ref="#PWR0171"  Part="1" 
+F 0 "#PWR0171" H 950 6950 50  0001 C CNN
+F 1 "-7.5V" H 935 7173 50  0000 C CNN
+F 2 "" H 950 7000 50  0001 C CNN
+F 3 "" H 950 7000 50  0001 C CNN
+	1    950  7000
+	-1   0    0    1   
+$EndComp
+$Comp
+L custom_power_rails:-7.5V #PWR?
+U 1 1 5F015856
+P 7600 5050
+AR Path="/5E1DD6A9/5EC279B2/5F015856" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD6A9/5F015856" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5F015856" Ref="#PWR0173"  Part="1" 
+F 0 "#PWR0173" H 7600 5000 50  0001 C CNN
+F 1 "-7.5V" H 7585 5223 50  0000 C CNN
+F 2 "" H 7600 5050 50  0001 C CNN
+F 3 "" H 7600 5050 50  0001 C CNN
+	1    7600 5050
+	-1   0    0    1   
+$EndComp
+$Comp
+L custom_power_rails:-7.5V #PWR?
+U 1 1 5F0250E3
+P 7600 3650
+AR Path="/5E1DD6A9/5EC279B2/5F0250E3" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD6A9/5F0250E3" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5F0250E3" Ref="#PWR0176"  Part="1" 
+F 0 "#PWR0176" H 7600 3600 50  0001 C CNN
+F 1 "-7.5V" H 7585 3823 50  0000 C CNN
+F 2 "" H 7600 3650 50  0001 C CNN
+F 3 "" H 7600 3650 50  0001 C CNN
+	1    7600 3650
+	-1   0    0    1   
+$EndComp
+$Comp
+L custom_power_rails:-7.5V #PWR?
+U 1 1 5F0349B1
+P 7600 2250
+AR Path="/5E1DD6A9/5EC279B2/5F0349B1" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD6A9/5F0349B1" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DD476/5F0349B1" Ref="#PWR0177"  Part="1" 
+F 0 "#PWR0177" H 7600 2200 50  0001 C CNN
+F 1 "-7.5V" H 7585 2423 50  0000 C CNN
+F 2 "" H 7600 2250 50  0001 C CNN
+F 3 "" H 7600 2250 50  0001 C CNN
+	1    7600 2250
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
