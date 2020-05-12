@@ -1155,4 +1155,24 @@ F 3 "" H 4750 7200 50  0001 C CNN
 	1    4750 7200
 	-1   0    0    1   
 $EndComp
+Wire Notes Line
+	2750 1200 5300 1200
+Wire Notes Line
+	5300 1200 5300 2700
+Wire Notes Line
+	5300 2700 2750 2700
+Wire Notes Line
+	2750 2700 2750 1200
+Wire Notes Line
+	5400 2800 5400 500 
+Wire Notes Line
+	5400 500  6950 500 
+Wire Notes Line
+	6950 500  6950 2800
+Wire Notes Line
+	5400 2800 6950 2800
+Text Notes 3550 2850 0    50   ~ 0
+Low pass filter  approx. 160Hz
+Text Notes 7000 1850 0    50   ~ 0
+Howland current pump\nResistors have to match\nLow tempco with <=0.1% tolerance\n\n
 $EndSCHEMATC
