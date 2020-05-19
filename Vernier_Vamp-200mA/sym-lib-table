@@ -11,4 +11,6 @@
   (lib (name PIC24FJ256GA702b)(type Legacy)(uri C:/Users/kqb14196/Documents/vernier_vamp_project/Coil_driver/KiCad/Vernier_Vamp/comp_lib/pic24fj256ga702_b.lib)(options "")(descr ""))
   (lib (name TPS74A4700_fix)(type Legacy)(uri ${KIPRJMOD}/comp_lib/TPS74A4700_fix.lib)(options "")(descr ""))
   (lib (name SW_DPDT_Hirose)(type Legacy)(uri ${KIPRJMOD}/comp_lib/SW_DPDT_Hirose.lib)(options "")(descr ""))
+  (lib (name Vernier_Vamp-200mA-rescue)(type Legacy)(uri ${KIPRJMOD}/Vernier_Vamp-200mA-rescue.lib)(options "")(descr ""))
+  (lib (name custom_power_rails)(type Legacy)(uri ${KIPRJMOD}/comp_lib/custom_power_rails.lib)(options "")(descr ""))
 )

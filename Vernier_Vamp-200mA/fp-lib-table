@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name PVSON-10_ThermalVias-Tented)(type KiCad)(uri ${KIPRJMOD}/footprint_lib/PVSON-10_ThermalVias-Tented.pretty)(options "")(descr ""))
+)

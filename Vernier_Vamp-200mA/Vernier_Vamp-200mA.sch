@@ -3,10 +3,10 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 5
+Sheet 1 7
 Title "\"Vernier Vamp\" Coil Driver - 200mA"
-Date "2020-02-04"
-Rev "1.0A"
+Date "2020-04-27"
+Rev "1.0B"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -173,7 +173,7 @@ L Connector:Conn_Coaxial J5
 U 1 1 60F24A4B
 P 9600 1650
 F 0 "J5" H 9700 1625 50  0000 L CNN
-F 1 "Conn_Coaxial" H 9700 1534 50  0000 L CNN
+F 1 "Channel 3" H 9700 1534 50  0000 L CNN
 F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 1650 50  0001 C CNN
 F 3 " ~" H 9600 1650 50  0001 C CNN
 	1    9600 1650
@@ -184,7 +184,7 @@ L Connector:Conn_Coaxial J6
 U 1 1 60F273D0
 P 9600 2100
 F 0 "J6" H 9700 2075 50  0000 L CNN
-F 1 "Conn_Coaxial" H 9700 1984 50  0000 L CNN
+F 1 "Channel 2" H 9700 1984 50  0000 L CNN
 F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2100 50  0001 C CNN
 F 3 " ~" H 9600 2100 50  0001 C CNN
 	1    9600 2100
@@ -195,7 +195,7 @@ L Connector:Conn_Coaxial J7
 U 1 1 60F27B80
 P 9600 2500
 F 0 "J7" H 9700 2475 50  0000 L CNN
-F 1 "Conn_Coaxial" H 9700 2384 50  0000 L CNN
+F 1 "Channel 1" H 9700 2384 50  0000 L CNN
 F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2500 50  0001 C CNN
 F 3 " ~" H 9600 2500 50  0001 C CNN
 	1    9600 2500
@@ -247,8 +247,8 @@ Wire Wire Line
 Connection ~ 8400 3600
 Wire Wire Line
 	8400 3600 8000 3600
-Text Notes 9250 1500 0    50   ~ 0
-BNC coil driver output\n(Requested by Harry)
+Text Notes 9250 1600 0    50   ~ 0
+BNC coil driver output\n\n
 Text Notes 10150 3400 0    50   ~ 0
 Unshielded RJ45\nChannel 3 (1 2)\nChannel 2 (4 5)\nChannel 1 (7 8)
 Text Notes 8300 4550 0    50   ~ 0
@@ -256,5 +256,13 @@ Extra unused DAC channel\nexpansion
 Text Notes 1900 3700 0    50   ~ 0
 Screw terminal for power\nTied to binding posts at the back
 Text Notes 4900 6500 0    118  ~ 0
-Enclosure: Hammond 1455N1601BK\n160 X 103 X 53\n\nAnodised aluminum 
+Enclosure: Hammond 1455N1601BK\n160 X 103 X 53\n\nAnodised aluminium 
+Text Notes 9250 3900 0    50   ~ 0
+RF45 coil driver output\n\n
+$Sheet
+S 700  7050 600  550 
+U 5EB46FDC
+F0 "sheet5EB46FDA" 50
+F1 "Mounting_Holes.sch" 50
+$EndSheet
 $EndSCHEMATC
