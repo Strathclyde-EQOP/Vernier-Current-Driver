@@ -41,10 +41,6 @@ Text HLabel 4700 4500 0    50   Output ~ 0
 CLK
 Text HLabel 4700 4200 0    50   Output ~ 0
 ~CS
-Text HLabel 4700 4400 0    50   Output ~ 0
-SDI
-Text HLabel 4700 4300 0    50   Output ~ 0
-SDO
 Wire Wire Line
 	5350 4500 4700 4500
 Wire Wire Line
@@ -193,8 +189,6 @@ Text HLabel 4150 6500 2    50   Output ~ 0
 ~CS
 Text HLabel 4150 6200 2    50   Output ~ 0
 SDI
-Text HLabel 4150 6350 2    50   Output ~ 0
-SDO
 Wire Wire Line
 	3500 6050 4150 6050
 Wire Wire Line
@@ -327,4 +321,10 @@ Wire Wire Line
 Connection ~ 5450 2650
 Wire Wire Line
 	5450 2650 5750 2650
+Text HLabel 4150 6350 2    50   Output ~ 0
+SDO
+Text HLabel 4700 4400 0    50   Output ~ 0
+SDO
+Text HLabel 4700 4300 0    50   Output ~ 0
+SDI
 $EndSCHEMATC

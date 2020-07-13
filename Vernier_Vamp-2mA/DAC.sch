@@ -468,8 +468,6 @@ Text HLabel 4250 3550 0    50   Input ~ 0
 CLK
 Text HLabel 4250 3650 0    50   Input ~ 0
 ~CS
-Text HLabel 4250 3750 0    50   Input ~ 0
-SDI
 Text HLabel 4250 3300 0    50   Input ~ 0
 ~LDAC
 Wire Wire Line
@@ -1179,8 +1177,6 @@ Text HLabel 10300 5700 2    50   Output ~ 0
 Iout_D
 Text HLabel 10300 5900 2    50   Output ~ 0
 Rrb_D
-Text HLabel 4250 3850 0    50   Input ~ 0
-SDO
 Wire Wire Line
 	4250 3850 4900 3850
 Wire Wire Line
@@ -1824,4 +1820,8 @@ Wire Notes Line
 	550  750  550  2200
 Wire Notes Line
 	550  2200 3800 2200
+Text HLabel 4250 3850 0    50   Input ~ 0
+SDO
+Text HLabel 4250 3750 0    50   Input ~ 0
+SDI
 $EndSCHEMATC
