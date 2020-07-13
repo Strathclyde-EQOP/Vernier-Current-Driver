@@ -13,10 +13,6 @@ Comment2 "Checked by: "
 Comment3 "Approved by:"
 Comment4 ""
 $EndDescr
-Wire Wire Line
-	5250 2150 5150 2150
-Wire Wire Line
-	5150 2050 5150 2150
 $Comp
 L power:GND #PWR0101
 U 1 1 5E1E7F5A
@@ -70,13 +66,11 @@ F 3 "" H 4700 1800 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4700 1700 4700 1800
-Connection ~ 5150 2050
 Wire Wire Line
 	5150 2050 5000 2050
 Wire Wire Line
 	5000 2050 5000 2600
 NoConn ~ 5250 2250
-NoConn ~ 5250 1950
 $Comp
 L Device:C_Small C4
 U 1 1 5E2D1ECF
@@ -443,16 +437,6 @@ Wire Wire Line
 Wire Wire Line
 	6250 3400 7100 3400
 Connection ~ 6600 3150
-NoConn ~ 5250 3850
-Wire Wire Line
-	5250 4050 5150 4050
-Wire Wire Line
-	5150 4050 5150 4150
-Wire Wire Line
-	5250 3750 5150 3750
-Wire Wire Line
-	5150 3750 5150 4050
-Connection ~ 5150 4050
 NoConn ~ 5250 4250
 Text Label 5150 1250 2    50   ~ 0
 +EN
@@ -595,22 +579,13 @@ Wire Wire Line
 	4350 1050 5250 1050
 Wire Wire Line
 	4350 3150 5250 3150
-NoConn ~ 5250 2050
-NoConn ~ 5250 1750
 Wire Wire Line
 	5250 1550 5150 1550
-Wire Wire Line
-	5150 1550 5150 1650
-Wire Wire Line
-	5250 1650 5150 1650
-Connection ~ 5150 1650
-Wire Wire Line
-	5150 1650 5150 1850
 Wire Wire Line
 	5250 1850 5150 1850
 Connection ~ 5150 1850
 Wire Wire Line
-	5150 1850 5150 2050
+	5150 1850 5150 1950
 Text Notes 3650 7650 0    50   ~ 0
 Star ground point\n
 Wire Notes Line
@@ -778,4 +753,29 @@ F6 "-12VDC_bat" O R 2800 1500 50
 F7 "+EN" O R 2800 1300 50 
 F8 "-EN" O R 2800 1600 50 
 $EndSheet
+Text Notes 6100 2650 0    50   ~ 0
+Output programmed by grounding/floating programming pins\nAdd 1.4V from reference to the programmed value.
+Wire Wire Line
+	5150 1550 5150 1750
+Wire Wire Line
+	5250 1750 5150 1750
+Connection ~ 5150 1750
+Wire Wire Line
+	5150 1750 5150 1850
+Wire Wire Line
+	5250 1950 5150 1950
+Connection ~ 5150 1950
+Wire Wire Line
+	5150 1950 5150 2050
+Wire Wire Line
+	5250 2050 5150 2050
+Connection ~ 5150 2050
+NoConn ~ 5250 1650
+NoConn ~ 5250 2150
+NoConn ~ 5250 3750
+NoConn ~ 5250 4050
+Wire Wire Line
+	5250 3850 5150 3850
+Wire Wire Line
+	5150 3850 5150 4150
 $EndSCHEMATC
