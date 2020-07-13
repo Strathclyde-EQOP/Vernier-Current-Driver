@@ -485,37 +485,26 @@ Coil_Iout_R3
 Text HLabel 6250 7050 2    50   Output ~ 0
 Coil_Iout_3
 $Comp
-L Amplifier_Operational:OPA2277 U12
-U 2 1 60337A87
-P 6450 1550
-F 0 "U12" H 6450 1917 50  0000 C CNN
-F 1 "OPA2277" H 6450 1826 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 1550 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 1550 50  0001 C CNN
-	2    6450 1550
-	1    0    0    -1  
-$EndComp
-$Comp
 L Amplifier_Operational:OPA2277 U13
 U 2 1 60341939
 P 6450 3950
-F 0 "U13" H 6450 4317 50  0000 C CNN
-F 1 "OPA2277" H 6450 4226 50  0000 C CNN
+F 0 "U13" H 6450 3600 50  0000 C CNN
+F 1 "OPA2277" H 6450 3700 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 3950 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 3950 50  0001 C CNN
 	2    6450 3950
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L Amplifier_Operational:OPA2277 U14
 U 2 1 6034B68E
 P 6450 6350
-F 0 "U14" H 6450 6717 50  0000 C CNN
-F 1 "OPA2277" H 6450 6626 50  0000 C CNN
+F 0 "U14" H 6450 6000 50  0000 C CNN
+F 1 "OPA2277" H 6450 6100 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 6350 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 6350 50  0001 C CNN
 	2    6450 6350
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L Connector:TestPoint_Probe TP?
@@ -656,8 +645,6 @@ Wire Wire Line
 Connection ~ 6150 1050
 Wire Wire Line
 	6550 1050 6750 1050
-Wire Wire Line
-	6750 1050 6750 1550
 $Comp
 L Device:R_Small R45
 U 1 1 5E799F97
@@ -714,9 +701,6 @@ Wire Wire Line
 Wire Wire Line
 	6000 2250 6150 2250
 Connection ~ 6150 2250
-Wire Wire Line
-	6750 2100 6750 1550
-Connection ~ 6750 1550
 $Comp
 L power:GNDA #PWR0163
 U 1 1 5E910BB7
@@ -1175,4 +1159,20 @@ Text Notes 3550 2850 0    50   ~ 0
 Low pass filter  approx. 160Hz
 Text Notes 7000 1850 0    50   ~ 0
 Howland current pump\nResistors have to match\nLow tempco with <=0.1% tolerance\n\n
+Connection ~ 6750 1550
+Wire Wire Line
+	6750 2100 6750 1550
+Wire Wire Line
+	6750 1050 6750 1550
+$Comp
+L Amplifier_Operational:OPA2277 U12
+U 2 1 60337A87
+P 6450 1550
+F 0 "U12" H 6450 1200 50  0000 C CNN
+F 1 "OPA2277" H 6450 1300 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 1550 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 1550 50  0001 C CNN
+	2    6450 1550
+	1    0    0    1   
+$EndComp
 $EndSCHEMATC
