@@ -13,69 +13,32 @@ Comment2 "Checked by: "
 Comment3 "Approved by:"
 Comment4 ""
 $EndDescr
-$Comp
-L power:GNDD #PWR0196
-U 1 1 5E449396
-P 5900 5050
-AR Path="/5E1DEB8C/5E449396" Ref="#PWR0196"  Part="1" 
-AR Path="/5E5EF2D7/5E449396" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0196" H 5900 4800 50  0001 C CNN
-F 1 "GNDD" H 5904 4895 50  0000 C CNN
-F 2 "" H 5900 5050 50  0001 C CNN
-F 3 "" H 5900 5050 50  0001 C CNN
-	1    5900 5050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5850 4800 5850 4900
-Wire Wire Line
-	5850 4900 5900 4900
-Wire Wire Line
-	5950 4900 5950 4800
-Wire Wire Line
-	5900 4900 5900 5050
-Connection ~ 5900 4900
-Wire Wire Line
-	5900 4900 5950 4900
 Text HLabel 4700 4500 0    50   Output ~ 0
 CLK
-Text HLabel 4700 4200 0    50   Output ~ 0
+Text HLabel 4700 4100 0    50   Output ~ 0
 ~CS
+Text HLabel 4700 4300 0    50   Output ~ 0
+SDI
+Text HLabel 4700 4400 0    50   Output ~ 0
+SDO
 Wire Wire Line
 	5350 4500 4700 4500
 Wire Wire Line
-	4700 4200 5350 4200
-Wire Wire Line
-	4700 4400 5350 4400
+	4700 4100 5350 4100
 Wire Wire Line
 	4700 4300 5350 4300
-NoConn ~ 5350 3700
-NoConn ~ 5350 3600
-NoConn ~ 5350 3500
-NoConn ~ 5350 3400
-NoConn ~ 6350 3600
-NoConn ~ 6350 3800
-NoConn ~ 6350 3900
-NoConn ~ 6350 4000
-NoConn ~ 6350 4100
-NoConn ~ 6350 4200
-NoConn ~ 6350 4300
-NoConn ~ 6350 4400
-NoConn ~ 6350 4500
-Text HLabel 4700 4100 0    50   Output ~ 0
-~LDAC
+Wire Wire Line
+	4700 4400 5350 4400
 Text HLabel 4700 4000 0    50   Output ~ 0
+~LDAC
+Text HLabel 4700 3900 0    50   Output ~ 0
 MSB
-NoConn ~ 5350 3800
 Wire Wire Line
-	4700 4000 5350 4000
+	4700 3900 5350 3900
 Wire Wire Line
-	5350 4100 4700 4100
+	5350 4000 4700 4000
 Text HLabel 4150 5900 2    50   Output ~ 0
 ~RS
-NoConn ~ 5350 3200
-NoConn ~ 5350 3300
-NoConn ~ 5950 2800
 $Comp
 L power:GNDD #PWR0205
 U 1 1 5ED1133A
@@ -102,19 +65,6 @@ F 3 "~" H 2350 6200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2350 6200 2350 6750
-$Comp
-L MCU_Module:Arduino_Nano_v3.x A1
-U 1 1 5E447129
-P 5850 3800
-AR Path="/5E1DEB8C/5E447129" Ref="A1"  Part="1" 
-AR Path="/5E5EF2D7/5E447129" Ref="A?"  Part="1" 
-F 0 "A1" H 6350 5050 50  0000 C CNN
-F 1 "Arduino_Nano_v3.x" H 6450 4950 50  0000 C CNN
-F 2 "Module:Arduino_Nano" H 5850 3800 50  0001 C CIN
-F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 5850 3800 50  0001 C CNN
-	1    5850 3800
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:+5VD #PWR0117
 U 1 1 610CFB70
@@ -187,16 +137,18 @@ Text HLabel 4150 6050 2    50   Output ~ 0
 CLK
 Text HLabel 4150 6500 2    50   Output ~ 0
 ~CS
-Text HLabel 4150 6200 2    50   Output ~ 0
+Text HLabel 4150 6350 2    50   Output ~ 0
 SDI
+Text HLabel 4150 6200 2    50   Output ~ 0
+SDO
 Wire Wire Line
 	3500 6050 4150 6050
 Wire Wire Line
 	4150 6500 3500 6500
 Wire Wire Line
-	4150 6200 3500 6200
-Wire Wire Line
 	4150 6350 3500 6350
+Wire Wire Line
+	4150 6200 3500 6200
 Text HLabel 4150 6650 2    50   Output ~ 0
 ~LDAC
 Text HLabel 4150 6800 2    50   Output ~ 0
@@ -256,35 +208,16 @@ F 3 "" H 4700 2550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4150 5900 3500 5900
-Text HLabel 4700 3900 0    50   Output ~ 0
+Text HLabel 4700 3800 0    50   Output ~ 0
 ~RS
 Wire Wire Line
-	5350 3900 4700 3900
-NoConn ~ 6350 3200
-NoConn ~ 6350 3300
-NoConn ~ 8000 4750
+	5350 3800 4700 3800
 Wire Wire Line
-	6050 2550 6050 2800
+	6050 2550 6050 2650
 Wire Wire Line
 	5750 2650 5750 2800
 Wire Wire Line
 	4700 2650 4700 2550
-Wire Wire Line
-	4700 2650 5100 2650
-$Comp
-L Device:R_Small R?
-U 1 1 5EE38105
-P 5200 2650
-AR Path="/5E1DD6A9/5EE38105" Ref="R?"  Part="1" 
-AR Path="/5E1DD6A9/5EC279B2/5EE38105" Ref="R?"  Part="1" 
-AR Path="/5E1DEB8C/5EE38105" Ref="R50"  Part="1" 
-F 0 "R50" V 5004 2650 50  0000 C CNN
-F 1 "0R" V 5095 2650 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5200 2650 50  0001 C CNN
-F 3 "~" H 5200 2650 50  0001 C CNN
-	1    5200 2650
-	0    1    1    0   
-$EndComp
 $Comp
 L power:PWR_FLAG #FLG0107
 U 1 1 5F0A98D5
@@ -321,10 +254,119 @@ Wire Wire Line
 Connection ~ 5450 2650
 Wire Wire Line
 	5450 2650 5750 2650
-Text HLabel 4150 6350 2    50   Output ~ 0
-SDO
 Text HLabel 4700 4400 0    50   Output ~ 0
 SDO
 Text HLabel 4700 4300 0    50   Output ~ 0
 SDI
+NoConn ~ 5350 3000
+NoConn ~ 5350 3100
+NoConn ~ 5350 3300
+NoConn ~ 5350 3400
+NoConn ~ 5350 3500
+NoConn ~ 5350 3600
+NoConn ~ 5350 3700
+NoConn ~ 6350 3600
+NoConn ~ 6350 3200
+NoConn ~ 6350 3300
+NoConn ~ 6350 3800
+NoConn ~ 6350 3900
+NoConn ~ 6350 4000
+NoConn ~ 6350 4100
+NoConn ~ 6350 4200
+NoConn ~ 6350 4300
+NoConn ~ 6350 4400
+NoConn ~ 6350 4500
+Wire Wire Line
+	5850 4800 5850 4950
+$Comp
+L power:GNDD #PWR0196
+U 1 1 5FA351DD
+P 5850 4950
+AR Path="/5E1DEB8C/5FA351DD" Ref="#PWR0196"  Part="1" 
+AR Path="/5E5EF2D7/5FA351DD" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0196" H 5850 4700 50  0001 C CNN
+F 1 "GNDD" H 5854 4795 50  0000 C CNN
+F 2 "" H 5850 4950 50  0001 C CNN
+F 3 "" H 5850 4950 50  0001 C CNN
+	1    5850 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Module:Arduino_Nano_Every A1
+U 1 1 5FA2A758
+P 5850 3800
+F 0 "A1" H 5250 2850 50  0000 C CNN
+F 1 "Arduino_Nano_Every" H 5000 2750 50  0000 C CNN
+F 2 "Module:Arduino_Nano" H 5850 3800 50  0001 C CIN
+F 3 "https://content.arduino.cc/assets/NANOEveryV3.0_sch.pdf" H 5850 3800 50  0001 C CNN
+	1    5850 3800
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5950 2800
+$Comp
+L Jumper:SolderJumper_2_Open JP3
+U 1 1 5FB9E809
+P 5150 2650
+F 0 "JP3" H 5150 2763 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 5150 2764 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5150 2650 50  0001 C CNN
+F 3 "~" H 5150 2650 50  0001 C CNN
+	1    5150 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 2650 5000 2650
+$Comp
+L Jumper:SolderJumper_2_Open JP4
+U 1 1 5FBA0FCC
+P 6450 2650
+F 0 "JP4" H 6450 2763 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 6450 2764 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6450 2650 50  0001 C CNN
+F 3 "~" H 6450 2650 50  0001 C CNN
+	1    6450 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5FBA78FF
+P 6750 2550
+AR Path="/5E1DD6A9/5FBA78FF" Ref="#PWR?"  Part="1" 
+AR Path="/5E1DEB8C/5FBA78FF" Ref="#PWR0212"  Part="1" 
+F 0 "#PWR0212" H 6750 2400 50  0001 C CNN
+F 1 "+5V" H 6765 2723 50  0000 C CNN
+F 2 "" H 6750 2550 50  0001 C CNN
+F 3 "" H 6750 2550 50  0001 C CNN
+	1    6750 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 2650 6050 2650
+Connection ~ 6050 2650
+Wire Wire Line
+	6050 2650 6050 2800
+Wire Wire Line
+	6600 2650 6750 2650
+Wire Wire Line
+	6750 2650 6750 2550
+Text Notes 4500 2950 0    50   ~ 0
+MPM3610 SMPS\n(Potentially noisy)
+Wire Notes Line
+	5300 2500 5300 2750
+Wire Notes Line
+	5300 2750 5000 2750
+Wire Notes Line
+	5000 2750 5000 2500
+Wire Notes Line
+	5000 2500 5300 2500
+Text Notes 6450 2950 0    50   ~ 0
+Schottky diode on the USB 5V rail.\nDon't bridge if Vin is used.
+Wire Notes Line
+	6600 2750 6300 2750
+Wire Notes Line
+	6300 2750 6300 2500
+Wire Notes Line
+	6300 2500 6600 2500
+Wire Notes Line
+	6600 2500 6600 2750
 $EndSCHEMATC

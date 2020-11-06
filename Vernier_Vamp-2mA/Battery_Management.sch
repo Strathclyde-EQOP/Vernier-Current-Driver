@@ -702,7 +702,7 @@ AR Path="/5E1DD6A9/5EC516F5" Ref="SW?"  Part="1"
 AR Path="/5E1DD6A9/5EC279B2/5EC516F5" Ref="SW1"  Part="1" 
 F 0 "SW1" H 7350 1050 50  0000 C CNN
 F 1 "DPDT_Hirose" H 7350 1150 50  0000 C CNN
-F 2 "Connector_Hirose:Hirose_DF11-6DP-2DSA_2x03_P2.00mm_Vertical" H 7350 1550 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical" H 7350 1550 50  0001 C CNN
 F 3 "" H 7350 1550 50  0001 C CNN
 	1    7350 1550
 	-1   0    0    -1  
@@ -715,7 +715,7 @@ AR Path="/5E1DD6A9/5EC516FB" Ref="SW?"  Part="2"
 AR Path="/5E1DD6A9/5EC279B2/5EC516FB" Ref="SW1"  Part="2" 
 F 0 "SW1" H 7350 400 50  0000 C CNN
 F 1 "DPDT_Hirose" H 7350 500 50  0000 C CNN
-F 2 "Connector_Hirose:Hirose_DF11-6DP-2DSA_2x03_P2.00mm_Vertical" H 7350 900 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical" H 7350 900 50  0001 C CNN
 F 3 "" H 7350 900 50  0001 C CNN
 	2    7350 900 
 	-1   0    0    -1  
@@ -1320,77 +1320,34 @@ F 3 "" H 7650 900 50  0001 C CNN
 	1    7650 900 
 	1    0    0    -1  
 $EndComp
-Text Label 7650 4600 2    50   ~ 0
+Text Label 8250 4600 0    50   ~ 0
 Battery+_A
-Text Label 7650 4700 2    50   ~ 0
+Text Label 8250 4700 0    50   ~ 0
 Battery-_C
-Text Label 7650 4800 2    50   ~ 0
+Text Label 8250 4800 0    50   ~ 0
 Battery+_LOW_C
-Text Label 7650 4900 2    50   ~ 0
+Text Label 8250 4900 0    50   ~ 0
 Battery-_LOW_C
-Text Label 7650 5000 2    50   ~ 0
+Text Label 8250 5000 0    50   ~ 0
 +7.5_PG_C
-Text Label 7650 5100 2    50   ~ 0
+Text Label 8250 5100 0    50   ~ 0
 +5_PG_C
 Text Label 8250 5200 0    50   ~ 0
--7.5_PG_C
-$Comp
-L Connector_Generic:Conn_02x07_Odd_Even J?
-U 1 1 5ECD6D57
-P 7900 4900
-AR Path="/5E1DD6A9/5ECD6D57" Ref="J?"  Part="1" 
-AR Path="/5E1DD6A9/5EC279B2/5ECD6D57" Ref="J4"  Part="1" 
-F 0 "J4" H 7950 5417 50  0000 C CNN
-F 1 "Conn_02x07_Odd_Even" H 7950 5326 50  0000 C CNN
-F 2 "Connector_Hirose:Hirose_DF11-14DP-2DSA_2x07_P2.00mm_Vertical" H 7900 4900 50  0001 C CNN
-F 3 "~" H 7900 4900 50  0001 C CNN
-	1    7900 4900
-	1    0    0    -1  
-$EndComp
-Text Notes 7650 5550 0    79   ~ 0
-Panel LED\nconnector
-Text Label 8250 4600 0    50   ~ 0
-Battery+_C
-Text Label 8250 4700 0    50   ~ 0
-Battery-_A
-Text Label 8250 4800 0    50   ~ 0
-Battery+_LOW_A
-Text Label 8250 4900 0    50   ~ 0
-Battery-_LOW_A
-Text Label 8250 5000 0    50   ~ 0
-+7.5_PG_A
-Text Label 8250 5100 0    50   ~ 0
-+5_PG_A
-Text Label 7650 5200 2    50   ~ 0
 -7.5_PG_A
-Wire Wire Line
-	7700 4600 7650 4600
-Wire Wire Line
-	7700 4700 7650 4700
-Wire Wire Line
-	7700 4800 7650 4800
-Wire Wire Line
-	7700 4900 7650 4900
-Wire Wire Line
-	7700 5000 7650 5000
-Wire Wire Line
-	7700 5100 7650 5100
-Wire Wire Line
-	7700 5200 7650 5200
 Wire Wire Line
 	8200 4600 8250 4600
 Wire Wire Line
-	8250 4700 8200 4700
+	8200 4700 8250 4700
 Wire Wire Line
-	8250 4800 8200 4800
+	8200 4800 8250 4800
 Wire Wire Line
-	8250 4900 8200 4900
+	8200 4900 8250 4900
 Wire Wire Line
-	8250 5000 8200 5000
+	8200 5000 8250 5000
 Wire Wire Line
-	8250 5100 8200 5100
+	8200 5100 8250 5100
 Wire Wire Line
-	8250 5200 8200 5200
+	8200 5200 8250 5200
 $Comp
 L Device:R_Small R?
 U 1 1 5ED13E86
@@ -1703,8 +1660,6 @@ Wire Notes Line
 Wire Notes Line
 	8950 4300 8950 5300
 Wire Notes Line
-	8950 5300 7000 5300
-Wire Notes Line
 	7000 5300 7000 4300
 Wire Notes Line
 	8350 650  8350 2250
@@ -1716,4 +1671,49 @@ Wire Notes Line
 	10850 650  8350 650 
 Text Notes 9400 2400 0    79   ~ 0
 PG LEDs
+Wire Notes Line
+	8950 5300 7000 5300
+Text Notes 7650 5550 0    79   ~ 0
+Panel LED\nconnector
+$Comp
+L Connector_Generic:Conn_02x07_Odd_Even J?
+U 1 1 5ECD6D57
+P 7900 4900
+AR Path="/5E1DD6A9/5ECD6D57" Ref="J?"  Part="1" 
+AR Path="/5E1DD6A9/5EC279B2/5ECD6D57" Ref="J4"  Part="1" 
+F 0 "J4" H 7950 5417 50  0000 C CNN
+F 1 "Conn_02x07_Odd_Even" H 7950 5326 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x07_P2.54mm_Vertical" H 7900 4900 50  0001 C CNN
+F 3 "~" H 7900 4900 50  0001 C CNN
+	1    7900 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 5200 7700 5200
+Wire Wire Line
+	7650 5100 7700 5100
+Wire Wire Line
+	7650 5000 7700 5000
+Wire Wire Line
+	7650 4900 7700 4900
+Wire Wire Line
+	7650 4800 7700 4800
+Wire Wire Line
+	7650 4700 7700 4700
+Wire Wire Line
+	7700 4600 7650 4600
+Text Label 7650 5100 2    50   ~ 0
++5_PG_A
+Text Label 7650 5000 2    50   ~ 0
++7.5_PG_A
+Text Label 7650 4900 2    50   ~ 0
+Battery-_LOW_A
+Text Label 7650 4800 2    50   ~ 0
+Battery+_LOW_A
+Text Label 7650 4700 2    50   ~ 0
+Battery-_A
+Text Label 7650 4600 2    50   ~ 0
+Battery+_C
+Text Label 7650 5200 2    50   ~ 0
+-7.5_PG_C
 $EndSCHEMATC

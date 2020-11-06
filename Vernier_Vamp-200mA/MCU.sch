@@ -41,18 +41,18 @@ Text HLabel 4700 4500 0    50   Output ~ 0
 CLK
 Text HLabel 4700 4200 0    50   Output ~ 0
 ~CS
-Text HLabel 4700 4400 0    50   Output ~ 0
-SDI
 Text HLabel 4700 4300 0    50   Output ~ 0
+SDI
+Text HLabel 4700 4400 0    50   Output ~ 0
 SDO
 Wire Wire Line
 	5350 4500 4700 4500
 Wire Wire Line
 	4700 4200 5350 4200
 Wire Wire Line
-	4700 4400 5350 4400
-Wire Wire Line
 	4700 4300 5350 4300
+Wire Wire Line
+	4700 4400 5350 4400
 NoConn ~ 5350 3700
 NoConn ~ 5350 3600
 NoConn ~ 5350 3500

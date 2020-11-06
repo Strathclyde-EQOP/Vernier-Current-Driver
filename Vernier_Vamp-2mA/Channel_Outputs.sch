@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 6 7
 Title "\"Vernier Vamp\" Coil Driver - 2mA"
-Date "2020-05-05"
-Rev "1.0B"
+Date "2020-11-04"
+Rev "1.0C"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -485,28 +485,6 @@ Coil_Iout_R3
 Text HLabel 6250 7050 2    50   Output ~ 0
 Coil_Iout_3
 $Comp
-L Amplifier_Operational:OPA2277 U13
-U 2 1 60341939
-P 6450 3950
-F 0 "U13" H 6450 3600 50  0000 C CNN
-F 1 "OPA2277" H 6450 3700 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 3950 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 3950 50  0001 C CNN
-	2    6450 3950
-	1    0    0    1   
-$EndComp
-$Comp
-L Amplifier_Operational:OPA2277 U14
-U 2 1 6034B68E
-P 6450 6350
-F 0 "U14" H 6450 6000 50  0000 C CNN
-F 1 "OPA2277" H 6450 6100 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 6350 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 6350 50  0001 C CNN
-	2    6450 6350
-	1    0    0    1   
-$EndComp
-$Comp
 L Connector:TestPoint_Probe TP?
 U 1 1 627595FD
 P 5600 1950
@@ -799,8 +777,6 @@ Connection ~ 6150 4500
 Wire Wire Line
 	6150 4500 6350 4500
 Wire Wire Line
-	6750 3450 6750 3950
-Wire Wire Line
 	5150 4500 5250 4500
 Wire Wire Line
 	5250 3900 5250 4500
@@ -814,9 +790,6 @@ Wire Wire Line
 Connection ~ 5600 4500
 Wire Wire Line
 	5600 4500 5750 4500
-Connection ~ 6750 3950
-Wire Wire Line
-	6750 3950 6750 4500
 Wire Wire Line
 	4650 6300 5250 6300
 $Comp
@@ -865,8 +838,6 @@ Wire Wire Line
 	5750 5850 5600 5850
 Wire Wire Line
 	5600 5850 5600 5950
-Wire Wire Line
-	6750 5850 6750 6350
 $Comp
 L Device:R_Small R49
 U 1 1 5EA71487
@@ -898,9 +869,6 @@ Wire Wire Line
 Connection ~ 6150 6900
 Wire Wire Line
 	6150 6900 6350 6900
-Wire Wire Line
-	6750 6350 6750 6900
-Connection ~ 6750 6350
 Wire Wire Line
 	5250 6900 5600 6900
 Wire Wire Line
@@ -1173,6 +1141,38 @@ F 1 "OPA2277" H 6450 1300 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 1550 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 1550 50  0001 C CNN
 	2    6450 1550
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6750 3950 6750 4500
+Wire Wire Line
+	6750 3450 6750 3950
+Connection ~ 6750 3950
+$Comp
+L Amplifier_Operational:OPA2277 U13
+U 2 1 5FBB9E45
+P 6450 3950
+F 0 "U13" H 6450 3600 50  0000 C CNN
+F 1 "OPA2277" H 6450 3700 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 3950 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 3950 50  0001 C CNN
+	2    6450 3950
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6750 6350 6750 6900
+Wire Wire Line
+	6750 5850 6750 6350
+Connection ~ 6750 6350
+$Comp
+L Amplifier_Operational:OPA2277 U14
+U 2 1 6034B68E
+P 6450 6350
+F 0 "U14" H 6450 6000 50  0000 C CNN
+F 1 "OPA2277" H 6450 6100 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 6350 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 6350 50  0001 C CNN
+	2    6450 6350
 	1    0    0    1   
 $EndComp
 $EndSCHEMATC
