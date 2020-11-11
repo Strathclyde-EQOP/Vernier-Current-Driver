@@ -303,17 +303,6 @@ F 3 "https://content.arduino.cc/assets/NANOEveryV3.0_sch.pdf" H 5850 3800 50  00
 	1    0    0    -1  
 $EndComp
 NoConn ~ 5950 2800
-$Comp
-L Jumper:SolderJumper_2_Open JP3
-U 1 1 5FB9E809
-P 5150 2650
-F 0 "JP3" H 5150 2763 50  0000 C CNN
-F 1 "SolderJumper_2_Open" H 5150 2764 50  0001 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5150 2650 50  0001 C CNN
-F 3 "~" H 5150 2650 50  0001 C CNN
-	1    5150 2650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4700 2650 5000 2650
 $Comp
@@ -349,16 +338,8 @@ Wire Wire Line
 	6600 2650 6750 2650
 Wire Wire Line
 	6750 2650 6750 2550
-Text Notes 4500 2950 0    50   ~ 0
+Text Notes 4350 2200 0    50   ~ 0
 MPM3610 SMPS\n(Potentially noisy)
-Wire Notes Line
-	5300 2500 5300 2750
-Wire Notes Line
-	5300 2750 5000 2750
-Wire Notes Line
-	5000 2750 5000 2500
-Wire Notes Line
-	5000 2500 5300 2500
 Text Notes 6450 2950 0    50   ~ 0
 Schottky diode on the USB 5V rail.\nDon't bridge if Vin is used.
 Wire Notes Line
@@ -369,4 +350,33 @@ Wire Notes Line
 	6300 2500 6600 2500
 Wire Notes Line
 	6600 2500 6600 2750
+Wire Notes Line
+	4900 2450 5100 2450
+Wire Notes Line
+	5100 2450 5100 2350
+Wire Notes Line
+	5400 2350 5400 2800
+Wire Notes Line
+	4900 2450 4900 2800
+Wire Notes Line
+	5150 2800 5150 3100
+Wire Notes Line
+	5150 3100 4950 3100
+Text Notes 3450 3200 0    50   ~ 0
+Forward diode to block\nunwanted powering of the positive rail\n(problem found with original nano)
+$Comp
+L Diode:MBR0520LT D1
+U 1 1 5FC37ED8
+P 5150 2650
+F 0 "D1" H 5150 2433 50  0000 C CNN
+F 1 "MBR0520LT" H 5150 2524 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 5150 2475 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 5150 2650 50  0001 C CNN
+	1    5150 2650
+	-1   0    0    1   
+$EndComp
+Wire Notes Line
+	5100 2350 5400 2350
+Wire Notes Line
+	4900 2800 5400 2800
 $EndSCHEMATC

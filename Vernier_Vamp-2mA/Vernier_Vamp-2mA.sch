@@ -71,7 +71,7 @@ U 1 1 5E62FDF4
 P 8700 4200
 F 0 "J1" H 8780 4192 50  0000 L CNN
 F 1 "Conn_01x02" H 8780 4101 50  0000 L CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x02_P1.27mm_Vertical" H 8700 4200 50  0001 C CNN
+F 2 "Connector_PinSocket_1.00mm:PinSocket_1x02_P1.00mm_Vertical" H 8700 4200 50  0001 C CNN
 F 3 "~" H 8700 4200 50  0001 C CNN
 	1    8700 4200
 	1    0    0    -1  
@@ -174,7 +174,7 @@ U 1 1 60F24A4B
 P 9600 1650
 F 0 "J5" H 9700 1625 50  0000 L CNN
 F 1 "Channel 3" H 9700 1534 50  0000 L CNN
-F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 1650 50  0001 C CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 9600 1650 50  0001 C CNN
 F 3 " ~" H 9600 1650 50  0001 C CNN
 	1    9600 1650
 	1    0    0    -1  
@@ -185,7 +185,7 @@ U 1 1 60F273D0
 P 9600 2100
 F 0 "J6" H 9700 2075 50  0000 L CNN
 F 1 "Channel 2" H 9700 1984 50  0000 L CNN
-F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2100 50  0001 C CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 9600 2100 50  0001 C CNN
 F 3 " ~" H 9600 2100 50  0001 C CNN
 	1    9600 2100
 	1    0    0    -1  
@@ -196,7 +196,7 @@ U 1 1 60F27B80
 P 9600 2500
 F 0 "J7" H 9700 2475 50  0000 L CNN
 F 1 "Channel 1" H 9700 2384 50  0000 L CNN
-F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2500 50  0001 C CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 9600 2500 50  0001 C CNN
 F 3 " ~" H 9600 2500 50  0001 C CNN
 	1    9600 2500
 	1    0    0    -1  
@@ -265,4 +265,28 @@ U 5EB165A9
 F0 "Mounting_Holes" 50
 F1 "Mounting_Holes.sch" 50
 $EndSheet
+$Comp
+L Device:RF_Shield_Two_Pieces J8
+U 1 1 5FC43AD0
+P 1450 5750
+F 0 "J8" H 2180 5814 50  0000 L CNN
+F 1 "RF_Shield_Two_Pieces" H 2180 5723 50  0000 L CNN
+F 2 "MS548-10F:MS548-10C" H 1450 5650 50  0001 C CNN
+F 3 "~" H 1450 5650 50  0001 C CNN
+	1    1450 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5FC46947
+P 1450 6150
+AR Path="/5E1DD476/5FC46947" Ref="#PWR?"  Part="1" 
+AR Path="/5FC46947" Ref="#PWR0213"  Part="1" 
+F 0 "#PWR0213" H 1450 5900 50  0001 C CNN
+F 1 "GNDA" H 1455 5977 50  0000 C CNN
+F 2 "" H 1450 6150 50  0001 C CNN
+F 3 "" H 1450 6150 50  0001 C CNN
+	1    1450 6150
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
