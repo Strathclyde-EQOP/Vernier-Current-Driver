@@ -270,7 +270,7 @@ L Device:RF_Shield_Two_Pieces J8
 U 1 1 5FC43AD0
 P 1450 5750
 F 0 "J8" H 2180 5814 50  0000 L CNN
-F 1 "RF_Shield_Two_Pieces" H 2180 5723 50  0000 L CNN
+F 1 "MS548-10F" H 2180 5723 50  0000 L CNN
 F 2 "MS548-10F:MS548-10C" H 1450 5650 50  0001 C CNN
 F 3 "~" H 1450 5650 50  0001 C CNN
 	1    1450 5750
@@ -289,4 +289,6 @@ F 3 "" H 1450 6150 50  0001 C CNN
 	1    1450 6150
 	1    0    0    -1  
 $EndComp
+Text Notes 2200 6300 0    50   ~ 0
+Two piece F & C\n55.4 x 41.4 x 11 mm\nEMI Shield\nTo cover analogue circuitry after the DAC
 $EndSCHEMATC
