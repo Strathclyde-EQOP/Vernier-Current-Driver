@@ -292,9 +292,11 @@ F 3 "" H 5850 4950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MCU_Module:Arduino_Nano_Every A1
+L Vernier_Vamp-2mA-rescue:Arduino_Nano_Every-MCU_Module A1
 U 1 1 5FA2A758
 P 5850 3800
+AR Path="/5FA2A758" Ref="A1"  Part="1" 
+AR Path="/5E1DEB8C/5FA2A758" Ref="A1"  Part="1" 
 F 0 "A1" H 5250 2850 50  0000 C CNN
 F 1 "Arduino_Nano_Every" H 5000 2750 50  0000 C CNN
 F 2 "Module:Arduino_Nano" H 5850 3800 50  0001 C CIN

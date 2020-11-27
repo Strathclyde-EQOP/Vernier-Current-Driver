@@ -71,7 +71,7 @@ U 1 1 5E62FDF4
 P 8700 4200
 F 0 "J1" H 8780 4192 50  0000 L CNN
 F 1 "Conn_01x02" H 8780 4101 50  0000 L CNN
-F 2 "Connector_PinSocket_1.00mm:PinSocket_1x02_P1.00mm_Vertical" H 8700 4200 50  0001 C CNN
+F 2 "Dummy_conn_01x02:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD" H 8700 4200 50  0001 C CNN
 F 3 "~" H 8700 4200 50  0001 C CNN
 	1    8700 4200
 	1    0    0    -1  
