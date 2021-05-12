@@ -262,7 +262,7 @@ RF45 coil driver output\n\n
 $Sheet
 S 700  7050 600  550 
 U 5EB46FDC
-F0 "sheet5EB46FDA" 50
+F0 "Mounting_Holes" 50
 F1 "Mounting_Holes.sch" 50
 $EndSheet
 $EndSCHEMATC
