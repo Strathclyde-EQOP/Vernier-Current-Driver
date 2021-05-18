@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 7
-Title "\"Vernier Vamp\" Coil Driver - 200mA"
+Title "\"Vernier Vamp\" Coil Driver - HCCD"
 Date "2020-04-27"
-Rev "1.0B"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -1128,7 +1128,7 @@ AR Path="/5E1DD6A9/5E9C5630/5EB42722" Ref="SW1"  Part="2"
 AR Path="/5E1DD6A9/5EA9C7F8/5EB42722" Ref="SW1"  Part="2" 
 F 0 "SW1" H 7050 500 50  0000 C CNN
 F 1 "DPDT_Hirose" H 7050 600 50  0000 C CNN
-F 2 "Connector_Hirose:Hirose_DF11-6DP-2DSA_2x03_P2.00mm_Vertical" H 7050 1000 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical" H 7050 1000 50  0001 C CNN
 F 3 "" H 7050 1000 50  0001 C CNN
 	2    7050 1000
 	-1   0    0    -1  
@@ -1163,19 +1163,19 @@ Wire Wire Line
 	7850 4600 7800 4600
 Wire Wire Line
 	7850 4500 7800 4500
-Text Label 7800 5100 2    50   ~ 0
+Text Label 8400 5100 0    50   ~ 0
 -7.5_PG_A
-Text Label 8400 5000 0    50   ~ 0
+Text Label 7800 5000 2    50   ~ 0
 +5_PG_A
-Text Label 8400 4900 0    50   ~ 0
+Text Label 7800 4900 2    50   ~ 0
 +7.5_PG_A
-Text Label 8400 4800 0    50   ~ 0
+Text Label 7800 4800 2    50   ~ 0
 Battery-_LOW_A
-Text Label 8400 4700 0    50   ~ 0
+Text Label 7800 4700 2    50   ~ 0
 Battery+_LOW_A
-Text Label 8400 4600 0    50   ~ 0
+Text Label 7800 4600 2    50   ~ 0
 Battery-_A
-Text Label 8400 4500 0    50   ~ 0
+Text Label 7800 4500 2    50   ~ 0
 Battery+_C
 Wire Notes Line
 	7100 5300 7100 4250
@@ -1194,24 +1194,24 @@ AR Path="/5E1DD6A9/5E9C5630/5EC5DF57" Ref="J4"  Part="1"
 AR Path="/5E1DD6A9/5EA9C7F8/5EC5DF57" Ref="J4"  Part="1" 
 F 0 "J4" H 8100 5317 50  0000 C CNN
 F 1 "Conn_02x07_Odd_Even" H 8100 5226 50  0000 C CNN
-F 2 "Connector_Hirose:Hirose_DF11-14DP-2DSA_2x07_P2.00mm_Vertical" H 8050 4800 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x07_P2.54mm_Vertical" H 8050 4800 50  0001 C CNN
 F 3 "~" H 8050 4800 50  0001 C CNN
 	1    8050 4800
 	1    0    0    -1  
 $EndComp
-Text Label 8400 5100 0    50   ~ 0
+Text Label 7800 5100 2    50   ~ 0
 -7.5_PG_C
-Text Label 7800 5000 2    50   ~ 0
+Text Label 8400 5000 0    50   ~ 0
 +5_PG_C
-Text Label 7800 4900 2    50   ~ 0
+Text Label 8400 4900 0    50   ~ 0
 +7.5_PG_C
-Text Label 7800 4800 2    50   ~ 0
+Text Label 8400 4800 0    50   ~ 0
 Battery-_LOW_C
-Text Label 7800 4700 2    50   ~ 0
+Text Label 8400 4700 0    50   ~ 0
 Battery+_LOW_C
-Text Label 7800 4600 2    50   ~ 0
+Text Label 8400 4600 0    50   ~ 0
 Battery-_C
-Text Label 7800 4500 2    50   ~ 0
+Text Label 8400 4500 0    50   ~ 0
 Battery+_A
 Text HLabel 7450 1200 2    50   Output ~ 0
 +EN
@@ -1693,7 +1693,7 @@ AR Path="/5E1DD6A9/5E9C5630/5EB4271C" Ref="SW1"  Part="1"
 AR Path="/5E1DD6A9/5EA9C7F8/5EB4271C" Ref="SW1"  Part="1" 
 F 0 "SW1" H 7050 1150 50  0000 C CNN
 F 1 "DPDT_Hirose" H 7050 1250 50  0000 C CNN
-F 2 "Connector_Hirose:Hirose_DF11-6DP-2DSA_2x03_P2.00mm_Vertical" H 7050 1650 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical" H 7050 1650 50  0001 C CNN
 F 3 "" H 7050 1650 50  0001 C CNN
 	1    7050 1650
 	-1   0    0    -1  

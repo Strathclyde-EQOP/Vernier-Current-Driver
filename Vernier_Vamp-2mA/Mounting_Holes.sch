@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 7 7
-Title "\"Vernier Vamp\" Coil Driver - 2mA"
-Date "2020-05-05"
-Rev "1.0B"
+Title "\"Vernier Vamp\" Coil Driver - LCCD"
+Date "2021-05-18"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "

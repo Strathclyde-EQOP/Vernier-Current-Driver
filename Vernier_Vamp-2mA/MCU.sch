@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 7
-Title "\"Vernier Vamp\" Coil Driver - 2mA"
-Date "2020-05-05"
-Rev "1.0B"
+Title "\"Vernier Vamp\" Coil Driver - LCCD"
+Date "2021-05-18"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -146,9 +146,9 @@ Wire Wire Line
 Wire Wire Line
 	4150 6500 3500 6500
 Wire Wire Line
-	4150 6350 3500 6350
-Wire Wire Line
 	4150 6200 3500 6200
+Wire Wire Line
+	4150 6350 3500 6350
 Text HLabel 4150 6650 2    50   Output ~ 0
 ~LDAC
 Text HLabel 4150 6800 2    50   Output ~ 0
@@ -268,7 +268,6 @@ NoConn ~ 5350 3700
 NoConn ~ 6350 3600
 NoConn ~ 6350 3200
 NoConn ~ 6350 3300
-NoConn ~ 6350 3800
 NoConn ~ 6350 3900
 NoConn ~ 6350 4000
 NoConn ~ 6350 4100
@@ -292,7 +291,7 @@ F 3 "" H 5850 4950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Vernier_Vamp-2mA-rescue:Arduino_Nano_Every-MCU_Module A1
+L Vernier_Vamp-2mA-rescue:Arduino_Nano_Every-MCU_Module-Vernier_Vamp-2mA-rescue A1
 U 1 1 5FA2A758
 P 5850 3800
 AR Path="/5FA2A758" Ref="A1"  Part="1" 
@@ -307,17 +306,6 @@ $EndComp
 NoConn ~ 5950 2800
 Wire Wire Line
 	4700 2650 5000 2650
-$Comp
-L Jumper:SolderJumper_2_Open JP4
-U 1 1 5FBA0FCC
-P 6450 2650
-F 0 "JP4" H 6450 2763 50  0000 C CNN
-F 1 "SolderJumper_2_Open" H 6450 2764 50  0001 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6450 2650 50  0001 C CNN
-F 3 "~" H 6450 2650 50  0001 C CNN
-	1    6450 2650
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:+5V #PWR?
 U 1 1 5FBA78FF
@@ -381,4 +369,57 @@ Wire Notes Line
 	5100 2350 5400 2350
 Wire Notes Line
 	4900 2800 5400 2800
+$Comp
+L Diode:MBR0520LT D2
+U 1 1 609E1E99
+P 6450 2650
+F 0 "D2" H 6450 2900 50  0000 C CNN
+F 1 "MBR0520LT" H 6450 2800 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 6450 2475 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 6450 2650 50  0001 C CNN
+	1    6450 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J9
+U 1 1 60A430EA
+P 1400 6100
+F 0 "J9" H 1480 6092 50  0000 L CNN
+F 1 "Conn_01x02" H 1480 6001 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1400 6100 50  0001 C CNN
+F 3 "~" H 1400 6100 50  0001 C CNN
+	1    1400 6100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR0214
+U 1 1 60A4542E
+P 1600 6300
+AR Path="/5E1DEB8C/60A4542E" Ref="#PWR0214"  Part="1" 
+AR Path="/5E5EF2D7/60A4542E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0214" H 1600 6050 50  0001 C CNN
+F 1 "GNDD" H 1604 6145 50  0000 C CNN
+F 2 "" H 1600 6300 50  0001 C CNN
+F 3 "" H 1600 6300 50  0001 C CNN
+	1    1600 6300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 6200 1600 6300
+Wire Wire Line
+	6350 3800 7000 3800
+Text Label 7000 3800 0    50   ~ 0
+Trigger
+Text Label 1600 6100 0    50   ~ 0
+Trigger
+Wire Notes Line
+	750  5900 750  6650
+Wire Notes Line
+	750  6650 1950 6650
+Wire Notes Line
+	1950 6650 1950 5900
+Wire Notes Line
+	1950 5900 750  5900
+Text Notes 750  5800 0    50   ~ 0
+Trigger output for calibration
 $EndSCHEMATC

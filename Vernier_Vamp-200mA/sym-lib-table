@@ -13,4 +13,5 @@
   (lib (name SW_DPDT_Hirose)(type Legacy)(uri ${KIPRJMOD}/comp_lib/SW_DPDT_Hirose.lib)(options "")(descr ""))
   (lib (name Vernier_Vamp-200mA-rescue)(type Legacy)(uri ${KIPRJMOD}/Vernier_Vamp-200mA-rescue.lib)(options "")(descr ""))
   (lib (name custom_power_rails)(type Legacy)(uri ${KIPRJMOD}/comp_lib/custom_power_rails.lib)(options "")(descr ""))
+  (lib (name 2SA2013_2SC5566)(type Legacy)(uri ${KIPRJMOD}/comp_lib/2SA2013_2SC5566.lib)(options "")(descr ""))
 )

@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 7
-Title "\"Vernier Vamp\" Coil Driver - 200mA"
+Title "\"Vernier Vamp\" Coil Driver - HCCD"
 Date "2020-04-27"
-Rev "1.0B"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
