@@ -1898,4 +1898,129 @@ Wire Wire Line
 	3050 3950 2850 3950
 Wire Wire Line
 	8350 1500 8150 1500
+Text Notes 7850 4250 0    50   ~ 0
+SMA test outputs\n
+Text HLabel 7550 4400 0    50   Output ~ 0
+Coil_Iout_R1
+Text HLabel 7550 5000 0    50   Output ~ 0
+Coil_Iout_R2
+Text HLabel 7550 5650 0    50   Output ~ 0
+Coil_Iout_R3
+$Comp
+L power:GNDA #PWR019
+U 1 1 60AC48A3
+P 8200 4600
+F 0 "#PWR019" H 8200 4350 50  0001 C CNN
+F 1 "GNDA" H 8205 4427 50  0000 C CNN
+F 2 "" H 8200 4600 50  0001 C CNN
+F 3 "" H 8200 4600 50  0001 C CNN
+	1    8200 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR020
+U 1 1 60AE753F
+P 8200 5200
+F 0 "#PWR020" H 8200 4950 50  0001 C CNN
+F 1 "GNDA" H 8205 5027 50  0000 C CNN
+F 2 "" H 8200 5200 50  0001 C CNN
+F 3 "" H 8200 5200 50  0001 C CNN
+	1    8200 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR021
+U 1 1 60AFE47F
+P 8200 5850
+F 0 "#PWR021" H 8200 5600 50  0001 C CNN
+F 1 "GNDA" H 8205 5677 50  0000 C CNN
+F 2 "" H 8200 5850 50  0001 C CNN
+F 3 "" H 8200 5850 50  0001 C CNN
+	1    8200 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint_Probe TP?
+U 1 1 60B23305
+P 8200 4400
+AR Path="/5E1DEB8C/60B23305" Ref="TP?"  Part="1" 
+AR Path="/5E1E279E/60B23305" Ref="TP49"  Part="1" 
+F 0 "TP49" H 8400 4450 50  0000 C CNN
+F 1 "TestPoint_Probe" V 8399 4455 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8400 4400 50  0001 C CNN
+F 3 "~" H 8400 4400 50  0001 C CNN
+	1    8200 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint_Probe TP?
+U 1 1 60B3A087
+P 8200 4600
+AR Path="/5E1DEB8C/60B3A087" Ref="TP?"  Part="1" 
+AR Path="/5E1E279E/60B3A087" Ref="TP50"  Part="1" 
+F 0 "TP50" H 8400 4650 50  0000 C CNN
+F 1 "TestPoint_Probe" V 8399 4655 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8400 4600 50  0001 C CNN
+F 3 "~" H 8400 4600 50  0001 C CNN
+	1    8200 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 4400 8200 4400
+$Comp
+L Connector:TestPoint_Probe TP?
+U 1 1 60B519D4
+P 8200 5000
+AR Path="/5E1DEB8C/60B519D4" Ref="TP?"  Part="1" 
+AR Path="/5E1E279E/60B519D4" Ref="TP51"  Part="1" 
+F 0 "TP51" H 8400 5050 50  0000 C CNN
+F 1 "TestPoint_Probe" V 8399 5055 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8400 5000 50  0001 C CNN
+F 3 "~" H 8400 5000 50  0001 C CNN
+	1    8200 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint_Probe TP?
+U 1 1 60B5D050
+P 8200 5200
+AR Path="/5E1DEB8C/60B5D050" Ref="TP?"  Part="1" 
+AR Path="/5E1E279E/60B5D050" Ref="TP52"  Part="1" 
+F 0 "TP52" H 8400 5250 50  0000 C CNN
+F 1 "TestPoint_Probe" V 8399 5255 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8400 5200 50  0001 C CNN
+F 3 "~" H 8400 5200 50  0001 C CNN
+	1    8200 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 5000 8200 5000
+$Comp
+L Connector:TestPoint_Probe TP?
+U 1 1 60B74BE6
+P 8200 5650
+AR Path="/5E1DEB8C/60B74BE6" Ref="TP?"  Part="1" 
+AR Path="/5E1E279E/60B74BE6" Ref="TP53"  Part="1" 
+F 0 "TP53" H 8400 5700 50  0000 C CNN
+F 1 "TestPoint_Probe" V 8399 5705 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8400 5650 50  0001 C CNN
+F 3 "~" H 8400 5650 50  0001 C CNN
+	1    8200 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint_Probe TP?
+U 1 1 60B74BEC
+P 8200 5850
+AR Path="/5E1DEB8C/60B74BEC" Ref="TP?"  Part="1" 
+AR Path="/5E1E279E/60B74BEC" Ref="TP54"  Part="1" 
+F 0 "TP54" H 8400 5900 50  0000 C CNN
+F 1 "TestPoint_Probe" V 8399 5905 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 8400 5850 50  0001 C CNN
+F 3 "~" H 8400 5850 50  0001 C CNN
+	1    8200 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 5650 8200 5650
 $EndSCHEMATC
