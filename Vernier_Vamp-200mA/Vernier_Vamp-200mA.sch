@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 7
-Title "\"Vernier Vamp\" Coil Driver - 200mA"
+Title "\"Vernier Vamp\" Coil Driver - HCCD"
 Date "2020-04-27"
-Rev "1.0B"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -21,24 +21,6 @@ F1 "Power.sch" 50
 F2 "+12V_bat" I L 3300 3150 50 
 F3 "-12V_bat" I L 3300 3450 50 
 F4 "GND" I L 3300 3300 50 
-$EndSheet
-$Sheet
-S 5000 2800 1200 2450
-U 5E1DD476
-F0 "DAC" 50
-F1 "DAC.sch" 50
-F2 "4Q_DAC_OUT_1" O R 6200 3000 50 
-F3 "4Q_DAC_OUT_2" O R 6200 3200 50 
-F4 "4Q_DAC_OUT_3" O R 6200 3400 50 
-F5 "~RS" I L 5000 5100 50 
-F6 "CLK" I L 5000 4950 50 
-F7 "SDI" I L 5000 4800 50 
-F8 "~CS" I L 5000 4500 50 
-F9 "~LDAC" I L 5000 4350 50 
-F10 "MSB" I L 5000 4200 50 
-F11 "Iout_D" O R 6200 4200 50 
-F12 "Rrb_D" O R 6200 4300 50 
-F13 "SDO" I L 5000 4650 50 
 $EndSheet
 $Sheet
 S 3300 4050 1250 1200
@@ -71,7 +53,7 @@ U 1 1 5E62FDF4
 P 8700 4200
 F 0 "J1" H 8780 4192 50  0000 L CNN
 F 1 "Conn_01x02" H 8780 4101 50  0000 L CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x02_P1.27mm_Vertical" H 8700 4200 50  0001 C CNN
+F 2 "Dummy_conn_01x02:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD" H 8700 4200 50  0001 C CNN
 F 3 "~" H 8700 4200 50  0001 C CNN
 	1    8700 4200
 	1    0    0    -1  
@@ -174,7 +156,7 @@ U 1 1 60F24A4B
 P 9600 1650
 F 0 "J5" H 9700 1625 50  0000 L CNN
 F 1 "Channel 3" H 9700 1534 50  0000 L CNN
-F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 1650 50  0001 C CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 9600 1650 50  0001 C CNN
 F 3 " ~" H 9600 1650 50  0001 C CNN
 	1    9600 1650
 	1    0    0    -1  
@@ -185,7 +167,7 @@ U 1 1 60F273D0
 P 9600 2100
 F 0 "J6" H 9700 2075 50  0000 L CNN
 F 1 "Channel 2" H 9700 1984 50  0000 L CNN
-F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2100 50  0001 C CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 9600 2100 50  0001 C CNN
 F 3 " ~" H 9600 2100 50  0001 C CNN
 	1    9600 2100
 	1    0    0    -1  
@@ -196,7 +178,7 @@ U 1 1 60F27B80
 P 9600 2500
 F 0 "J7" H 9700 2475 50  0000 L CNN
 F 1 "Channel 1" H 9700 2384 50  0000 L CNN
-F 2 "Connector_Coaxial:BNC_Amphenol_031-6575_Horizontal" H 9600 2500 50  0001 C CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 9600 2500 50  0001 C CNN
 F 3 " ~" H 9600 2500 50  0001 C CNN
 	1    9600 2500
 	1    0    0    -1  
@@ -262,7 +244,53 @@ RF45 coil driver output\n\n
 $Sheet
 S 700  7050 600  550 
 U 5EB46FDC
-F0 "sheet5EB46FDA" 50
+F0 "Mounting_Holes" 50
 F1 "Mounting_Holes.sch" 50
+$EndSheet
+$Comp
+L Device:RF_Shield_Two_Pieces J?
+U 1 1 60B16851
+P 1300 5950
+AR Path="/5E1DEB8C/60B16851" Ref="J?"  Part="1" 
+AR Path="/60B16851" Ref="J8"  Part="1" 
+F 0 "J8" H 2030 6014 50  0000 L CNN
+F 1 "RF_Shield_Two_Pieces" H 2030 5923 50  0000 L CNN
+F 2 "MS570-10F:MS570-10S" H 1300 5850 50  0001 C CNN
+F 3 "~" H 1300 5850 50  0001 C CNN
+	1    1300 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 60B2A9FC
+P 1300 6400
+AR Path="/5E1DD476/60B2A9FC" Ref="#PWR?"  Part="1" 
+AR Path="/60B2A9FC" Ref="#PWR0158"  Part="1" 
+F 0 "#PWR0158" H 1300 6150 50  0001 C CNN
+F 1 "GNDA" H 1305 6227 50  0000 C CNN
+F 2 "" H 1300 6400 50  0001 C CNN
+F 3 "" H 1300 6400 50  0001 C CNN
+	1    1300 6400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 6400 1300 6350
+$Sheet
+S 5000 2800 1200 2450
+U 5E1DD476
+F0 "DAC" 50
+F1 "DAC.sch" 50
+F2 "4Q_DAC_OUT_1" O R 6200 3000 50 
+F3 "4Q_DAC_OUT_2" O R 6200 3200 50 
+F4 "4Q_DAC_OUT_3" O R 6200 3400 50 
+F5 "~RS" I L 5000 5100 50 
+F6 "CLK" I L 5000 4950 50 
+F7 "SDI" I L 5000 4800 50 
+F8 "~CS" I L 5000 4500 50 
+F9 "~LDAC" I L 5000 4350 50 
+F10 "MSB" I L 5000 4200 50 
+F11 "Iout_D" O R 6200 4200 50 
+F12 "Rrb_D" O R 6200 4300 50 
+F13 "SDO" I L 5000 4650 50 
 $EndSheet
 $EndSCHEMATC

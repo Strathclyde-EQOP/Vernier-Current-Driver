@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 7
-Title "\"Vernier Vamp\" Coil Driver - 2mA"
-Date "2020-05-05"
-Rev "1.0B"
+Title "\"Vernier Vamp\" Coil Driver - LCCD"
+Date "2021-05-18"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -468,8 +468,6 @@ Text HLabel 4250 3550 0    50   Input ~ 0
 CLK
 Text HLabel 4250 3650 0    50   Input ~ 0
 ~CS
-Text HLabel 4250 3750 0    50   Input ~ 0
-SDI
 Text HLabel 4250 3300 0    50   Input ~ 0
 ~LDAC
 Wire Wire Line
@@ -1179,8 +1177,6 @@ Text HLabel 10300 5700 2    50   Output ~ 0
 Iout_D
 Text HLabel 10300 5900 2    50   Output ~ 0
 Rrb_D
-Text HLabel 4250 3850 0    50   Input ~ 0
-SDO
 Wire Wire Line
 	4250 3850 4900 3850
 Wire Wire Line
@@ -1824,4 +1820,8 @@ Wire Notes Line
 	550  750  550  2200
 Wire Notes Line
 	550  2200 3800 2200
+Text HLabel 4250 3850 0    50   Input ~ 0
+SDO
+Text HLabel 4250 3750 0    50   Input ~ 0
+SDI
 $EndSCHEMATC

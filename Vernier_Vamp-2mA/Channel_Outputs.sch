@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 6 7
-Title "\"Vernier Vamp\" Coil Driver - 2mA"
-Date "2020-05-05"
-Rev "1.0B"
+Title "\"Vernier Vamp\" Coil Driver - LCCD"
+Date "2021-05-18"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
@@ -485,39 +485,6 @@ Coil_Iout_R3
 Text HLabel 6250 7050 2    50   Output ~ 0
 Coil_Iout_3
 $Comp
-L Amplifier_Operational:OPA2277 U12
-U 2 1 60337A87
-P 6450 1550
-F 0 "U12" H 6450 1917 50  0000 C CNN
-F 1 "OPA2277" H 6450 1826 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 1550 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 1550 50  0001 C CNN
-	2    6450 1550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:OPA2277 U13
-U 2 1 60341939
-P 6450 3950
-F 0 "U13" H 6450 4317 50  0000 C CNN
-F 1 "OPA2277" H 6450 4226 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 3950 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 3950 50  0001 C CNN
-	2    6450 3950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:OPA2277 U14
-U 2 1 6034B68E
-P 6450 6350
-F 0 "U14" H 6450 6717 50  0000 C CNN
-F 1 "OPA2277" H 6450 6626 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 6350 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 6350 50  0001 C CNN
-	2    6450 6350
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector:TestPoint_Probe TP?
 U 1 1 627595FD
 P 5600 1950
@@ -656,8 +623,6 @@ Wire Wire Line
 Connection ~ 6150 1050
 Wire Wire Line
 	6550 1050 6750 1050
-Wire Wire Line
-	6750 1050 6750 1550
 $Comp
 L Device:R_Small R45
 U 1 1 5E799F97
@@ -714,9 +679,6 @@ Wire Wire Line
 Wire Wire Line
 	6000 2250 6150 2250
 Connection ~ 6150 2250
-Wire Wire Line
-	6750 2100 6750 1550
-Connection ~ 6750 1550
 $Comp
 L power:GNDA #PWR0163
 U 1 1 5E910BB7
@@ -815,8 +777,6 @@ Connection ~ 6150 4500
 Wire Wire Line
 	6150 4500 6350 4500
 Wire Wire Line
-	6750 3450 6750 3950
-Wire Wire Line
 	5150 4500 5250 4500
 Wire Wire Line
 	5250 3900 5250 4500
@@ -830,9 +790,6 @@ Wire Wire Line
 Connection ~ 5600 4500
 Wire Wire Line
 	5600 4500 5750 4500
-Connection ~ 6750 3950
-Wire Wire Line
-	6750 3950 6750 4500
 Wire Wire Line
 	4650 6300 5250 6300
 $Comp
@@ -881,8 +838,6 @@ Wire Wire Line
 	5750 5850 5600 5850
 Wire Wire Line
 	5600 5850 5600 5950
-Wire Wire Line
-	6750 5850 6750 6350
 $Comp
 L Device:R_Small R49
 U 1 1 5EA71487
@@ -914,9 +869,6 @@ Wire Wire Line
 Connection ~ 6150 6900
 Wire Wire Line
 	6150 6900 6350 6900
-Wire Wire Line
-	6750 6350 6750 6900
-Connection ~ 6750 6350
 Wire Wire Line
 	5250 6900 5600 6900
 Wire Wire Line
@@ -1175,4 +1127,52 @@ Text Notes 3550 2850 0    50   ~ 0
 Low pass filter  approx. 160Hz
 Text Notes 7000 1850 0    50   ~ 0
 Howland current pump\nResistors have to match\nLow tempco with <=0.1% tolerance\n\n
+Connection ~ 6750 1550
+Wire Wire Line
+	6750 2100 6750 1550
+Wire Wire Line
+	6750 1050 6750 1550
+$Comp
+L Amplifier_Operational:OPA2277 U12
+U 2 1 60337A87
+P 6450 1550
+F 0 "U12" H 6450 1200 50  0000 C CNN
+F 1 "OPA2277" H 6450 1300 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 1550 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 1550 50  0001 C CNN
+	2    6450 1550
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6750 3950 6750 4500
+Wire Wire Line
+	6750 3450 6750 3950
+Connection ~ 6750 3950
+$Comp
+L Amplifier_Operational:OPA2277 U13
+U 2 1 5FBB9E45
+P 6450 3950
+F 0 "U13" H 6450 3600 50  0000 C CNN
+F 1 "OPA2277" H 6450 3700 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 3950 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 3950 50  0001 C CNN
+	2    6450 3950
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6750 6350 6750 6900
+Wire Wire Line
+	6750 5850 6750 6350
+Connection ~ 6750 6350
+$Comp
+L Amplifier_Operational:OPA2277 U14
+U 2 1 6034B68E
+P 6450 6350
+F 0 "U14" H 6450 6000 50  0000 C CNN
+F 1 "OPA2277" H 6450 6100 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6450 6350 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 6450 6350 50  0001 C CNN
+	2    6450 6350
+	1    0    0    1   
+$EndComp
 $EndSCHEMATC

@@ -12,4 +12,5 @@
   (lib (name TPS74A4700_fix)(type Legacy)(uri ${KIPRJMOD}/comp_lib/TPS74A4700_fix.lib)(options "")(descr ""))
   (lib (name SW_DPDT_Hirose)(type Legacy)(uri ${KIPRJMOD}/comp_lib/SW_DPDT_Hirose.lib)(options "")(descr ""))
   (lib (name custom_power_rails)(type Legacy)(uri ${KIPRJMOD}/comp_lib/custom_power_rails.lib)(options "")(descr ""))
+  (lib (name Vernier_Vamp-2mA-rescue)(type Legacy)(uri ${KIPRJMOD}/Vernier_Vamp-2mA-rescue.lib)(options "")(descr ""))
 )

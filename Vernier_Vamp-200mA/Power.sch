@@ -4,19 +4,15 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 7
-Title "\"Vernier Vamp\" Coil Driver - 200mA"
+Title "\"Vernier Vamp\" Coil Driver - HCCD"
 Date "2020-04-27"
-Rev "1.0B"
+Rev "1.0D"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
 Comment3 "Approved by:"
 Comment4 ""
 $EndDescr
-Wire Wire Line
-	5150 2150 5050 2150
-Wire Wire Line
-	5050 2050 5050 2150
 $Comp
 L power:GND #PWR0101
 U 1 1 5E1E7F5A
@@ -74,13 +70,7 @@ F 3 "" H 4600 1800 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4600 1700 4600 1800
-Connection ~ 5050 2050
-Wire Wire Line
-	5050 2050 4900 2050
-Wire Wire Line
-	4900 2050 4900 2600
 NoConn ~ 5150 2250
-NoConn ~ 5150 1950
 $Comp
 L Device:C_Small C4
 U 1 1 5E2D1ECF
@@ -321,7 +311,7 @@ Wire Wire Line
 	6150 1300 7000 1300
 Connection ~ 6500 1050
 Wire Wire Line
-	5150 4150 5050 4150
+	5150 4150 4900 4150
 $Comp
 L power:GND #PWR0122
 U 1 1 5E4EDE4E
@@ -379,9 +369,7 @@ F 3 "" H 4600 3900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4600 3800 4600 3900
-Connection ~ 5050 4150
-Wire Wire Line
-	5050 4150 4900 4150
+Connection ~ 4900 4150
 Wire Wire Line
 	4900 4150 4900 4700
 NoConn ~ 5150 4350
@@ -451,16 +439,7 @@ Wire Wire Line
 Wire Wire Line
 	6150 3400 7000 3400
 Connection ~ 6500 3150
-NoConn ~ 5150 3850
-Wire Wire Line
-	5150 4050 5050 4050
-Wire Wire Line
-	5050 4050 5050 4150
-Wire Wire Line
-	5150 3750 5050 3750
-Wire Wire Line
-	5050 3750 5050 4050
-Connection ~ 5050 4050
+NoConn ~ 5150 3750
 NoConn ~ 5150 4250
 Text Label 5050 1250 2    50   ~ 0
 +EN
@@ -607,22 +586,8 @@ Wire Wire Line
 	4250 1050 5150 1050
 Wire Wire Line
 	4250 3150 5150 3150
-NoConn ~ 5150 2050
-NoConn ~ 5150 1750
-Wire Wire Line
-	5150 1550 5050 1550
-Wire Wire Line
-	5050 1550 5050 1650
-Wire Wire Line
-	5150 1650 5050 1650
-Connection ~ 5050 1650
-Wire Wire Line
-	5050 1650 5050 1850
-Wire Wire Line
-	5150 1850 5050 1850
-Connection ~ 5050 1850
-Wire Wire Line
-	5050 1850 5050 2050
+NoConn ~ 5150 2150
+NoConn ~ 5150 1650
 Text Notes 5300 7600 0    50   ~ 0
 Star ground point\n
 Wire Notes Line
@@ -778,4 +743,33 @@ F 3 "" H 7200 800 50  0001 C CNN
 	1    7200 800 
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5150 1550 4900 1550
+Wire Wire Line
+	4900 1550 4900 1750
+Wire Wire Line
+	5150 1750 4900 1750
+Connection ~ 4900 1750
+Wire Wire Line
+	4900 1750 4900 1850
+Wire Wire Line
+	5150 1850 4900 1850
+Connection ~ 4900 1850
+Wire Wire Line
+	4900 1850 4900 1950
+Wire Wire Line
+	5150 1950 4900 1950
+Connection ~ 4900 1950
+Wire Wire Line
+	4900 1950 4900 2050
+Wire Wire Line
+	5150 2050 4900 2050
+Connection ~ 4900 2050
+Wire Wire Line
+	4900 2050 4900 2600
+NoConn ~ 5150 4050
+Wire Wire Line
+	4900 3850 5150 3850
+Wire Wire Line
+	4900 3850 4900 4150
 $EndSCHEMATC
