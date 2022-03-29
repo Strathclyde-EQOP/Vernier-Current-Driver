@@ -56,7 +56,7 @@ void loop() {
     if (newData == true)                  // If data in the buffer
     {
         parseData();                      // Split data into its parts (Counts, Address)
-        setValue(DAC_address, DAC_count); //
+        setDAC(DAC_address, DAC_count); //
         showParsedData();                 //
         newData = false;                  // Reset new data flag
     }
@@ -102,7 +102,7 @@ void recvWithStartEndMarkers()
     }
 }
 
-void setValue(int DAC_address, long DAC_count)
+void setDAC(int DAC_address, long DAC_count)
 {
   digitalWrite(SS, LOW);
   SPI.transfer(DAC_address);           // Address followed by counts
