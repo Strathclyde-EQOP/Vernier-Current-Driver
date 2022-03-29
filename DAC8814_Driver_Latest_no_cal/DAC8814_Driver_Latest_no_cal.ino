@@ -14,9 +14,6 @@
 HardwareSerial &SerialInUse = Serial;
 
 // Pin mapping
-#define SCLK 13
-#define SDO 12
-#define SDI 11
 #define SS 10
 #define LDAC 9
 #define MSB 8
