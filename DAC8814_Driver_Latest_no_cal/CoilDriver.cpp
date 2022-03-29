@@ -35,3 +35,9 @@ void CoilDriver::set_dac(uint8_t channel, uint16_t code){
   SPI.transfer(lowByte(code)); 
   digitalWrite(SS, HIGH);
 }
+
+void CoilDriver::set_all_dac(uint16_t code){
+  for(uint8_t i=0; i<COILDRIVER_NUM_CHANNELS; i++){
+    set_dac(i, code);
+  }
+}
