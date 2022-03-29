@@ -5,7 +5,6 @@
  *  20/11/2020
 */
 
-#include "calibration.h"
 #include "CoilDriver.h"
 
 // Configuration
@@ -23,7 +22,6 @@ char receivedChars[numChars]; // Temporary buffer storing received characters
 
 int DAC_address = 0;          // DAC initialisation
 long DAC_count = 0;           //
-long DAC_count_cal = 0;
 
 boolean newData = false;      // New data received flag
 
@@ -107,9 +105,6 @@ void parseData()
     DAC_count = atol(strtokIndx);                 // Convert this part to a long integer
     if (DAC_count > 65535) DAC_count = 65535;
     if (DAC_count < 0) DAC_count = 0;
-
-    DAC_count_cal = DAC_count + calibration_table[DAC_address][DAC_count / 32];  
-
 }
 
 // Repeat how DAC was setup through UART
