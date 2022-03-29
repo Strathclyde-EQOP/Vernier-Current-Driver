@@ -8,6 +8,9 @@
 #include <SPI.h>
 #include "calibration.h"
 
+// Configuration
+#define BAUDRATE 57600
+
 // Pin mapping
 #define SCLK 13
 #define SDO 12
@@ -33,7 +36,7 @@ void setup()
   pinMode(LDAC, OUTPUT);
   pinMode(RESET, OUTPUT);
   
-  Serial1.begin(57600);
+  Serial1.begin(BAUDRATE);
   
   SPI.begin();
   SPI.beginTransaction (SPISettings (2000000, MSBFIRST, SPI_MODE0));
