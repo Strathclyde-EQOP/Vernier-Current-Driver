@@ -9,7 +9,7 @@
 #include "CoilDriver.h"
 
 // Configuration
-#define BAUDRATE 57600
+#define BAUDRATE 1000000
 HardwareSerial &SerialInUse = Serial;
 
 // Pin mapping
