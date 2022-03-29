@@ -21,3 +21,9 @@ void CoilDriver::begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb){
   SPI.begin();
   SPI.beginTransaction (SPISettings (2000000, MSBFIRST, SPI_MODE0));
 }
+
+void CoilDriver::reset(){
+  digitalWrite(pin_reset, LOW);
+  delayMicroseconds(100);
+  digitalWrite(pin_reset, HIGH);
+}
