@@ -46,10 +46,6 @@ void setup()
   digitalWrite(RESET,LOW);
   delayMicroseconds(100);
   digitalWrite(RESET,HIGH);
-  
-  //SerialInUse.println("Rachel HCCD (192.31 mA)");
-  //SerialInUse.println("Enter DAC adress and Counts <1A500> Adress 0-2 Counts 0-65535, Output range +-192.31mA");
-  //SerialInUse.println();
 }
 
 //============
@@ -161,9 +157,6 @@ void parseData()
 // Repeat how DAC was setup through UART
 void showParsedData() 
 {
-    //SerialInUse.print("DAC channel ");
-    //SerialInUse.print(DAC_address);
-    //SerialInUse.print(" Count ");
     SerialInUse.print(1);
     SerialInUse.println();
 }
