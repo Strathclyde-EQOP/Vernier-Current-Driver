@@ -5,7 +5,6 @@
  *  20/11/2020
 */
 
-#include <SPI.h>
 #include "calibration.h"
 #include "CoilDriver.h"
 
@@ -14,7 +13,7 @@
 HardwareSerial &SerialInUse = Serial;
 
 // Pin mapping
-#define SS 10
+#define CS 10
 #define LDAC 9
 #define MSB 8
 #define RESET 7
@@ -28,22 +27,12 @@ long DAC_count_cal = 0;
 
 boolean newData = false;      // New data received flag
 
+CoilDriver coil;
 
 void setup()
-{
-  pinMode(SS, OUTPUT);        // SPI and UART config (optimised for fast operation/low ER
-  pinMode(LDAC, OUTPUT);
-  pinMode(RESET, OUTPUT);
-  
+{ 
   SerialInUse.begin(BAUDRATE);
-
-  SPI.begin();
-  SPI.beginTransaction (SPISettings (2000000, MSBFIRST, SPI_MODE0));
-  digitalWrite(SS,HIGH);
-  digitalWrite(LDAC,HIGH);
-  digitalWrite(RESET,LOW);
-  delayMicroseconds(100);
-  digitalWrite(RESET,HIGH);
+  coil.begin(CS, LDAC, RESET, MSB);
 }
 
 //============
@@ -54,7 +43,7 @@ void loop() {
     if (newData == true)                  // If data in the buffer
     {
         parseData();                      // Split data into its parts (Counts, Address)
-        setDAC(DAC_address, DAC_count); //
+        coil.set_dac(DAC_address, DAC_count); //
         showParsedData();                 //
         newData = false;                  // Reset new data flag
     }
@@ -99,19 +88,6 @@ void recvWithStartEndMarkers()
         }
     }
 }
-
-void setDAC(int DAC_address, long DAC_count)
-{
-  digitalWrite(SS, LOW);
-  SPI.transfer(DAC_address);           // Address followed by counts
-  SPI.transfer(highByte(DAC_count)); 
-  SPI.transfer(lowByte(DAC_count)); 
-  digitalWrite(SS, HIGH);
-  digitalWrite(LDAC, LOW);            // LDAC for synchornisation
-  delayMicroseconds(1);               //
-  digitalWrite(LDAC, HIGH);           //
-}
-
 
 // Split the data into its parts
 void parseData() 
