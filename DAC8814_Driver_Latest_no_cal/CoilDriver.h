@@ -20,6 +20,8 @@ class CoilDriver
     int pin_reset;
     int pin_msb;
     uint16_t setpoint[COILDRIVER_NUM_CHANNELS];
+
+    uint16_t get_calibrated_code(uint8_t channel, uint16_t code);
 };
 
 #endif

@@ -1,4 +1,6 @@
 #include "CoilDriver.h"
+#include "calibration.h"
+#include <avr/pgmspace.h>
 
 void CoilDriver::begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb){
   pin_cs = cs;
@@ -31,12 +33,13 @@ void CoilDriver::reset(){
 }
 
 void CoilDriver::set_dac(uint8_t channel, uint16_t code){
+  uint16_t calibrated_code = get_calibrated_code(channel, code);
   digitalWrite(pin_cs, LOW);
   SPI.transfer(channel);
-  SPI.transfer(highByte(code)); 
-  SPI.transfer(lowByte(code)); 
+  SPI.transfer(highByte(calibrated_code)); 
+  SPI.transfer(lowByte(calibrated_code)); 
   digitalWrite(SS, HIGH);
-  setpoint[channel] = code;
+  setpoint[channel] = calibrated_code;
 }
 
 uint16_t CoilDriver::get_dac(uint8_t channel){
@@ -47,4 +50,19 @@ void CoilDriver::set_all_dac(uint16_t code){
   for(uint8_t i=0; i<COILDRIVER_NUM_CHANNELS; i++){
     set_dac(i, code);
   }
+}
+
+uint16_t CoilDriver::get_calibrated_code(uint8_t channel, uint16_t code){
+  uint16_t calibration_idx = code / 32;
+  long temp_code = (long)code;
+  long correction = (long)pgm_read_byte(&calibration_table[channel][calibration_idx]);
+
+  temp_code = temp_code + correction;
+  if(temp_code < 0){
+    temp_code = 0;
+  }
+  if(temp_code > 65535){
+    temp_code = 65535;
+  }
+  return (uint16_t)temp_code;
 }
