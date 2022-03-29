@@ -108,23 +108,7 @@ void parseData()
     if (DAC_count > 65535) DAC_count = 65535;
     if (DAC_count < 0) DAC_count = 0;
 
-    switch(DAC_address)
-    {
-      case 0:
-      DAC_count_cal = DAC_count + (CH1_CAL[DAC_count / 32]);
-      break;
-
-      case 1:
-      DAC_count_cal = DAC_count + (CH2_CAL[DAC_count / 32]);
-      break;
-
-      case 2:
-      DAC_count_cal = DAC_count + (CH3_CAL[DAC_count / 32]);
-      break;
-
-      default:
-      printf("ERROR, ADDRESS OUT OF BOUNDS!");
-    }    
+    DAC_count_cal = DAC_count + calibration_table[DAC_address][DAC_count / 32];  
 
 }
 
