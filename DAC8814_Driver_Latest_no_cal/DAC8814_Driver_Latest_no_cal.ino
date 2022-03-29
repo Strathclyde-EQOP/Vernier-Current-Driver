@@ -10,6 +10,7 @@
 
 // Configuration
 #define BAUDRATE 57600
+HardwareSerial &SerialInUse = Serial;
 
 // Pin mapping
 #define SCLK 13
@@ -36,8 +37,8 @@ void setup()
   pinMode(LDAC, OUTPUT);
   pinMode(RESET, OUTPUT);
   
-  Serial1.begin(BAUDRATE);
-  
+  SerialInUse.begin(BAUDRATE);
+
   SPI.begin();
   SPI.beginTransaction (SPISettings (2000000, MSBFIRST, SPI_MODE0));
   digitalWrite(SS,HIGH);
@@ -46,9 +47,9 @@ void setup()
   delayMicroseconds(100);
   digitalWrite(RESET,HIGH);
   
-  //Serial.println("Rachel HCCD (192.31 mA)");
-  //Serial.println("Enter DAC adress and Counts <1A500> Adress 0-2 Counts 0-65535, Output range +-192.31mA");
-  //Serial.println();
+  //SerialInUse.println("Rachel HCCD (192.31 mA)");
+  //SerialInUse.println("Enter DAC adress and Counts <1A500> Adress 0-2 Counts 0-65535, Output range +-192.31mA");
+  //SerialInUse.println();
 }
 
 //============
@@ -74,9 +75,9 @@ void recvWithStartEndMarkers()
     char endMarker = '>';                   //
     char rc;                                // Currently received character
 
-    while (Serial1.available() > 0 && newData == false) 
+    while (SerialInUse.available() > 0 && newData == false) 
     {
-        rc = Serial1.read();
+        rc = SerialInUse.read();
 
         if (recvInProgress == true) 
         {
@@ -160,9 +161,9 @@ void parseData()
 // Repeat how DAC was setup through UART
 void showParsedData() 
 {
-    //Serial.print("DAC channel ");
-    //Serial.print(DAC_address);
-    //Serial.print(" Count ");
-    Serial1.print(1);
-    Serial1.println();
+    //SerialInUse.print("DAC channel ");
+    //SerialInUse.print(DAC_address);
+    //SerialInUse.print(" Count ");
+    SerialInUse.print(1);
+    SerialInUse.println();
 }
