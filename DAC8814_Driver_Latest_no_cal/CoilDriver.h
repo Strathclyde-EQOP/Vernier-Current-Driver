@@ -11,6 +11,7 @@ class CoilDriver
     void begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb);
     void set_dac(uint8_t channel, uint16_t code);
     void set_all_dac(uint16_t code);
+    uint16_t get_dac(uint8_t channel);
     void reset();
     
   private:
