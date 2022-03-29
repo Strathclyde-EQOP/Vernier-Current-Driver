@@ -27,3 +27,11 @@ void CoilDriver::reset(){
   delayMicroseconds(100);
   digitalWrite(pin_reset, HIGH);
 }
+
+void CoilDriver::set_dac(uint8_t channel, uint16_t code){
+  digitalWrite(pin_cs, LOW);
+  SPI.transfer(channel);
+  SPI.transfer(highByte(code)); 
+  SPI.transfer(lowByte(code)); 
+  digitalWrite(SS, HIGH);
+}
