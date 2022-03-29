@@ -7,6 +7,7 @@
 
 #include <SPI.h>
 #include "calibration.h"
+#include "CoilDriver.h"
 
 // Configuration
 #define BAUDRATE 57600
