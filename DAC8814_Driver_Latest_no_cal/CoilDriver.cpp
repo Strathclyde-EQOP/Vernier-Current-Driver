@@ -36,6 +36,7 @@ void CoilDriver::set_dac(uint8_t channel, uint16_t code){
   SPI.transfer(highByte(code)); 
   SPI.transfer(lowByte(code)); 
   digitalWrite(SS, HIGH);
+  setpoint[channel] = code;
 }
 
 void CoilDriver::set_all_dac(uint16_t code){
