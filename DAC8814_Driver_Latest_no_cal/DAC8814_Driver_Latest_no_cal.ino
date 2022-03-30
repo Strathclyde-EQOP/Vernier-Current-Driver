@@ -18,7 +18,7 @@ const uint8_t kPinMSB = 8;
 const uint8_t kPinReset = 7;
 
 const uint8_t kSerialRxBufferLength = 32;
-char serial_rx_buffer[kSerialRxBufferLength]; // Temporary buffer storing received characters
+char serial_rx_buffer[kSerialRxBufferLength];
 
 CoilDriver coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
@@ -37,14 +37,13 @@ void loop() {
 }
 
 
-// Start stop markers definition
 bool ReceiveCommand()
 {
   static boolean rx_in_prgress = false;  // Characters in the pipeline
-  static byte rx_buffer_index = 0;                    // indexing
-  char start_marker = '<';                 // Define start and stop character
-  char end_marker = '>';                   //
-  char rx_character;                                // Currently received character
+  static byte rx_buffer_index = 0;
+  char start_marker = '<';
+  char end_marker = '>';
+  char rx_character;
 
   while (SerialInUse.available() > 0) {
     rx_character = SerialInUse.read();
@@ -76,18 +75,17 @@ bool ReceiveCommand()
 }
 
 
-// Split the data into its parts
 void ProcessLegacyCommand()
 {
   char *token;
   int DAC_address;
   long DAC_count;
 
-  token = strtok(serial_rx_buffer, "A");      // Start with adress
-  DAC_address = atoi(token);                // Convert this part to an integer
+  token = strtok(serial_rx_buffer, "A");
+  DAC_address = atoi(token);
 
   token = strtok(NULL, "A");
-  DAC_count = atol(token);                 // Convert this part to a long integer
+  DAC_count = atol(token);
   if (DAC_count > 65535) {
     DAC_count = 65535;
   }
