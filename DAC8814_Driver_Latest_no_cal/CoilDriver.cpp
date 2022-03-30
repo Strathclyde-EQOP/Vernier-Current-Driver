@@ -2,7 +2,7 @@
 #include "calibration.h"
 #include <avr/pgmspace.h>
 
-void CoilDriver::begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb){
+void CoilDriver::Begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb){
   pin_cs = cs;
   pin_ldac = ldac;
   pin_reset = reset;
@@ -23,17 +23,17 @@ void CoilDriver::begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb){
   SPI.begin();
   SPI.beginTransaction (SPISettings (2000000, MSBFIRST, SPI_MODE0));
 
-  set_all_dac(32768); // set all DAC to midpoint for zero current
+  SetAllChannels(32768); // set all DAC to midpoint for zero current
 }
 
-void CoilDriver::reset(){
+void CoilDriver::Reset(){
   digitalWrite(pin_reset, LOW);
   delayMicroseconds(100);
   digitalWrite(pin_reset, HIGH);
 }
 
-void CoilDriver::set_dac(uint8_t channel, uint16_t code){
-  uint16_t calibrated_code = get_calibrated_code(channel, code);
+void CoilDriver::SetChannel(uint8_t channel, uint16_t code){
+  uint16_t calibrated_code = GetCalibratedCode(channel, code);
   digitalWrite(pin_cs, LOW);
   SPI.transfer(channel);
   SPI.transfer(highByte(calibrated_code)); 
@@ -42,17 +42,17 @@ void CoilDriver::set_dac(uint8_t channel, uint16_t code){
   setpoint[channel] = calibrated_code;
 }
 
-uint16_t CoilDriver::get_dac(uint8_t channel){
+uint16_t CoilDriver::GetChannel(uint8_t channel){
   return setpoint[channel];
 }
 
-void CoilDriver::set_all_dac(uint16_t code){
+void CoilDriver::SetAllChannels(uint16_t code){
   for(uint8_t i=0; i<kNumChannels; i++){
-    set_dac(i, code);
+    SetChannel(i, code);
   }
 }
 
-uint16_t CoilDriver::get_calibrated_code(uint8_t channel, uint16_t code){
+uint16_t CoilDriver::GetCalibratedCode(uint8_t channel, uint16_t code){
   uint16_t calibration_idx = code / 32;
   long temp_code = (long)code;
   long correction = (long)pgm_read_byte(&calibration_table[channel][calibration_idx]);

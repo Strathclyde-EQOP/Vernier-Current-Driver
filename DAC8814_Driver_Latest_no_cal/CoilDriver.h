@@ -10,11 +10,11 @@ class CoilDriver
   public:
     static const uint8_t kNumChannels = 3;
   
-    void begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb);
-    void set_dac(uint8_t channel, uint16_t code);
-    void set_all_dac(uint16_t code);
-    uint16_t get_dac(uint8_t channel);
-    void reset();
+    void Begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb);
+    void SetChannel(uint8_t channel, uint16_t code);
+    void SetAllChannels(uint16_t code);
+    uint16_t GetChannel(uint8_t channel);
+    void Reset();
     
   private:
     int pin_cs;
@@ -23,7 +23,7 @@ class CoilDriver
     int pin_msb;
     uint16_t setpoint[kNumChannels];
 
-    uint16_t get_calibrated_code(uint8_t channel, uint16_t code);
+    uint16_t GetCalibratedCode(uint8_t channel, uint16_t code);
 };
 
 #endif

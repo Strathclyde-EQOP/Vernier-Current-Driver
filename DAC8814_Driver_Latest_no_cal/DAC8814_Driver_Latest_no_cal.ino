@@ -30,7 +30,7 @@ CoilDriver coil;
 void setup()
 { 
   SerialInUse.begin(kBaudrate);
-  coil.begin(kPinCS, kPinLDAC, kPinReset, kPinMSB);
+  coil.Begin(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 }
 
 //============
@@ -41,7 +41,7 @@ void loop() {
     if (newData == true)                  // If data in the buffer
     {
         parseData();                      // Split data into its parts (Counts, Address)
-        coil.set_dac(DAC_address, DAC_count); //
+        coil.SetChannel(DAC_address, DAC_count); //
         showParsedData();                 //
         newData = false;                  // Reset new data flag
     }
