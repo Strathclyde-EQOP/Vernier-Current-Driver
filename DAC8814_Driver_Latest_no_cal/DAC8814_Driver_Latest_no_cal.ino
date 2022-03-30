@@ -97,13 +97,5 @@ void ProcessLegacyCommand()
   }
 
   coil.SetChannel(DAC_address, DAC_count);
-  showParsedData();
-}
-
-
-// Repeat how DAC was setup through UART
-void showParsedData()
-{
-  SerialInUse.print(1);
-  SerialInUse.println();
+  SerialInUse.println(1);
 }
