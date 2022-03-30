@@ -18,7 +18,7 @@ HardwareSerial &SerialInUse = Serial;
 #define RESET 7
 
 const uint8_t kSerialRxBufferLength = 9;
-char receivedChars[kSerialRxBufferLength]; // Temporary buffer storing received characters
+char serial_rx_buffer[kSerialRxBufferLength]; // Temporary buffer storing received characters
 
 int DAC_address = 0;          // DAC initialisation
 long DAC_count = 0;           //
@@ -64,7 +64,7 @@ void recvWithStartEndMarkers()
         {
             if (rc != endMarker) 
             {
-                receivedChars[ndx] = rc;
+                serial_rx_buffer[ndx] = rc;
                 ndx++;
                 if (ndx >= kSerialRxBufferLength) 
                 {
@@ -73,7 +73,7 @@ void recvWithStartEndMarkers()
             }
             else 
             {
-                receivedChars[ndx] = '\0'; // terminate the string
+                serial_rx_buffer[ndx] = '\0'; // terminate the string
                 recvInProgress = false;
                 ndx = 0;
                 newData = true;
@@ -94,7 +94,7 @@ void parseData()
     char * strtokIndx;                            // This is used by strtok() as an index
 
    
-    strtokIndx = strtok(receivedChars, "A");      // Start with adress
+    strtokIndx = strtok(serial_rx_buffer, "A");      // Start with adress
     DAC_address = atoi(strtokIndx);                // Convert this part to an integer
     
     if (DAC_address > 2) DAC_address = 2;           // Limit DAC to 3 channels only
