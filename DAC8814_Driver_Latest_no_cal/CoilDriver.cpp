@@ -39,7 +39,9 @@ void CoilDriver::SetChannel(uint8_t channel, uint16_t code){
   SPI.transfer(highByte(calibrated_code)); 
   SPI.transfer(lowByte(calibrated_code)); 
   digitalWrite(SS, HIGH);
-  setpoint[channel] = calibrated_code;
+  // Calibration is transparent to the user, so store the user
+  // requested code and not the calibrated version.
+  setpoint[channel] = code;
 }
 
 uint16_t CoilDriver::GetChannel(uint8_t channel){
