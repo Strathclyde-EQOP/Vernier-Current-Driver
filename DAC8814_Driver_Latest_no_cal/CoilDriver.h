@@ -20,6 +20,7 @@ class CoilDriver
     void SetAllChannels(uint16_t code);
     uint16_t GetChannel(uint8_t channel);
     void Reset();
+    bool ValidateChannel(uint8_t channel);
 
   private:
     const uint8_t pin_cs;
