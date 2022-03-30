@@ -3,7 +3,7 @@
 
 #include <SPI.h>
 
-#define COILDRIVER_NUM_CHANNELS 3
+const uint8_t kNumChannels = 3;
 
 class CoilDriver
 {
@@ -19,7 +19,7 @@ class CoilDriver
     int pin_ldac;
     int pin_reset;
     int pin_msb;
-    uint16_t setpoint[COILDRIVER_NUM_CHANNELS];
+    uint16_t setpoint[kNumChannels];
 
     uint16_t get_calibrated_code(uint8_t channel, uint16_t code);
 };

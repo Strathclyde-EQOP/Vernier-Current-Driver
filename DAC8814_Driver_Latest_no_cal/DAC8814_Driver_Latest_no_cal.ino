@@ -8,14 +8,14 @@
 #include "CoilDriver.h"
 
 // Configuration
-#define BAUDRATE 1000000
+const uint32_t kBaudrate = 1000000;
 HardwareSerial &SerialInUse = Serial;
 
 // Pin mapping
-#define CS 10
-#define LDAC 9
-#define MSB 8
-#define RESET 7
+const uint8_t kPinCS = 10;
+const uint8_t kPinLDAC = 9;
+const uint8_t kPinMSB = 8;
+const uint8_t kPinReset = 7;
 
 const uint8_t kSerialRxBufferLength = 9;
 char serial_rx_buffer[kSerialRxBufferLength]; // Temporary buffer storing received characters
@@ -29,8 +29,8 @@ CoilDriver coil;
 
 void setup()
 { 
-  SerialInUse.begin(BAUDRATE);
-  coil.begin(CS, LDAC, RESET, MSB);
+  SerialInUse.begin(kBaudrate);
+  coil.begin(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 }
 
 //============

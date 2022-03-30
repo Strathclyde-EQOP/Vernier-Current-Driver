@@ -47,7 +47,7 @@ uint16_t CoilDriver::get_dac(uint8_t channel){
 }
 
 void CoilDriver::set_all_dac(uint16_t code){
-  for(uint8_t i=0; i<COILDRIVER_NUM_CHANNELS; i++){
+  for(uint8_t i=0; i<kNumChannels; i++){
     set_dac(i, code);
   }
 }
