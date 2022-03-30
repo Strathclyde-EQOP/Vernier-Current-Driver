@@ -30,7 +30,7 @@ void CoilDriver::Reset() {
 }
 
 
-void CoilDriver::SetChannel(uint8_t channel, uint16_t code) {
+int8_t CoilDriver::SetChannel(uint8_t channel, uint16_t code) {
   uint16_t calibrated_code = GetCalibratedCode(channel, code);
   digitalWrite(pin_cs, LOW);
   SPI.transfer(channel);
@@ -40,6 +40,7 @@ void CoilDriver::SetChannel(uint8_t channel, uint16_t code) {
   // Calibration is transparent to the user, so store the user
   // requested code and not the calibrated version.
   setpoint[channel] = code;
+  return 0;
 }
 
 
@@ -48,10 +49,11 @@ uint16_t CoilDriver::GetChannel(uint8_t channel) {
 }
 
 
-void CoilDriver::SetAllChannels(uint16_t code) {
+int8_t CoilDriver::SetAllChannels(uint16_t code) {
   for (uint8_t i = 0; i < kNumChannels; i++) {
     SetChannel(i, code);
   }
+  return 0;
 }
 
 
