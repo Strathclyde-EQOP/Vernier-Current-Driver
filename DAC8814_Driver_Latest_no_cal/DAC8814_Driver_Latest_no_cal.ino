@@ -17,8 +17,8 @@ HardwareSerial &SerialInUse = Serial;
 #define MSB 8
 #define RESET 7
 
-const byte numChars = 9;      // Number of characters to be stored in a buffer
-char receivedChars[numChars]; // Temporary buffer storing received characters
+const uint8_t kSerialRxBufferLength = 9;
+char receivedChars[kSerialRxBufferLength]; // Temporary buffer storing received characters
 
 int DAC_address = 0;          // DAC initialisation
 long DAC_count = 0;           //
@@ -66,9 +66,9 @@ void recvWithStartEndMarkers()
             {
                 receivedChars[ndx] = rc;
                 ndx++;
-                if (ndx >= numChars) 
+                if (ndx >= kSerialRxBufferLength) 
                 {
-                    ndx = numChars - 1;
+                    ndx = kSerialRxBufferLength - 1;
                 }
             }
             else 
