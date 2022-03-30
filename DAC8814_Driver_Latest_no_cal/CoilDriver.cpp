@@ -2,12 +2,8 @@
 #include "calibration.h"
 #include <avr/pgmspace.h>
 
-void CoilDriver::Begin(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb){
-  pin_cs = cs;
-  pin_ldac = ldac;
-  pin_reset = reset;
-  pin_msb = msb;
 
+void CoilDriver::Begin(){
   digitalWrite(pin_cs, HIGH);
   pinMode(pin_cs, OUTPUT);
 

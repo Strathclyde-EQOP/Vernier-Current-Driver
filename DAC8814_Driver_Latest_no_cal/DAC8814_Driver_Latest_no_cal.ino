@@ -25,12 +25,12 @@ long DAC_count = 0;           //
 
 boolean newData = false;      // New data received flag
 
-CoilDriver coil;
+CoilDriver  coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
 void setup()
 { 
   SerialInUse.begin(kBaudrate);
-  coil.Begin(kPinCS, kPinLDAC, kPinReset, kPinMSB);
+  coil.Begin();
 }
 
 //============
