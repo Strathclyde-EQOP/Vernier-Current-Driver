@@ -23,8 +23,6 @@ char serial_rx_buffer[kSerialRxBufferLength]; // Temporary buffer storing receiv
 int DAC_address = 0;          // DAC initialisation
 long DAC_count = 0;           //
 
-boolean newData = false;      // New data received flag
-
 CoilDriver  coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
 
@@ -36,18 +34,16 @@ void setup()
 
 
 void loop() {
-  recvWithStartEndMarkers();            // Check if a valid start character has been received
-  if (newData == true) {               // If data in the buffer
+  if(ReceiveCommand()) {               // If data in the buffer
     parseData();                      // Split data into its parts (Counts, Address)
     coil.SetChannel(DAC_address, DAC_count); //
     showParsedData();                 //
-    newData = false;                  // Reset new data flag
   }
 }
 
 
 // Start stop markers definition
-void recvWithStartEndMarkers()
+bool ReceiveCommand()
 {
   static boolean recvInProgress = false;  // Characters in the pipeline
   static byte ndx = 0;                    // indexing
@@ -55,7 +51,7 @@ void recvWithStartEndMarkers()
   char endMarker = '>';                   //
   char rc;                                // Currently received character
 
-  while (SerialInUse.available() > 0 && newData == false) {
+  while (SerialInUse.available() > 0) {
     rc = SerialInUse.read();
     if (recvInProgress == true) {
       if (rc != endMarker) {
@@ -69,7 +65,7 @@ void recvWithStartEndMarkers()
         serial_rx_buffer[ndx] = '\0'; // terminate the string
         recvInProgress = false;
         ndx = 0;
-        newData = true;
+        return true;
       }
     }
     else {
@@ -78,6 +74,8 @@ void recvWithStartEndMarkers()
       }
     }
   }
+
+  return false;
 }
 
 
