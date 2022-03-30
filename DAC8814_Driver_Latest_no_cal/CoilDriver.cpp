@@ -79,5 +79,5 @@ uint16_t CoilDriver::GetCalibratedCode(uint8_t channel, uint16_t code) {
 
 
 bool CoilDriver::ValidateChannel(uint8_t channel) {
-  return (channel > 0) && (channel < (kNumChannels + 1));
+  return (channel >= 0) && (channel < kNumChannels + 1);
 }
