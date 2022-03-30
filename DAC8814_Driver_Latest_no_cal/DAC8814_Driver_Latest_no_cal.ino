@@ -89,13 +89,6 @@ void ProcessLegacyCommand()
   strtokIrx_buffer_index = strtok(serial_rx_buffer, "A");      // Start with adress
   DAC_address = atoi(strtokIrx_buffer_index);                // Convert this part to an integer
 
-  if (DAC_address > 2) {
-    DAC_address = 2;           // Limit DAC to 3 channels only
-  }
-  if (DAC_address < 0) {
-    DAC_address = 0;           //
-  }
-
   strtokIrx_buffer_index = strtok(NULL, "A");
   DAC_count = atol(strtokIrx_buffer_index);                 // Convert this part to a long integer
   if (DAC_count > 65535) {
