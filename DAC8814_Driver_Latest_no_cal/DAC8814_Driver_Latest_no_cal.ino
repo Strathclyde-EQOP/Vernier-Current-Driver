@@ -23,7 +23,7 @@ char serial_rx_buffer[kSerialRxBufferLength]; // Temporary buffer storing receiv
 int DAC_address = 0;          // DAC initialisation
 long DAC_count = 0;           //
 
-CoilDriver  coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
+CoilDriver coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
 
 void setup()
