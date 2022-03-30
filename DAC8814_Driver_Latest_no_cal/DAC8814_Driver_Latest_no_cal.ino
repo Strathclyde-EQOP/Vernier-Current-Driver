@@ -34,8 +34,8 @@ void setup()
 
 
 void loop() {
-  if(ReceiveCommand()) {               // If data in the buffer
-    parseData();                      // Split data into its parts (Counts, Address)
+  if(ReceiveCommand()) {
+    ProcessLegacyCommand();
     coil.SetChannel(DAC_address, DAC_count); //
     showParsedData();                 //
   }
@@ -45,34 +45,34 @@ void loop() {
 // Start stop markers definition
 bool ReceiveCommand()
 {
-  static boolean recvInProgress = false;  // Characters in the pipeline
-  static byte ndx = 0;                    // indexing
-  char startMarker = '<';                 // Define start and stop character
-  char endMarker = '>';                   //
-  char rc;                                // Currently received character
+  static boolean rx_in_prgress = false;  // Characters in the pipeline
+  static byte rx_buffer_index = 0;                    // indexing
+  char start_marker = '<';                 // Define start and stop character
+  char end_marker = '>';                   //
+  char rx_character;                                // Currently received character
 
   while (SerialInUse.available() > 0) {
-    rc = SerialInUse.read();
-    if (recvInProgress == true) {
-      if (rc != endMarker) {
-        serial_rx_buffer[ndx] = rc;
-        ndx++;
-        if (ndx >= kSerialRxBufferLength) {
+    rx_character = SerialInUse.read();
+    if (rx_in_prgress == true) {
+      if (rx_character != end_marker) {
+        serial_rx_buffer[rx_buffer_index] = rx_character;
+        rx_buffer_index++;
+        if (rx_buffer_index >= kSerialRxBufferLength) {
           // The input buffer has overflowed, which can only be an invalid command.
           // Silently drop the buffer, and wait for a new start character.
-          recvInProgress = false;
+          rx_in_prgress = false;
         }
       }
       else {
-        serial_rx_buffer[ndx] = '\0'; // terminate the string
-        recvInProgress = false;
+        serial_rx_buffer[rx_buffer_index] = '\0'; // terminate the string
+        rx_in_prgress = false;
         return true;
       }
     }
     else {
-      if (rc == startMarker) {
-        recvInProgress = true;
-        ndx = 0;
+      if (rx_character == start_marker) {
+        rx_in_prgress = true;
+        rx_buffer_index = 0;
       }
     }
   }
@@ -82,12 +82,12 @@ bool ReceiveCommand()
 
 
 // Split the data into its parts
-void parseData()
+void ProcessLegacyCommand()
 {
-  char * strtokIndx;                            // This is used by strtok() as an index
+  char * strtokIrx_buffer_index;                            // This is used by strtok() as an index
 
-  strtokIndx = strtok(serial_rx_buffer, "A");      // Start with adress
-  DAC_address = atoi(strtokIndx);                // Convert this part to an integer
+  strtokIrx_buffer_index = strtok(serial_rx_buffer, "A");      // Start with adress
+  DAC_address = atoi(strtokIrx_buffer_index);                // Convert this part to an integer
 
   if (DAC_address > 2) {
     DAC_address = 2;           // Limit DAC to 3 channels only
@@ -96,8 +96,8 @@ void parseData()
     DAC_address = 0;           //
   }
 
-  strtokIndx = strtok(NULL, "A");
-  DAC_count = atol(strtokIndx);                 // Convert this part to a long integer
+  strtokIrx_buffer_index = strtok(NULL, "A");
+  DAC_count = atol(strtokIrx_buffer_index);                 // Convert this part to a long integer
   if (DAC_count > 65535) {
     DAC_count = 65535;
   }
