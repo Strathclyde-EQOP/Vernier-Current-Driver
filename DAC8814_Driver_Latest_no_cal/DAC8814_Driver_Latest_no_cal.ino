@@ -21,9 +21,6 @@ const uint8_t kPinReset = 7;
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength]; // Temporary buffer storing received characters
 
-int DAC_address = 0;          // DAC initialisation
-long DAC_count = 0;           //
-
 CoilDriver coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
 
@@ -35,10 +32,8 @@ void setup()
 
 
 void loop() {
-  if(ReceiveCommand()) {
+  if (ReceiveCommand()) {
     ProcessLegacyCommand();
-    coil.SetChannel(DAC_address, DAC_count); //
-    showParsedData();                 //
   }
 }
 
@@ -86,6 +81,8 @@ bool ReceiveCommand()
 void ProcessLegacyCommand()
 {
   char *token;
+  int DAC_address;
+  long DAC_count;
 
   token = strtok(serial_rx_buffer, "A");      // Start with adress
   DAC_address = atoi(token);                // Convert this part to an integer
@@ -98,6 +95,9 @@ void ProcessLegacyCommand()
   if (DAC_count < 0) {
     DAC_count = 0;
   }
+
+  coil.SetChannel(DAC_address, DAC_count);
+  showParsedData();
 }
 
 
