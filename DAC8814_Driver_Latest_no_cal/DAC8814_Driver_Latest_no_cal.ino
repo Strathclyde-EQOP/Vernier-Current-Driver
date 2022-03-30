@@ -17,7 +17,7 @@ const uint8_t kPinLDAC = 9;
 const uint8_t kPinMSB = 8;
 const uint8_t kPinReset = 7;
 
-const uint8_t kSerialRxBufferLength = 9;
+const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength]; // Temporary buffer storing received characters
 
 int DAC_address = 0;          // DAC initialisation
