@@ -64,13 +64,13 @@ bool ReceiveCommand()
       else {
         serial_rx_buffer[ndx] = '\0'; // terminate the string
         recvInProgress = false;
-        ndx = 0;
         return true;
       }
     }
     else {
       if (rc == startMarker) {
         recvInProgress = true;
+        ndx = 0;
       }
     }
   }
