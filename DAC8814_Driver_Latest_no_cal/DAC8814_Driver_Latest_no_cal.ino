@@ -6,7 +6,6 @@
 */
 
 #include "CoilDriver.h"
-#include <errno.h>
 
 // Configuration
 const uint32_t kBaudrate = 1000000;
