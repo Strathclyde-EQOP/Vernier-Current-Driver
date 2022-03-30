@@ -31,6 +31,9 @@ void CoilDriver::Reset() {
 
 
 int8_t CoilDriver::SetChannel(uint8_t channel, uint16_t code) {
+  if (!ValidateChannel(channel)) {
+    return -1;
+  }
   uint16_t calibrated_code = GetCalibratedCode(channel, code);
   digitalWrite(pin_cs, LOW);
   SPI.transfer(channel);
@@ -50,10 +53,12 @@ uint16_t CoilDriver::GetChannel(uint8_t channel) {
 
 
 int8_t CoilDriver::SetAllChannels(uint16_t code) {
+  int8_t error = 0;
+  
   for (uint8_t i = 0; i < kNumChannels; i++) {
-    SetChannel(i, code);
+    error += SetChannel(i, code);
   }
-  return 0;
+  return error;
 }
 
 
