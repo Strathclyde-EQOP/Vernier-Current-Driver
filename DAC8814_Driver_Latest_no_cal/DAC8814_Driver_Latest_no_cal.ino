@@ -58,7 +58,9 @@ bool ReceiveCommand()
         serial_rx_buffer[ndx] = rc;
         ndx++;
         if (ndx >= kSerialRxBufferLength) {
-          ndx = kSerialRxBufferLength - 1;
+          // The input buffer has overflowed, which can only be an invalid command.
+          // Silently drop the buffer, and wait for a new start character.
+          recvInProgress = false;
         }
       }
       else {
