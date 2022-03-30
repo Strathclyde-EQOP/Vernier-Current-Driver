@@ -6,6 +6,7 @@
 */
 
 #include "CoilDriver.h"
+#include <errno.h>
 
 // Configuration
 const uint32_t kBaudrate = 1000000;
@@ -84,13 +85,13 @@ bool ReceiveCommand()
 // Split the data into its parts
 void ProcessLegacyCommand()
 {
-  char * strtokIrx_buffer_index;                            // This is used by strtok() as an index
+  char *token;
 
-  strtokIrx_buffer_index = strtok(serial_rx_buffer, "A");      // Start with adress
-  DAC_address = atoi(strtokIrx_buffer_index);                // Convert this part to an integer
+  token = strtok(serial_rx_buffer, "A");      // Start with adress
+  DAC_address = atoi(token);                // Convert this part to an integer
 
-  strtokIrx_buffer_index = strtok(NULL, "A");
-  DAC_count = atol(strtokIrx_buffer_index);                 // Convert this part to a long integer
+  token = strtok(NULL, "A");
+  DAC_count = atol(token);                 // Convert this part to a long integer
   if (DAC_count > 65535) {
     DAC_count = 65535;
   }
