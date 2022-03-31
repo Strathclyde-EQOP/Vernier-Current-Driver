@@ -170,6 +170,8 @@ void ProcessLegacyCommand()
 
   token = strtok(serial_rx_buffer, "A");
   DAC_address = atoi(token);
+  // Legacy commands are 0-based indexing. Correct for 1-based indexing
+  DAC_address++;
 
   token = strtok(NULL, "A");
   DAC_count = atol(token);

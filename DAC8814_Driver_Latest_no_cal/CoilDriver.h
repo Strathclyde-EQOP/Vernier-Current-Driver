@@ -39,9 +39,9 @@ class CoilDriver
     const uint8_t pin_reset;
     const uint8_t pin_msb;
     Channel channels[kNumChannels] = {
-      Channel(0, 0),
-      Channel(1, 1),
-      Channel(2, 2)
+      Channel(1, 0),
+      Channel(2, 1),
+      Channel(3, 2)
     };
 
     uint16_t GetCalibratedCode(uint8_t channel, uint16_t code);
