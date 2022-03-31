@@ -27,7 +27,7 @@ class CoilDriver
       pin_msb(msb)
     {};
     void Begin();
-    int8_t SetChannel(uint8_t channel, uint16_t code);
+    int8_t SetChannelSetpoint(uint8_t channel, uint16_t code);
     int8_t SetAllChannels(uint16_t code);
     uint16_t GetChannel(uint8_t channel);
     void Reset();

@@ -29,7 +29,7 @@ void CoilDriver::Reset() {
 }
 
 
-int8_t CoilDriver::SetChannel(uint8_t channel, uint16_t code) {
+int8_t CoilDriver::SetChannelSetpoint(uint8_t channel, uint16_t code) {
   if (!ValidateChannel(channel)) {
     return -1;
   }
@@ -55,7 +55,7 @@ int8_t CoilDriver::SetAllChannels(uint16_t code) {
   int8_t error = 0;
 
   for (uint8_t i = 0; i < kNumChannels; i++) {
-    error += SetChannel(i, code);
+    error += SetChannelSetpoint(i, code);
   }
   return error;
 }

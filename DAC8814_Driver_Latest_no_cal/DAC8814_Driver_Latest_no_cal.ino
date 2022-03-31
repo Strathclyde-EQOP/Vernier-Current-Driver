@@ -104,7 +104,7 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response) {
   uint16_t setpoint = (uint16_t)args[1].asUInt64;
   int res;
 
-  res = coil.SetChannel(channel, setpoint);
+  res = coil.SetChannelSetpoint(channel, setpoint);
   if (!res) {
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
@@ -180,6 +180,6 @@ void ProcessLegacyCommand()
     DAC_count = 0;
   }
 
-  coil.SetChannel(DAC_address, DAC_count);
+  coil.SetChannelSetpoint(DAC_address, DAC_count);
   SerialInUse.println(1);
 }
