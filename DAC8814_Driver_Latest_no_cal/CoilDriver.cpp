@@ -30,14 +30,15 @@ void CoilDriver::Reset() {
 
 
 int8_t CoilDriver::SetChannelSetpoint(uint8_t channel, uint16_t code) {
-  if (!ValidateChannel(channel)) {
+  Channel *chan = GetChannel(channel);
+  if (!chan) {
     return -1;
   }
   uint16_t calibrated_code = GetCalibratedCode(channel, code);
-  WriteDAC(channel, calibrated_code);
+  WriteDAC(chan->dac_channel, calibrated_code);
   // Calibration is transparent to the user, so store the user
   // requested code and not the calibrated version.
-  channels[channel].setpoint = code;
+  chan->setpoint = code;
   return 0;
 }
 
