@@ -34,11 +34,7 @@ int8_t CoilDriver::SetChannelSetpoint(uint8_t channel, uint16_t code) {
     return -1;
   }
   uint16_t calibrated_code = GetCalibratedCode(channel, code);
-  digitalWrite(pin_cs, LOW);
-  SPI.transfer(channel);
-  SPI.transfer(highByte(calibrated_code));
-  SPI.transfer(lowByte(calibrated_code));
-  digitalWrite(SS, HIGH);
+  WriteDAC(channel, calibrated_code);
   // Calibration is transparent to the user, so store the user
   // requested code and not the calibrated version.
   channels[channel].setpoint = code;
@@ -84,4 +80,12 @@ bool CoilDriver::ValidateChannel(uint8_t channel) {
     }
   }
   return false;
+}
+
+void CoilDriver::WriteDAC(uint8_t address, uint16_t code) {
+  digitalWrite(pin_cs, LOW);
+  SPI.transfer(address);
+  SPI.transfer(highByte(code));
+  SPI.transfer(lowByte(code));
+  digitalWrite(SS, HIGH);
 }

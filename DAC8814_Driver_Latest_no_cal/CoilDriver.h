@@ -45,6 +45,7 @@ class CoilDriver
     };
 
     uint16_t GetCalibratedCode(uint8_t channel, uint16_t code);
+    void WriteDAC(uint8_t address, uint16_t code);
 };
 
 
