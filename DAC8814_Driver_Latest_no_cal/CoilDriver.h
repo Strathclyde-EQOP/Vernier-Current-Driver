@@ -3,6 +3,18 @@
 
 #include <SPI.h>
 
+class Ramp {
+  public:
+    void Begin(uint16_t start, uint16_t step, uint16_t count);
+    uint16_t Next();
+
+  private:
+    uint16_t start;
+    uint16_t step;
+    uint16_t count;
+};
+
+
 class Channel {
   public:
     const uint16_t reset_setpoint;
@@ -57,7 +69,5 @@ class CoilDriver
     void WriteDAC(uint8_t address, uint16_t code);
     Channel* GetChannel(uint8_t channel);
 };
-
-
 
 #endif
