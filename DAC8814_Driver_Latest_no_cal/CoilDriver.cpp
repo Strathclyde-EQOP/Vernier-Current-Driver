@@ -18,7 +18,7 @@ void CoilDriver::Begin() {
   SPI.begin();
   SPI.beginTransaction (SPISettings (2000000, MSBFIRST, SPI_MODE0));
 
-  SetAllChannels(32768); // set all DAC to midpoint for zero current
+  Reset();
 }
 
 
@@ -26,6 +26,7 @@ void CoilDriver::Reset() {
   digitalWrite(pin_reset, LOW);
   delayMicroseconds(100);
   digitalWrite(pin_reset, HIGH);
+  SetAllChannels(kResetSetpoint); // set all DAC to default setpoint
 }
 
 
