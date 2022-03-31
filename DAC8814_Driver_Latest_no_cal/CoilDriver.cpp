@@ -41,19 +41,19 @@ int8_t CoilDriver::SetChannel(uint8_t channel, uint16_t code) {
   digitalWrite(SS, HIGH);
   // Calibration is transparent to the user, so store the user
   // requested code and not the calibrated version.
-  setpoint[channel] = code;
+  channels[channel].setpoint = code;
   return 0;
 }
 
 
 uint16_t CoilDriver::GetChannel(uint8_t channel) {
-  return setpoint[channel];
+  return channels[channel].setpoint;
 }
 
 
 int8_t CoilDriver::SetAllChannels(uint16_t code) {
   int8_t error = 0;
-  
+
   for (uint8_t i = 0; i < kNumChannels; i++) {
     error += SetChannel(i, code);
   }

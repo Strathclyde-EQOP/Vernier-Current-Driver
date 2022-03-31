@@ -7,13 +7,12 @@ class Channel {
   public:
     const uint8_t address;
     const uint8_t dac_channel;
+    uint16_t setpoint;
 
     Channel(uint8_t address, uint8_t dac_channel):
       address(address),
       dac_channel(dac_channel)
-      {};
-  private:
-    uint16_t setpoint;
+    {};
 };
 
 class CoilDriver
@@ -39,7 +38,11 @@ class CoilDriver
     const uint8_t pin_ldac;
     const uint8_t pin_reset;
     const uint8_t pin_msb;
-    uint16_t setpoint[kNumChannels];
+    Channel channels[kNumChannels] = {
+      Channel(0, 0),
+      Channel(1, 1),
+      Channel(2, 2)
+    };
 
     uint16_t GetCalibratedCode(uint8_t channel, uint16_t code);
 };
