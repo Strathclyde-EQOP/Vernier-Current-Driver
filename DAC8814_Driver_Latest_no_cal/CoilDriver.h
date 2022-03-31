@@ -26,6 +26,7 @@ class Channel {
       STATIC,
       RAMP
     } state;
+    Ramp ramp;
 
     Channel(uint8_t address, uint8_t dac_channel, uint16_t reset_setpoint):
       address(address),
@@ -55,6 +56,7 @@ class CoilDriver
     uint16_t GetChannelSetpoint(uint8_t channel);
     void Reset();
     bool ValidateChannel(uint8_t channel);
+    void Next(uint8_t channel);
 
   private:
     const uint8_t pin_cs;

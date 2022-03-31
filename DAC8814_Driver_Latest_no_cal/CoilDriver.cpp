@@ -104,6 +104,20 @@ Channel* CoilDriver::GetChannel(uint8_t channel) {
 }
 
 
+void CoilDriver::Next(uint8_t channel){
+  Channel *chan = GetChannel(channel);
+  if (!chan) {
+    return;
+  }
+  if (chan->state != Channel::State::RAMP){
+    return;
+  }
+  uint16_t code = chan->ramp.Next();
+  WriteDAC(chan->dac_channel, code);
+  chan->setpoint = code;
+}
+
+
 void Ramp::Begin(uint16_t start, uint16_t step, uint16_t count) {
   this->start = start;
   this->step = step;
