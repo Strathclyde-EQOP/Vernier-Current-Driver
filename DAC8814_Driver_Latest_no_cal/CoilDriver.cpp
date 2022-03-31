@@ -40,6 +40,7 @@ int8_t CoilDriver::SetChannelSetpoint(uint8_t channel, uint16_t code) {
   // Calibration is transparent to the user, so store the user
   // requested code and not the calibrated version.
   chan->setpoint = code;
+  chan->state = Channel::State::STATIC;
   return 0;
 }
 
