@@ -82,10 +82,21 @@ bool CoilDriver::ValidateChannel(uint8_t channel) {
   return false;
 }
 
+
 void CoilDriver::WriteDAC(uint8_t address, uint16_t code) {
   digitalWrite(pin_cs, LOW);
   SPI.transfer(address);
   SPI.transfer(highByte(code));
   SPI.transfer(lowByte(code));
   digitalWrite(SS, HIGH);
+}
+
+
+Channel* CoilDriver::GetChannel(uint8_t channel) {
+  for ( int i = 0; i < kNumChannels; i++) {
+    if (channel == channels[i].address) {
+      return &channels[i];
+    }
+  }
+  return NULL;
 }
