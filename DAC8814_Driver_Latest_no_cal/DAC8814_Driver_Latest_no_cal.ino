@@ -34,6 +34,7 @@ void setup()
   command_parser.registerCommand("?", "", &CmdCommsCheck);
   command_parser.registerCommand("!chan", "uu", &CmdSetChan);
   command_parser.registerCommand("?chan", "u", &CmdGetChan);
+  command_parser.registerCommand("!ramp", "uuiu", &CmdSetRamp);
   coil.Begin();
 }
 
@@ -97,6 +98,7 @@ void CmdCommsCheck(MyCommandParser::Argument *args, char *response) {
   strlcpy(response, "#check", MyCommandParser::MAX_RESPONSE_SIZE);
 }
 
+
 void CmdSetChan(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint = (uint16_t)args[1].asUInt64;
@@ -111,6 +113,7 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response) {
   }
 }
 
+
 void CmdGetChan(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint;
@@ -118,6 +121,41 @@ void CmdGetChan(MyCommandParser::Argument *args, char *response) {
   if (coil.ValidateChannel(channel)) {
     setpoint = coil.GetChannel(channel);
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
+  }
+  else {
+    strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
+  }
+}
+
+
+void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
+  uint8_t channel = (uint8_t)args[0].asUInt64;
+  uint16_t ramp_start = (uint16_t)args[1].asUInt64;
+  int32_t ramp_step = (int32_t)args[2].asInt64;
+  uint16_t ramp_count = (uint16_t)args[3].asUInt64;
+
+  if (coil.ValidateChannel(channel)) {
+    // TODO: add ramp function init
+    /* For some reason, a 4-parameter snprintf is always returning a 0 for the 4th parameter.
+        Workaround is to just print directly to serial port for now, rather than copy into
+        the response.
+    */
+    //    snprintf(
+    //      response,
+    //      MyCommandParser::MAX_RESPONSE_SIZE,
+    //      "#%u %u %i %u",
+    //      channel,
+    //      ramp_start,
+    //      ramp_step,
+    //      ramp_count);
+    SerialInUse.print('#');
+    SerialInUse.print(channel);
+    SerialInUse.print(' ');
+    SerialInUse.print(ramp_start);
+    SerialInUse.print(' ');
+    SerialInUse.print(ramp_step);
+    SerialInUse.print(' ');
+    SerialInUse.print(ramp_count);
   }
   else {
     strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
