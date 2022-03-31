@@ -46,7 +46,7 @@ int8_t CoilDriver::SetChannelSetpoint(uint8_t channel, uint16_t code) {
 }
 
 
-uint16_t CoilDriver::GetChannel(uint8_t channel) {
+uint16_t CoilDriver::GetChannelSetpoint(uint8_t channel) {
   return channels[channel].setpoint;
 }
 

@@ -29,7 +29,7 @@ class CoilDriver
     void Begin();
     int8_t SetChannelSetpoint(uint8_t channel, uint16_t code);
     int8_t SetAllChannels(uint16_t code);
-    uint16_t GetChannel(uint8_t channel);
+    uint16_t GetChannelSetpoint(uint8_t channel);
     void Reset();
     bool ValidateChannel(uint8_t channel);
 

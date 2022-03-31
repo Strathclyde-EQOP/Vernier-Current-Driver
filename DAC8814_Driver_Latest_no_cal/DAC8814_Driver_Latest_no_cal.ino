@@ -119,7 +119,7 @@ void CmdGetChan(MyCommandParser::Argument *args, char *response) {
   uint16_t setpoint;
 
   if (coil.ValidateChannel(channel)) {
-    setpoint = coil.GetChannel(channel);
+    setpoint = coil.GetChannelSetpoint(channel);
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
   else {
