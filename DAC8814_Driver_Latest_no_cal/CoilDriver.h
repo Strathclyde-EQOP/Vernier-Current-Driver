@@ -12,6 +12,7 @@ class Ramp {
     uint16_t start;
     uint16_t step;
     uint16_t count;
+    uint16_t current;
 };
 
 
@@ -25,6 +26,7 @@ class Channel {
       STATIC,
       RAMP
     } state;
+
     Channel(uint8_t address, uint8_t dac_channel, uint16_t reset_setpoint):
       address(address),
       dac_channel(dac_channel),

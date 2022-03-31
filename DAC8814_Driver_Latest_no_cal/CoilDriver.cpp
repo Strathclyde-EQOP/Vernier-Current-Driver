@@ -102,3 +102,11 @@ Channel* CoilDriver::GetChannel(uint8_t channel) {
   }
   return NULL;
 }
+
+
+void Ramp::Begin(uint16_t start, uint16_t step, uint16_t count) {
+  this->start = start;
+  this->step = step;
+  this->count = count;
+  current = start;
+}
