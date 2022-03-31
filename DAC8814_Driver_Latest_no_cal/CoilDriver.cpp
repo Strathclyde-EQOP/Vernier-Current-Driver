@@ -110,3 +110,11 @@ void Ramp::Begin(uint16_t start, uint16_t step, uint16_t count) {
   this->count = count;
   current = start;
 }
+
+uint16_t Ramp::Next(){
+  if (count > 0){
+    current += step;
+    count--;
+  }
+  return current;
+}
