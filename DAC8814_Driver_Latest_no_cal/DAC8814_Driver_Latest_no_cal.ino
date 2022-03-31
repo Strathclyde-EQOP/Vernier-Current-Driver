@@ -35,6 +35,7 @@ void setup()
   command_parser.registerCommand("!chan", "uu", &CmdSetChan);
   command_parser.registerCommand("?chan", "u", &CmdGetChan);
   command_parser.registerCommand("!ramp", "uuiu", &CmdSetRamp);
+  command_parser.registerCommand("!next", "u", &CmdChannelNext);
   coil.Begin();
 }
 
@@ -135,7 +136,7 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
   uint16_t ramp_count = (uint16_t)args[3].asUInt64;
 
   if (coil.ValidateChannel(channel)) {
-    // TODO: add ramp function init
+    coil.InitRamp(channel, ramp_start, ramp_step, ramp_count);
     /* For some reason, a 4-parameter snprintf is always returning a 0 for the 4th parameter.
         Workaround is to just print directly to serial port for now, rather than copy into
         the response.
@@ -161,6 +162,13 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
     strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
   }
 }
+
+
+void CmdChannelNext(MyCommandParser::Argument *args, char *response) {
+  uint8_t channel = (uint8_t)args[0].asUInt64;
+  coil.Next(channel);
+}
+
 
 void ProcessLegacyCommand()
 {
