@@ -5,6 +5,8 @@
     20/11/2020
 */
 
+#include <CommandParser.h>
+#include <string.h>
 #include "CoilDriver.h"
 
 // Configuration
@@ -22,17 +24,31 @@ char serial_rx_buffer[kSerialRxBufferLength];
 
 CoilDriver coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
+typedef CommandParser<> MyCommandParser;
+MyCommandParser command_parser;
+
 
 void setup()
 {
   SerialInUse.begin(kBaudrate);
+  command_parser.registerCommand("?", "", &CmdCommsCheck);
   coil.Begin();
 }
 
 
 void loop() {
+
   if (ReceiveCommand()) {
-    ProcessLegacyCommand();
+    if (serial_rx_buffer[0] == '0' ||
+        serial_rx_buffer[0] == '1' ||
+        serial_rx_buffer[0] == '2') {
+      ProcessLegacyCommand();
+    }
+    else {
+      char response[MyCommandParser::MAX_RESPONSE_SIZE];
+      command_parser.processCommand(serial_rx_buffer, response);
+      SerialInUse.println(response);
+    }
   }
 }
 
@@ -72,6 +88,11 @@ bool ReceiveCommand()
   }
 
   return false;
+}
+
+
+void CmdCommsCheck(MyCommandParser::Argument *args, char *response) {
+  strlcpy(response, "#check", MyCommandParser::MAX_RESPONSE_SIZE);
 }
 
 
