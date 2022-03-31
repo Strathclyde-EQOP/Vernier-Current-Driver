@@ -3,6 +3,18 @@
 
 #include <SPI.h>
 
+class Channel {
+  public:
+    const uint8_t address;
+    const uint8_t dac_channel;
+
+    Channel(uint8_t address, uint8_t dac_channel):
+      address(address),
+      dac_channel(dac_channel)
+      {};
+  private:
+    uint16_t setpoint;
+};
 
 class CoilDriver
 {
@@ -31,5 +43,7 @@ class CoilDriver
 
     uint16_t GetCalibratedCode(uint8_t channel, uint16_t code);
 };
+
+
 
 #endif

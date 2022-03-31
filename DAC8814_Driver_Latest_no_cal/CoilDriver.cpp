@@ -2,7 +2,6 @@
 #include "calibration.h"
 #include <avr/pgmspace.h>
 
-
 void CoilDriver::Begin() {
   digitalWrite(pin_cs, HIGH);
   pinMode(pin_cs, OUTPUT);
