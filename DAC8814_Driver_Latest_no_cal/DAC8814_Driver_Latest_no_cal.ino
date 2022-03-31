@@ -33,6 +33,7 @@ void setup()
   SerialInUse.begin(kBaudrate);
   command_parser.registerCommand("?", "", &CmdCommsCheck);
   command_parser.registerCommand("!chan", "uu", &CmdSetChan);
+  command_parser.registerCommand("?chan", "u", &CmdGetChan);
   coil.Begin();
 }
 
@@ -103,6 +104,19 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response) {
 
   res = coil.SetChannel(channel, setpoint);
   if (!res) {
+    snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
+  }
+  else {
+    strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
+  }
+}
+
+void CmdGetChan(MyCommandParser::Argument *args, char *response) {
+  uint8_t channel = (uint8_t)args[0].asUInt64;
+  uint16_t setpoint;
+
+  if (coil.ValidateChannel(channel)) {
+    setpoint = coil.GetChannel(channel);
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
   else {
