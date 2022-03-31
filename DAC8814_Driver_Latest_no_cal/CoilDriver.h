@@ -56,6 +56,7 @@ class CoilDriver
     uint16_t GetChannelSetpoint(uint8_t channel);
     void Reset();
     bool ValidateChannel(uint8_t channel);
+    int InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count); 
     void Next(uint8_t channel);
 
   private:
