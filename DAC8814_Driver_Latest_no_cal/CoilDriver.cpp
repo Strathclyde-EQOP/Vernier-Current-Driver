@@ -56,7 +56,7 @@ int8_t CoilDriver::SetAllChannels(uint16_t code) {
   int8_t error = 0;
 
   for (uint8_t i = 0; i < kNumChannels; i++) {
-    error += SetChannelSetpoint(i, code);
+    error += SetChannelSetpoint(channels[i].address, code);
   }
   return error;
 }
