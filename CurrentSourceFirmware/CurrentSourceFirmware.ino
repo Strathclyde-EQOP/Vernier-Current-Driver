@@ -23,6 +23,7 @@
 #include <CommandParser.h>
 #include <string.h>
 #include "CurrentSource.h"
+#include "BoardInfo.h"
 
 
 /*******************************************************************
@@ -31,6 +32,7 @@
 const char software_version[] = "1.0.1";
 const uint32_t kBaudrate = 1000000;
 HardwareSerial &SerialInUse = Serial;
+
 
 /*******************************************************************
   Pin Mapping
