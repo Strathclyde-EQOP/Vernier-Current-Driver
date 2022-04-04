@@ -72,7 +72,6 @@ uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code) {
   uint16_t calibration_idx = code / kCalibrationStepSize;
   long temp_code = (long)code;
   long correction = (long)pgm_read_byte(&chan->calibration_table[calibration_idx]);
-  Serial.println(correction);
   
   temp_code = temp_code + correction;
   if (temp_code < 0) {
