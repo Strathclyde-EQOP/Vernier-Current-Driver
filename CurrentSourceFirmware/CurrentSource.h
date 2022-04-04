@@ -1,5 +1,5 @@
-#ifndef CoilDriver_h
-#define CoilDriver_h
+#ifndef CURRRENTSOURCE_H_
+#define CURRRENTSOURCE_H_
 
 #include <SPI.h>
 
@@ -38,13 +38,13 @@ class Channel {
 };
 
 
-class CoilDriver
+class CurrentSource
 {
   public:
     static const uint8_t kNumChannels = 3;
     static const uint16_t kResetSetpoint = 32768;
 
-    CoilDriver(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb):
+    CurrentSource(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb):
       pin_cs(cs),
       pin_ldac(ldac),
       pin_reset(reset),

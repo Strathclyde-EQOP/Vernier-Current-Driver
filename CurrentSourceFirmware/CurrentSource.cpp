@@ -1,8 +1,8 @@
-#include "CoilDriver.h"
+#include "CurrentSource.h"
 #include "calibration.h"
 #include <avr/pgmspace.h>
 
-void CoilDriver::Begin() {
+void CurrentSource::Begin() {
   digitalWrite(pin_cs, HIGH);
   pinMode(pin_cs, OUTPUT);
 
@@ -22,7 +22,7 @@ void CoilDriver::Begin() {
 }
 
 
-void CoilDriver::Reset() {
+void CurrentSource::Reset() {
   digitalWrite(pin_reset, LOW);
   delayMicroseconds(100);
   digitalWrite(pin_reset, HIGH);
@@ -30,7 +30,7 @@ void CoilDriver::Reset() {
 }
 
 
-int8_t CoilDriver::SetChannelSetpoint(uint8_t channel, uint16_t code) {
+int8_t CurrentSource::SetChannelSetpoint(uint8_t channel, uint16_t code) {
   Channel *chan = GetChannel(channel);
   if (!chan) {
     return -1;
@@ -45,7 +45,7 @@ int8_t CoilDriver::SetChannelSetpoint(uint8_t channel, uint16_t code) {
 }
 
 
-uint16_t CoilDriver::GetChannelSetpoint(uint8_t channel) {
+uint16_t CurrentSource::GetChannelSetpoint(uint8_t channel) {
   Channel *chan = GetChannel(channel);
   if (!chan) {
     return 0;
@@ -54,7 +54,7 @@ uint16_t CoilDriver::GetChannelSetpoint(uint8_t channel) {
 }
 
 
-int8_t CoilDriver::SetAllChannels(uint16_t code) {
+int8_t CurrentSource::SetAllChannels(uint16_t code) {
   int8_t error = 0;
 
   for (uint8_t i = 0; i < kNumChannels; i++) {
@@ -64,7 +64,7 @@ int8_t CoilDriver::SetAllChannels(uint16_t code) {
 }
 
 
-uint16_t CoilDriver::GetCalibratedCode(uint8_t channel, uint16_t code) {
+uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code) {
   uint16_t calibration_idx = code / 32;
   long temp_code = (long)code;
   long correction = (long)pgm_read_byte(&calibration_table[channel][calibration_idx]);
@@ -80,12 +80,12 @@ uint16_t CoilDriver::GetCalibratedCode(uint8_t channel, uint16_t code) {
 }
 
 
-bool CoilDriver::ValidateChannel(uint8_t channel) {
+bool CurrentSource::ValidateChannel(uint8_t channel) {
   return GetChannel(channel) ? true : false;
 }
 
 
-void CoilDriver::WriteDAC(uint8_t address, uint16_t code) {
+void CurrentSource::WriteDAC(uint8_t address, uint16_t code) {
   digitalWrite(pin_cs, LOW);
   SPI.transfer(address);
   SPI.transfer(highByte(code));
@@ -94,7 +94,7 @@ void CoilDriver::WriteDAC(uint8_t address, uint16_t code) {
 }
 
 
-Channel* CoilDriver::GetChannel(uint8_t channel) {
+Channel* CurrentSource::GetChannel(uint8_t channel) {
   for ( int i = 0; i < kNumChannels; i++) {
     if (channel == channels[i].address) {
       return &channels[i];
@@ -104,7 +104,7 @@ Channel* CoilDriver::GetChannel(uint8_t channel) {
 }
 
 
-int CoilDriver::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count){
+int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count){
   Channel *chan = GetChannel(channel);
   if (!chan) {
     return -1;
@@ -117,7 +117,7 @@ int CoilDriver::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_
 }
 
 
-void CoilDriver::Next(uint8_t channel){
+void CurrentSource::Next(uint8_t channel){
   Channel *chan = GetChannel(channel);
   if (!chan) {
     return;

@@ -7,7 +7,7 @@
 
 #include <CommandParser.h>
 #include <string.h>
-#include "CoilDriver.h"
+#include "CurrentSource.h"
 
 // Configuration
 const uint32_t kBaudrate = 1000000;
@@ -22,7 +22,7 @@ const uint8_t kPinReset = 7;
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength];
 
-CoilDriver coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
+CurrentSource coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
 typedef CommandParser<> MyCommandParser;
 MyCommandParser command_parser;
