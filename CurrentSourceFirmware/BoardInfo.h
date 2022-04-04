@@ -9,9 +9,9 @@ class BoardInfo {
     static const uint8_t kMaxStringLength = 16;
     struct Info {
       uint32_t max_current_uA;
-      char software_version[kMaxStringLength];
       char hardware_version[kMaxStringLength];
       char board_id[kMaxStringLength];
+      char software_version[kMaxStringLength];
     };
 
     BoardInfo(int eeprom_base_address, char *software_version);
