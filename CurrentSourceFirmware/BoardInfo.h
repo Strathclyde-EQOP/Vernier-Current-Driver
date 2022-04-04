@@ -11,10 +11,11 @@ class BoardInfo {
       uint32_t max_current_uA;
       char hardware_version[kMaxStringLength];
       char board_id[kMaxStringLength];
-      char software_version[kMaxStringLength];
     };
 
-    BoardInfo(int eeprom_base_address, char *software_version);
+    BoardInfo(int eeprom_base_address):
+      kEepromBaseAddress(eeprom_base_address)
+    {};
     int GetMaxCurrent(char *max_current_uA);
     int SetMaxCurrent(uint32_t max_current_uA);
     int GetHardwareVersion(char *version);

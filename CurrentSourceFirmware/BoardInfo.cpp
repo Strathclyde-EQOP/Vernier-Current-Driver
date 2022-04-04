@@ -1,12 +1,5 @@
 #include "BoardInfo.h"
 
-BoardInfo::BoardInfo(int eeprom_base_address, char *software_version):
-  kEepromBaseAddress(eeprom_base_address)
-{
-
-}
-
-
 int BoardInfo::GetMaxCurrent(char *max_current_uA) {
   return 0;
 }
