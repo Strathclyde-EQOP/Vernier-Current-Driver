@@ -13,9 +13,7 @@ class HardwareInfo {
       char board_id[kMaxStringLength];
     };
 
-    HardwareInfo(int eeprom_base_address):
-      kEepromBaseAddress(eeprom_base_address)
-    {};
+    HardwareInfo(int eeprom_base_address);
     int32_t GetMaxCurrent();
     int SetMaxCurrent(int32_t max_current_nA);
     int GetHardwareVersion(char *version);
