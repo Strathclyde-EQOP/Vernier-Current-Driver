@@ -2,6 +2,7 @@
 #define CURRRENTSOURCE_H_
 
 #include <SPI.h>
+#include "calibration.h"
 
 class Ramp {
   public:
@@ -21,6 +22,7 @@ class Channel {
     const uint16_t reset_setpoint;
     const uint8_t address;
     const uint8_t dac_channel;
+    const int8_t *calibration_table;
     uint16_t setpoint;
     enum State {
       STATIC,
@@ -28,11 +30,12 @@ class Channel {
     } state;
     Ramp ramp;
 
-    Channel(uint8_t address, uint8_t dac_channel, uint16_t reset_setpoint):
+    Channel(uint8_t address, uint8_t dac_channel, uint16_t reset_setpoint, const int8_t *calibration_table):
       address(address),
       dac_channel(dac_channel),
       reset_setpoint(reset_setpoint),
       setpoint(reset_setpoint),
+      calibration_table(calibration_table),
       state(State::STATIC)
     {};
 };
@@ -65,9 +68,9 @@ class CurrentSource
     const uint8_t pin_reset;
     const uint8_t pin_msb;
     Channel channels[kNumChannels] = {
-      Channel(1, 0, kResetSetpoint),
-      Channel(2, 1, kResetSetpoint),
-      Channel(3, 2, kResetSetpoint)
+      Channel(1, 0, kResetSetpoint, kChannel1Calibration),
+      Channel(2, 1, kResetSetpoint, kChannel2Calibration),
+      Channel(3, 2, kResetSetpoint, kChannel2Calibration)
     };
 
     uint16_t GetCalibratedCode(uint8_t channel, uint16_t code);
