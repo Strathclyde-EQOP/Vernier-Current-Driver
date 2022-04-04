@@ -72,7 +72,7 @@ uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code) {
   uint16_t calibration_idx = code / kCalibrationStepSize;
   long temp_code = (long)code;
   long correction = (long)pgm_read_byte(&chan->calibration_table[calibration_idx]);
-  
+
   temp_code = temp_code + correction;
   if (temp_code < 0) {
     temp_code = 0;
@@ -108,7 +108,7 @@ Channel* CurrentSource::GetChannel(uint8_t channel) {
 }
 
 
-int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count){
+int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count) {
   Channel *chan = GetChannel(channel);
   if (!chan) {
     return -1;
@@ -121,12 +121,12 @@ int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint
 }
 
 
-void CurrentSource::Next(uint8_t channel){
+void CurrentSource::Next(uint8_t channel) {
   Channel *chan = GetChannel(channel);
   if (!chan) {
     return;
   }
-  if (chan->state != Channel::State::RAMP){
+  if (chan->state != Channel::State::RAMP) {
     return;
   }
   uint16_t code = chan->ramp.Next();
@@ -142,8 +142,8 @@ void Ramp::Begin(uint16_t start, uint16_t step, uint16_t count) {
   current = start;
 }
 
-uint16_t Ramp::Next(){
-  if (count > 0){
+uint16_t Ramp::Next() {
+  if (count > 0) {
     current += step;
     count--;
   }
