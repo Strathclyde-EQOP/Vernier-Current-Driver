@@ -8,7 +8,7 @@ class HardwareInfo {
   public:
     static const uint8_t kMaxStringLength = 16;
     struct Info {
-      uint32_t max_current_uA;
+      int32_t max_current_uA;
       char hardware_version[kMaxStringLength];
       char board_id[kMaxStringLength];
     };
@@ -16,8 +16,8 @@ class HardwareInfo {
     HardwareInfo(int eeprom_base_address):
       kEepromBaseAddress(eeprom_base_address)
     {};
-    int GetMaxCurrent(char *max_current_uA);
-    int SetMaxCurrent(uint32_t max_current_uA);
+    int32_t GetMaxCurrent();
+    int SetMaxCurrent(int32_t max_current_uA);
     int GetHardwareVersion(char *version);
     int SetHardwareVersion(char *version, uint8_t length);
     int GetBoardID(char *id);
@@ -25,7 +25,7 @@ class HardwareInfo {
 
   private:
     const int kEepromBaseAddress;
-    Info board_info;
+    Info info;
 };
 
 #endif
