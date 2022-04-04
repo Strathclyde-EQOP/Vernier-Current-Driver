@@ -9,29 +9,43 @@
   Copyright University of Strathclyde, 2022
 */
 
+
+/*******************************************************************
+  Includes
+*******************************************************************/
 #include <CommandParser.h>
 #include <string.h>
 #include "CurrentSource.h"
 
-// Configuration
+
+/*******************************************************************
+  Configuration
+*******************************************************************/
 const uint32_t kBaudrate = 1000000;
 HardwareSerial &SerialInUse = Serial;
 
-// Pin mapping
+/*******************************************************************
+  Pin Mapping
+*******************************************************************/
 const uint8_t kPinCS = 10;
 const uint8_t kPinLDAC = 9;
 const uint8_t kPinMSB = 8;
 const uint8_t kPinReset = 7;
 
+/*******************************************************************
+  Global Variables
+*******************************************************************/
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength];
-
 CurrentSource coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 
 typedef CommandParser<> MyCommandParser;
 MyCommandParser command_parser;
 
 
+/*******************************************************************
+  Arduino Setup
+*******************************************************************/
 void setup()
 {
   SerialInUse.begin(kBaudrate);
@@ -44,6 +58,9 @@ void setup()
 }
 
 
+/*******************************************************************
+  Arduino Superloop
+*******************************************************************/
 void loop() {
 
   if (ReceiveCommand()) {
@@ -60,6 +77,10 @@ void loop() {
   }
 }
 
+
+/*******************************************************************
+  Functions
+*******************************************************************/
 
 bool ReceiveCommand()
 {
