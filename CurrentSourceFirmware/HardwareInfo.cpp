@@ -3,18 +3,18 @@
 #include "HardwareInfo.h"
 
 int32_t HardwareInfo::GetMaxCurrent() {
-  return info.max_current_uA;
+  return info.max_current_nA;
 }
 
 
-int HardwareInfo::SetMaxCurrent(int32_t max_current_uA) {
+int HardwareInfo::SetMaxCurrent(int32_t max_current_nA) {
   int32_t check;
-  int base = kEepromBaseAddress + offsetof(Info, max_current_uA);
+  int base = kEepromBaseAddress + offsetof(Info, max_current_nA);
 
-  EEPROM.put(base, max_current_uA);
+  EEPROM.put(base, max_current_nA);
   EEPROM.get(base, check);
-  if (max_current_uA == check) {
-    info.max_current_uA = max_current_uA;
+  if (max_current_nA == check) {
+    info.max_current_nA = max_current_nA;
     return 0;
   }
   else {
