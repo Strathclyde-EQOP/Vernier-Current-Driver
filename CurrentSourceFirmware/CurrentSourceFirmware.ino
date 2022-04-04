@@ -6,6 +6,13 @@
   details:
     https://github.com/Uberi/Arduino-CommandParser
 
+  Triggers: note that the Arduino Nano only supports external
+  interrupts on D2 and D3. Therefore, by dafult a trigger on Channel
+  3 is not supported. You can remap the channel trigger pin
+  assignment as a workaround. The Nano Every supports external
+  interrupts on every digital pin, and therefore is not limited to
+  two trigger inputs.
+
   Copyright University of Strathclyde, 2022
 */
 
@@ -32,6 +39,10 @@ const uint8_t kPinCS = 10;
 const uint8_t kPinLDAC = 9;
 const uint8_t kPinMSB = 8;
 const uint8_t kPinReset = 7;
+const uint8_t kPinChan1Trigger = 2;
+const uint8_t kPinChan2Trigger = 3;
+const uint8_t kPinChan3Trigger = 4;
+
 
 /*******************************************************************
   Global Variables
@@ -50,6 +61,7 @@ MyCommandParser command_parser;
 void setup()
 {
   SerialInUse.begin(kBaudrate);
+  InitTriggers();
   command_parser.registerCommand("?", "", &CmdCommsCheck);
   command_parser.registerCommand("!chan", "uu", &CmdSetChan);
   command_parser.registerCommand("?chan", "u", &CmdGetChan);
@@ -83,6 +95,33 @@ void loop() {
 /*******************************************************************
   Functions
 *******************************************************************/
+
+void InitTriggers() {
+  pinMode(kPinChan1Trigger, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(kPinChan1Trigger), IntTriggerChan1, FALLING);
+
+  pinMode(kPinChan2Trigger, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(kPinChan2Trigger), IntTriggerChan2, FALLING);
+
+  pinMode(kPinChan3Trigger, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(kPinChan3Trigger), IntTriggerChan3, FALLING);
+}
+
+
+void IntTriggerChan1() {
+  coil.Next(1);
+}
+
+
+void IntTriggerChan2() {
+  coil.Next(2);
+}
+
+
+void IntTriggerChan3() {
+  coil.Next(3);
+}
+
 
 bool ReceiveCommand()
 {

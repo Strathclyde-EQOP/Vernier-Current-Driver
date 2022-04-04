@@ -23,7 +23,7 @@ class Channel {
     const uint8_t address;
     const uint8_t dac_channel;
     const int8_t *calibration_table;
-    uint16_t setpoint;
+    volatile uint16_t setpoint;
     enum State {
       STATIC,
       RAMP
