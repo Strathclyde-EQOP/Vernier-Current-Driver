@@ -1,8 +1,12 @@
 
-/* Driver for DAC8814 used withing the vernier-vamp coil driver, uses UART to communicate with DAC8814 through SPI
+/* Control firmware for the EQOP Current Source.
 
-    Version 1.1b
-    20/11/2020
+  This software uses the CommandParser library, which needs to be
+  installed for this code to compile. See the library GitHub for
+  details:
+    https://github.com/Uberi/Arduino-CommandParser
+
+  Copyright University of Strathclyde, 2022
 */
 
 #include <CommandParser.h>
