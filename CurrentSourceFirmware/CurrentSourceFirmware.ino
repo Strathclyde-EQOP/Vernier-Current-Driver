@@ -23,7 +23,7 @@
 #include <CommandParser.h>
 #include <string.h>
 #include "CurrentSource.h"
-#include "BoardInfo.h"
+#include "HardwareInfo.h"
 
 
 /*******************************************************************
@@ -52,7 +52,7 @@ const uint8_t kPinChan3Trigger = 4;
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength];
 CurrentSource coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
-
+HardwareInfo board_info(0);
 typedef CommandParser<> MyCommandParser;
 MyCommandParser command_parser;
 

@@ -1,10 +1,10 @@
-#ifndef BOARDINFO_H_
-#define BOARDINFO_H_
+#ifndef HARDWAREINFO_H_
+#define HARDWAREINFO_H_
 
 #include <stdint.h>
 
 
-class BoardInfo {
+class HardwareInfo {
   public:
     static const uint8_t kMaxStringLength = 16;
     struct Info {
@@ -13,7 +13,7 @@ class BoardInfo {
       char board_id[kMaxStringLength];
     };
 
-    BoardInfo(int eeprom_base_address):
+    HardwareInfo(int eeprom_base_address):
       kEepromBaseAddress(eeprom_base_address)
     {};
     int GetMaxCurrent(char *max_current_uA);
