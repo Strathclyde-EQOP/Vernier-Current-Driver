@@ -52,7 +52,7 @@ const uint8_t kPinChan3Trigger = 4;
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength];
 CurrentSource coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
-HardwareInfo board_info(0);
+HardwareInfo hardware_info(0);
 typedef CommandParser<> MyCommandParser;
 MyCommandParser command_parser;
 
@@ -70,6 +70,8 @@ void setup()
   command_parser.registerCommand("!ramp", "uuiu", &CmdSetRamp);
   command_parser.registerCommand("!next", "u", &CmdChannelNext);
   command_parser.registerCommand("?software", "", &CmdGetSoftwareVersion);
+  command_parser.registerCommand("!current", "u", &CmdSetMaxCurrent);
+  command_parser.registerCommand("?current", "", &CmdGetMaxCurrent);
   coil.Begin();
 }
 
@@ -242,6 +244,24 @@ void CmdGetSoftwareVersion(MyCommandParser::Argument *args, char *response) {
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", software_version);
 }
 
+
+void CmdGetMaxCurrent(MyCommandParser::Argument *args, char *response) {
+  snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%ld nA", hardware_info.GetMaxCurrent());
+}
+
+
+void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response) {
+  int res;
+  int32_t max_current_nA = (int32_t)args[0].asInt64;
+
+  res = hardware_info.SetMaxCurrent(max_current_nA);
+  if (!res) {
+    snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%ld nA", max_current_nA);
+  }
+  else {
+    strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
+  }
+}
 
 void ProcessLegacyCommand()
 {
