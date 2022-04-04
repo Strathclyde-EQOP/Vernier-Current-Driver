@@ -21,6 +21,7 @@
 /*******************************************************************
   Configuration
 *******************************************************************/
+const char software_version[] = "1.0.1";
 const uint32_t kBaudrate = 1000000;
 HardwareSerial &SerialInUse = Serial;
 
@@ -54,6 +55,7 @@ void setup()
   command_parser.registerCommand("?chan", "u", &CmdGetChan);
   command_parser.registerCommand("!ramp", "uuiu", &CmdSetRamp);
   command_parser.registerCommand("!next", "u", &CmdChannelNext);
+  command_parser.registerCommand("?software", "", &CmdGetSoftwareVersion);
   coil.Begin();
 }
 
@@ -192,6 +194,11 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
 void CmdChannelNext(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   coil.Next(channel);
+}
+
+
+void CmdGetSoftwareVersion(MyCommandParser::Argument *args, char *response) {
+  snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", software_version);
 }
 
 
