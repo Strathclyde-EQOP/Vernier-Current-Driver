@@ -72,6 +72,8 @@ void setup()
   command_parser.registerCommand("?software", "", &CmdGetSoftwareVersion);
   command_parser.registerCommand("!current", "u", &CmdSetMaxCurrent);
   command_parser.registerCommand("?current", "", &CmdGetMaxCurrent);
+  command_parser.registerCommand("!boardid", "s", &CmdSetBoardId);
+  command_parser.registerCommand("?boardid", "", &CmdGetBoardId);
   coil.Begin();
 }
 
@@ -262,6 +264,22 @@ void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response) {
     strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
   }
 }
+
+
+void CmdSetBoardId(MyCommandParser::Argument *args, char *response) { 
+  hardware_info.SetBoardId(args[0].asString);
+  char buff[HardwareInfo::kMaxStringLength];
+  hardware_info.GetBoardId(buff);
+  snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
+}
+
+
+void CmdGetBoardId(MyCommandParser::Argument *args, char *response) { 
+  char buff[HardwareInfo::kMaxStringLength];
+  hardware_info.GetBoardId(buff);
+  snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
+}
+
 
 void ProcessLegacyCommand()
 {
