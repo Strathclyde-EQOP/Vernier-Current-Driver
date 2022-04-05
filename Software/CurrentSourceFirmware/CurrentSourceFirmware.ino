@@ -74,7 +74,7 @@ void setup()
 *******************************************************************/
 void loop() {
 
-  if (ReceiveCommand()) {
+  if (ReceivePacket()) {
     if (serial_rx_buffer[0] == '0' ||
         serial_rx_buffer[0] == '1' ||
         serial_rx_buffer[0] == '2') {
@@ -136,7 +136,19 @@ void IntTriggerChan3() {
 }
 
 
-bool ReceiveCommand()
+/*
+  Receive packets on the serial interface. Should be called in the superloop to
+  check for any new serial packets.
+
+  Valid packets are any that fit in the receive buffer, as well as use a '<' to mark
+  the start of a packet and a '>' to mark the end.
+
+  The received packed is stored in the global serial_rx_buffer, stripped of the
+  start/stop characters.
+
+  Returns true when there is a new packet to be processed in the superloop.
+*/
+bool ReceivePacket()
 {
   static boolean rx_in_prgress = false;  // Characters in the pipeline
   static byte rx_buffer_index = 0;
