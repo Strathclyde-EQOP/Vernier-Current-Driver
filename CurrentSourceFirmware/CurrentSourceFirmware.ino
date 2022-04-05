@@ -74,6 +74,8 @@ void setup()
   command_parser.registerCommand("?current", "", &CmdGetMaxCurrent);
   command_parser.registerCommand("!boardid", "s", &CmdSetBoardId);
   command_parser.registerCommand("?boardid", "", &CmdGetBoardId);
+  command_parser.registerCommand("!hardware", "s", &CmdSetHardwareVersion);
+  command_parser.registerCommand("?hardware", "", &CmdGetHardwareVersion);
   coil.Begin();
 }
 
@@ -277,6 +279,21 @@ void CmdSetBoardId(MyCommandParser::Argument *args, char *response) {
 void CmdGetBoardId(MyCommandParser::Argument *args, char *response) { 
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetBoardId(buff);
+  snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
+}
+
+
+void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) { 
+  hardware_info.SetHardwareVersion(args[0].asString);
+  char buff[HardwareInfo::kMaxStringLength];
+  hardware_info.GetHardwareVersion(buff);
+  snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
+}
+
+
+void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response) { 
+  char buff[HardwareInfo::kMaxStringLength];
+  hardware_info.GetHardwareVersion(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
 }
 
