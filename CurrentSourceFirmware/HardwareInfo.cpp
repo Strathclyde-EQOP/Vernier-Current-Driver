@@ -78,3 +78,24 @@ int32_t HardwareInfo::GetMaxCurrentEeprom() {
   EEPROM.get(address, max_current_na);
   return max_current_na;
 }
+
+
+int HardwareInfo::EepromWriteString(int address, char *string, uint8_t length) {
+  int res = 0;
+
+  if (length > HardwareInfo::kMaxStringLength) {
+    length = HardwareInfo::kMaxStringLength;
+  }
+  char buff[length];
+
+  strncpy(buff, string, length);
+  if (buff[length - 1] != '\0') {
+    buff[length - 1] = '\0';
+    res = -1;
+  }
+
+  for (int i = 0; i < length; i++) {
+    EEPROM.update(address + i, buff[i]);
+  }
+  return res;
+}

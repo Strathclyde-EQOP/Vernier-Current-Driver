@@ -29,6 +29,7 @@ class HardwareInfo {
     int EepromAddressMaxCurrent();
     int EepromAddressHardwareVersion();
     int EepromAddressBoardId();
+    int EepromWriteString(int address, char *string, uint8_t length);
 };
 
 #endif
