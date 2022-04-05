@@ -32,6 +32,7 @@ class HardwareInfo {
     int EepromWriteString(int address, char *string, uint8_t length);
     int EepromReadString(int address, char *dest, uint8_t length);
     int GetBoardIdEeprom(char *id);
+    int GetHardwareVersionEeprom(char *version);
     size_t strnlen(const char *s, size_t maxlen);
 };
 

@@ -8,6 +8,7 @@ HardwareInfo::HardwareInfo(int eeprom_base_address):
   kEepromBaseAddress(eeprom_base_address) {
   info.max_current_nA = GetMaxCurrentEeprom();
   GetBoardIdEeprom(info.board_id);
+  GetHardwareVersionEeprom(info.hardware_version);
 }
 
 
@@ -31,7 +32,7 @@ int HardwareInfo::SetMaxCurrent(int32_t max_current_nA) {
 
 
 int HardwareInfo::GetHardwareVersion(char *version) {
-  strncpy(info.hardware_version, version, HardwareInfo::kMaxStringLength);
+  strncpy(version, info.hardware_version, HardwareInfo::kMaxStringLength);
   if (version[HardwareInfo::kMaxStringLength - 1] != '\0') {
     version[HardwareInfo::kMaxStringLength - 1] = '\0';
   }
@@ -40,7 +41,10 @@ int HardwareInfo::GetHardwareVersion(char *version) {
 
 
 int HardwareInfo::SetHardwareVersion(char *version) {
-  return 0;
+  size_t len = strnlen(version, HardwareInfo::kMaxStringLength);
+  int res = EepromWriteString(EepromAddressHardwareVersion(), version, len + 1);
+  GetHardwareVersionEeprom(info.hardware_version);
+  return res;
 }
 
 
@@ -95,6 +99,11 @@ int32_t HardwareInfo::GetMaxCurrentEeprom() {
 
 int HardwareInfo::GetBoardIdEeprom(char *id) {
   return EepromReadString(EepromAddressBoardId(), id, HardwareInfo::kMaxStringLength);
+}
+
+
+int HardwareInfo::GetHardwareVersionEeprom(char *version) {
+  return EepromReadString(EepromAddressHardwareVersion(), version, HardwareInfo::kMaxStringLength);
 }
 
 
