@@ -7,6 +7,7 @@
 HardwareInfo::HardwareInfo(int eeprom_base_address):
   kEepromBaseAddress(eeprom_base_address) {
   info.max_current_nA = GetMaxCurrentEeprom();
+  GetBoardIdEeprom(info.board_id);
 }
 
 
@@ -38,13 +39,13 @@ int HardwareInfo::GetHardwareVersion(char *version) {
 }
 
 
-int HardwareInfo::SetHardwareVersion(char *version, uint8_t length) {
+int HardwareInfo::SetHardwareVersion(char *version) {
   return 0;
 }
 
 
 int HardwareInfo::GetBoardId(char *id) {
-  strncpy(info.board_id, id, HardwareInfo::kMaxStringLength);
+  strncpy(id, info.board_id, HardwareInfo::kMaxStringLength);
   if (id[HardwareInfo::kMaxStringLength - 1] != '\0') {
     id[HardwareInfo::kMaxStringLength - 1] = '\0';
   }
@@ -52,8 +53,20 @@ int HardwareInfo::GetBoardId(char *id) {
 }
 
 
-int HardwareInfo::SetBoardId(char *id, uint8_t length) {
-  return 0;
+size_t HardwareInfo::strnlen(const char *s, size_t maxlen) {
+  size_t i;
+  for (i = 0; i < maxlen; ++i)
+    if (s[i] == '\0')
+      break;
+  return i;
+}
+
+
+int HardwareInfo::SetBoardId(char *id) {
+  size_t len = strnlen(id, HardwareInfo::kMaxStringLength);
+  int res = EepromWriteString(EepromAddressBoardId(), id, len + 1);
+  GetBoardIdEeprom(info.board_id);
+  return res;
 }
 
 
@@ -77,6 +90,11 @@ int32_t HardwareInfo::GetMaxCurrentEeprom() {
   const int address = EepromAddressMaxCurrent();
   EEPROM.get(address, max_current_na);
   return max_current_na;
+}
+
+
+int HardwareInfo::GetBoardIdEeprom(char *id) {
+  return EepromReadString(EepromAddressBoardId(), id, HardwareInfo::kMaxStringLength);
 }
 
 

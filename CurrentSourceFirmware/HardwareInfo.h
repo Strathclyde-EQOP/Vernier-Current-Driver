@@ -17,9 +17,9 @@ class HardwareInfo {
     int32_t GetMaxCurrent();
     int SetMaxCurrent(int32_t max_current_nA);
     int GetHardwareVersion(char *version);
-    int SetHardwareVersion(char *version, uint8_t length);
+    int SetHardwareVersion(char *version);
     int GetBoardId(char *id);
-    int SetBoardId(char *id, uint8_t length);
+    int SetBoardId(char *id);
 
   private:
     const int kEepromBaseAddress;
@@ -31,6 +31,8 @@ class HardwareInfo {
     int EepromAddressBoardId();
     int EepromWriteString(int address, char *string, uint8_t length);
     int EepromReadString(int address, char *dest, uint8_t length);
+    int GetBoardIdEeprom(char *id);
+    size_t strnlen(const char *s, size_t maxlen);
 };
 
 #endif
