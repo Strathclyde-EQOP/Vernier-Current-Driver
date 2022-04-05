@@ -52,6 +52,10 @@ int HardwareInfo::SetHardwareVersion(char *version, uint8_t length) {
 
 
 int HardwareInfo::GetBoardId(char *id) {
+  strncpy(info.board_id, id, HardwareInfo::kMaxStringLength);
+  if (id[HardwareInfo::kMaxStringLength - 1] != '\0') {
+    id[HardwareInfo::kMaxStringLength - 1] = '\0';
+  }
   return 0;
 }
 
