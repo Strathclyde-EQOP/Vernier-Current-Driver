@@ -186,11 +186,40 @@ bool ReceivePacket()
 }
 
 
+/*
+  Command: '?'
+
+  Description:
+    Basic comms check.
+
+  Arguments:
+    None.
+
+  Response:
+    Always returns '#check'.
+*/
 void CmdCommsCheck(MyCommandParser::Argument *args, char *response) {
   strlcpy(response, "#check", MyCommandParser::MAX_RESPONSE_SIZE);
 }
 
 
+
+/*
+  Command: '!chan {channel_number} {setpoint}'
+
+  Description:
+    Set a channel to a specific DAC code. See the project wiki for details on how
+    DAC code and output current are related.
+
+  Arguments:
+    [0] - channel_number: Channel number to update, range 1 to 3.
+    [1] - setpoint: DAC code to set channel to, range 0 to 65535.
+
+  Response:
+     Valid arguments result in a response in the form of '#{channel_number} {setpoint}',
+     confirming the set values.
+     Invalid arguments result in a reponse of '#ERROR'.
+*/
 void CmdSetChan(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint = (uint16_t)args[1].asUInt64;
@@ -206,6 +235,21 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response) {
 }
 
 
+/*
+  Command: '?chan {channel_number}'
+
+  Description:
+    Get the current DAC code being output on {channel_number}. See the project
+    wiki for details on how the DAC code and output current are related.
+
+  Arguments:
+    [0] - channel_number: Channel number to query, range 1 to 3.
+
+  Response:
+     Valid arguments result in a response in the form of '#{channel_number} {setpoint}',
+     confirming the set values.
+     Invalid arguments result in a reponse of '#ERROR'.
+*/
 void CmdGetChan(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint;
@@ -220,6 +264,26 @@ void CmdGetChan(MyCommandParser::Argument *args, char *response) {
 }
 
 
+/*
+  Command: '!ramp {channel_number} {start} {step} {count}'
+
+  Description:
+    Setup a ramp output for a given channel. The start point is output immediately.
+    Triggering the channel output (either with a !next command or via a trigger on a
+    digital IO) will add {step} to the current output code. The output saturates
+    after {count} triggers.
+
+  Arguments:
+    [0] - channel_number: Channel number to query, range 1 to 3.
+    [1] - start: The inital DAC count to output.
+    [2] - step: The number of DAC counts to increment by on a trigger.
+    [3] - count: The maximum number of triggers before the DAC output saturates.
+
+  Response:
+     Valid arguments result in a response in the form of '#{channel_number} {start} {step} {count}',
+     confirming the set values.
+     Invalid arguments result in a reponse of '#ERROR'.
+*/
 void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t ramp_start = (uint16_t)args[1].asUInt64;
@@ -255,22 +319,75 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
 }
 
 
+/*
+  Command: '!next {channel_number}'
+
+  Description:
+    Triggers the given channel to move to the next output code.
+
+  Arguments:
+    [0] - channel_number: Channel number to query, range 1 to 3. Must be an integer.
+
+  Response:
+     Valid arguments result in a response in the form of '#{channel_number} {start} {step} {count}',
+     confirming the set values.
+     Invalid arguments result in a reponse of '#ERROR'.
+*/
 void CmdChannelNext(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   coil.Next(channel);
 }
 
 
+/*
+  Command: '?software'
+
+  Description:
+    Get the current software version string.
+
+  Arguments:
+    None.
+
+  Response:
+     The software version string in the form '#{version_string}'.
+*/
 void CmdGetSoftwareVersion(MyCommandParser::Argument *args, char *response) {
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", software_version);
 }
 
 
+/*
+  Command: '?current'
+
+  Description:
+    Get the maximum output current in nanoamps.
+
+  Arguments:
+    None.
+
+  Response:
+     The maximum output current in the form '#{max_current} nA'.
+*/
 void CmdGetMaxCurrent(MyCommandParser::Argument *args, char *response) {
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%ld nA", hardware_info.GetMaxCurrent());
 }
 
 
+/*
+  Command: '!current {max_current_nA}'
+
+  Description:
+    Set the maximum output current for the current source in nanoamps.
+    The value is stored in EEPROM and persists between power cycles.
+
+  Arguments:
+    [0] - max_current_nA: The maximum output current in nA. Must be an integer.
+
+  Response:
+     Valid arguments result in a response in the form of '#{max_current_nA} nA',
+     confirming the set values.
+     Invalid arguments result in a reponse of '#ERROR'.
+*/
 void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response) {
   int res;
   int32_t max_current_nA = (int32_t)args[0].asInt64;
@@ -285,6 +402,19 @@ void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response) {
 }
 
 
+/*
+  Command: '!boardid {id}'
+
+  Description:
+    Set the board ID.
+    The value is stored in EEPROM and persists between power cycles.
+
+  Arguments:
+    [0] - id: A string of up to 15 characters. Longer strings will be truncated.
+
+  Response:
+     The board id in the form '#{board_id}'.
+*/
 void CmdSetBoardId(MyCommandParser::Argument *args, char *response) {
   hardware_info.SetBoardId(args[0].asString);
   char buff[HardwareInfo::kMaxStringLength];
@@ -293,6 +423,18 @@ void CmdSetBoardId(MyCommandParser::Argument *args, char *response) {
 }
 
 
+/*
+  Command: '?boardid'
+
+  Description:
+    Get the board ID.
+
+  Arguments:
+    None.
+
+  Response:
+     The board id string in the form '#{board_id}'.
+*/
 void CmdGetBoardId(MyCommandParser::Argument *args, char *response) {
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetBoardId(buff);
@@ -300,6 +442,20 @@ void CmdGetBoardId(MyCommandParser::Argument *args, char *response) {
 }
 
 
+
+/*
+  Command: '!hardware {version_string}'
+
+  Description:
+    Set the hardware version.
+    The value is stored in EEPROM and persists between power cycles.
+
+  Arguments:
+    [0] - version_string: A string of up to 15 characters. Longer strings will be truncated.
+
+  Response:
+     The hardware version in the form '#{version_string}'.
+*/
 void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) {
   hardware_info.SetHardwareVersion(args[0].asString);
   char buff[HardwareInfo::kMaxStringLength];
@@ -308,6 +464,18 @@ void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) {
 }
 
 
+/*
+  Command: '?hardware'
+
+  Description:
+    Get the hardware version.
+
+  Arguments:
+    None.
+
+  Response:
+     The hardware version string in the form '#{version_string}'.
+*/
 void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response) {
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetHardwareVersion(buff);
