@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <string.h>
 #include <EEPROM.h>
 #include "HardwareInfo.h"
 
@@ -37,6 +38,10 @@ int HardwareInfo::SetMaxCurrent(int32_t max_current_nA) {
 
 
 int HardwareInfo::GetHardwareVersion(char *version) {
+  strncpy(info.hardware_version, version, HardwareInfo::kMaxStringLength);
+  if (version[HardwareInfo::kMaxStringLength - 1] != '\0') {
+    version[HardwareInfo::kMaxStringLength - 1] = '\0';
+  }
   return 0;
 }
 
