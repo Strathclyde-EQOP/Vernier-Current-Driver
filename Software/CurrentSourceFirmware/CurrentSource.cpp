@@ -4,7 +4,6 @@
 #include "calibration.h"
 
 
-
 void CurrentSource::Begin() {
   digitalWrite(pin_cs, HIGH);
   pinMode(pin_cs, OUTPUT);

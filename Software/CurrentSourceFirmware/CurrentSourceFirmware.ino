@@ -483,6 +483,7 @@ void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response) {
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
 }
 
+
 /*
   ***DEPRECIATED***
   Command: '{channel}A{setpoint}'
