@@ -27,6 +27,8 @@ class HardwareInfo {
 
     int32_t GetMaxCurrentEeprom();
     int EepromAddressMaxCurrent();
+    int EepromAddressHardwareVersion();
+    int EepromAddressBoardId();
 };
 
 #endif

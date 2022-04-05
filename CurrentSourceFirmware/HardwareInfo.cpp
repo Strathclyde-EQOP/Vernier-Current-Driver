@@ -49,6 +49,16 @@ int HardwareInfo::EepromAddressMaxCurrent() {
 }
 
 
+int HardwareInfo::EepromAddressHardwareVersion() {
+  return kEepromBaseAddress + offsetof(Info, hardware_version);
+}
+
+
+int HardwareInfo::EepromAddressBoardId() {
+  return kEepromBaseAddress + offsetof(Info, board_id);
+}
+
+
 int HardwareInfo::GetHardwareVersion(char *version) {
   return 0;
 }
