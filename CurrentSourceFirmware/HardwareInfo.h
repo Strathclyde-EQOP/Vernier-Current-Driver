@@ -24,6 +24,9 @@ class HardwareInfo {
   private:
     const int kEepromBaseAddress;
     Info info;
+
+    int32_t GetMaxCurrentEeprom();
+    int EepromAddressMaxCurrent();
 };
 
 #endif

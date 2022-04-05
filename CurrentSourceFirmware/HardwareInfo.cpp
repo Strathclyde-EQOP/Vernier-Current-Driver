@@ -4,7 +4,7 @@
 
 
 HardwareInfo::HardwareInfo(int eeprom_base_address):
-      kEepromBaseAddress(eeprom_base_address){
+  kEepromBaseAddress(eeprom_base_address) {
   int32_t max_current_nA;
   int base = kEepromBaseAddress + offsetof(Info, max_current_nA);
   EEPROM.get(base, max_current_nA);
@@ -23,18 +23,29 @@ int32_t HardwareInfo::GetMaxCurrent() {
 
 
 int HardwareInfo::SetMaxCurrent(int32_t max_current_nA) {
-  int32_t check;
-  int base = kEepromBaseAddress + offsetof(Info, max_current_nA);
+  int address = EepromAddressMaxCurrent();
+  EEPROM.put(address, max_current_nA);
 
-  EEPROM.put(base, max_current_nA);
-  EEPROM.get(base, check);
-  if (max_current_nA == check) {
+  if (max_current_nA == GetMaxCurrentEeprom()) {
     info.max_current_nA = max_current_nA;
     return 0;
   }
   else {
     return -1;
   }
+}
+
+
+int32_t HardwareInfo::GetMaxCurrentEeprom() {
+  int32_t max_current_na;
+  const int address = EepromAddressMaxCurrent();
+  EEPROM.get(address, max_current_na);
+  return max_current_na;
+}
+
+
+int HardwareInfo::EepromAddressMaxCurrent() {
+  return kEepromBaseAddress + offsetof(Info, max_current_nA);
 }
 
 
