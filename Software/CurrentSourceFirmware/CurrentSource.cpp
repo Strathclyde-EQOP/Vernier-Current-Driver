@@ -12,7 +12,7 @@ void CurrentSource::Begin() {
   digitalWrite(pin_reset, HIGH);
   pinMode(pin_reset, OUTPUT);
 
-  digitalWrite(pin_msb, HIGH);
+  digitalWrite(pin_msb, HIGH); //Hardware reset should output midrange
   pinMode(pin_msb, OUTPUT);
 
   SPI.begin();
