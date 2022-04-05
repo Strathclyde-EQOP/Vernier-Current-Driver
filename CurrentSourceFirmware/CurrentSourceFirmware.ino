@@ -7,7 +7,7 @@
     https://github.com/Uberi/Arduino-CommandParser
 
   Triggers: note that the Arduino Nano only supports external
-  interrupts on D2 and D3. Therefore, by dafult a trigger on Channel
+  interrupts on D2 and D3. Therefore, by default a trigger on Channel
   3 is not supported. You can remap the channel trigger pin
   assignment as a workaround. The Nano Every supports external
   interrupts on every digital pin, and therefore is not limited to
