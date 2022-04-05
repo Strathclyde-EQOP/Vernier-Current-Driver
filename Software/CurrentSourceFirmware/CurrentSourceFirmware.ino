@@ -51,7 +51,7 @@ const uint8_t kPinChan3Trigger = 4;
 *******************************************************************/
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength];
-CurrentSource coil(kPinCS, kPinLDAC, kPinReset, kPinMSB);
+CurrentSource current_source(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 HardwareInfo hardware_info(0);
 typedef CommandParser<> MyCommandParser;
 MyCommandParser command_parser;
@@ -65,7 +65,7 @@ void setup()
   SerialInUse.begin(kBaudrate);
   InitTriggers();
   RegisterCommands();
-  coil.Begin();
+  current_source.Begin();
 }
 
 
@@ -122,17 +122,17 @@ void InitTriggers() {
 
 
 void IntTriggerChan1() {
-  coil.Next(1);
+  current_source.Next(1);
 }
 
 
 void IntTriggerChan2() {
-  coil.Next(2);
+  current_source.Next(2);
 }
 
 
 void IntTriggerChan3() {
-  coil.Next(3);
+  current_source.Next(3);
 }
 
 
@@ -225,7 +225,7 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response) {
   uint16_t setpoint = (uint16_t)args[1].asUInt64;
   int res;
 
-  res = coil.SetChannelSetpoint(channel, setpoint);
+  res = current_source.SetChannelSetpoint(channel, setpoint);
   if (!res) {
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
@@ -254,8 +254,8 @@ void CmdGetChan(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint;
 
-  if (coil.ValidateChannel(channel)) {
-    setpoint = coil.GetChannelSetpoint(channel);
+  if (current_source.ValidateChannel(channel)) {
+    setpoint = current_source.GetChannelSetpoint(channel);
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
   else {
@@ -290,8 +290,8 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
   int32_t ramp_step = (int32_t)args[2].asInt64;
   uint16_t ramp_count = (uint16_t)args[3].asUInt64;
 
-  if (coil.ValidateChannel(channel)) {
-    coil.InitRamp(channel, ramp_start, ramp_step, ramp_count);
+  if (current_source.ValidateChannel(channel)) {
+    current_source.InitRamp(channel, ramp_start, ramp_step, ramp_count);
     /* For some reason, a 4-parameter snprintf is always returning a 0 for the 4th parameter.
         Workaround is to just print directly to serial port for now, rather than copy into
         the response.
@@ -335,7 +335,7 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
 */
 void CmdChannelNext(MyCommandParser::Argument *args, char *response) {
   uint8_t channel = (uint8_t)args[0].asUInt64;
-  coil.Next(channel);
+  current_source.Next(channel);
 }
 
 
@@ -503,6 +503,6 @@ void ProcessLegacyCommand()
     DAC_count = 0;
   }
 
-  coil.SetChannelSetpoint(DAC_address, DAC_count);
+  current_source.SetChannelSetpoint(DAC_address, DAC_count);
   SerialInUse.println(1);
 }
