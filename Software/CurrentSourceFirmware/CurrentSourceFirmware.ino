@@ -483,7 +483,24 @@ void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response) {
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
 }
 
+/*
+  ***DEPRECIATED***
+  Command: '{channel}A{setpoint}'
 
+  Description:
+    Process legacy command for setting {channel} DAC to {setpoint}.
+
+    DECPRECIATED: New controllers should prefer the '!chan' command.
+
+  Arguments:
+    channel: the channel number, ZERO-BASE INDEXED.
+      For example, to set 'Channel 1' as labeled on the PCB, you would
+      have to set channel index 0.
+    setpoint: DAC code to set channel to, range 0 to 65535.
+
+  Response:
+     Always responds '1\r\n'.
+*/
 void ProcessLegacyCommand()
 {
   char *token;
