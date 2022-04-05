@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <EEPROM.h>
+
 #include "HardwareInfo.h"
 
 
