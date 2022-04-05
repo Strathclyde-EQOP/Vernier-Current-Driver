@@ -48,11 +48,11 @@ int HardwareInfo::SetHardwareVersion(char *version, uint8_t length) {
 }
 
 
-int HardwareInfo::GetBoardID(char *id) {
+int HardwareInfo::GetBoardId(char *id) {
   return 0;
 }
 
 
-int HardwareInfo::SetBoardID(char *id, uint8_t length) {
+int HardwareInfo::SetBoardId(char *id, uint8_t length) {
   return 0;
 }

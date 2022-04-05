@@ -18,8 +18,8 @@ class HardwareInfo {
     int SetMaxCurrent(int32_t max_current_nA);
     int GetHardwareVersion(char *version);
     int SetHardwareVersion(char *version, uint8_t length);
-    int GetBoardID(char *id);
-    int SetBoardID(char *id, uint8_t length);
+    int GetBoardId(char *id);
+    int SetBoardId(char *id, uint8_t length);
 
   private:
     const int kEepromBaseAddress;
