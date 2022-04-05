@@ -64,18 +64,7 @@ void setup()
 {
   SerialInUse.begin(kBaudrate);
   InitTriggers();
-  command_parser.registerCommand("?", "", &CmdCommsCheck);
-  command_parser.registerCommand("!chan", "uu", &CmdSetChan);
-  command_parser.registerCommand("?chan", "u", &CmdGetChan);
-  command_parser.registerCommand("!ramp", "uuiu", &CmdSetRamp);
-  command_parser.registerCommand("!next", "u", &CmdChannelNext);
-  command_parser.registerCommand("?software", "", &CmdGetSoftwareVersion);
-  command_parser.registerCommand("!current", "u", &CmdSetMaxCurrent);
-  command_parser.registerCommand("?current", "", &CmdGetMaxCurrent);
-  command_parser.registerCommand("!boardid", "s", &CmdSetBoardId);
-  command_parser.registerCommand("?boardid", "", &CmdGetBoardId);
-  command_parser.registerCommand("!hardware", "s", &CmdSetHardwareVersion);
-  command_parser.registerCommand("?hardware", "", &CmdGetHardwareVersion);
+  RegisterCommands();
   coil.Begin();
 }
 
@@ -103,6 +92,22 @@ void loop() {
 /*******************************************************************
   Functions
 *******************************************************************/
+
+void RegisterCommands() {
+  command_parser.registerCommand("?", "", &CmdCommsCheck);
+  command_parser.registerCommand("!chan", "uu", &CmdSetChan);
+  command_parser.registerCommand("?chan", "u", &CmdGetChan);
+  command_parser.registerCommand("!ramp", "uuiu", &CmdSetRamp);
+  command_parser.registerCommand("!next", "u", &CmdChannelNext);
+  command_parser.registerCommand("?software", "", &CmdGetSoftwareVersion);
+  command_parser.registerCommand("!current", "u", &CmdSetMaxCurrent);
+  command_parser.registerCommand("?current", "", &CmdGetMaxCurrent);
+  command_parser.registerCommand("!boardid", "s", &CmdSetBoardId);
+  command_parser.registerCommand("?boardid", "", &CmdGetBoardId);
+  command_parser.registerCommand("!hardware", "s", &CmdSetHardwareVersion);
+  command_parser.registerCommand("?hardware", "", &CmdGetHardwareVersion);
+}
+
 
 void InitTriggers() {
   pinMode(kPinChan1Trigger, INPUT_PULLUP);
@@ -268,7 +273,7 @@ void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response) {
 }
 
 
-void CmdSetBoardId(MyCommandParser::Argument *args, char *response) { 
+void CmdSetBoardId(MyCommandParser::Argument *args, char *response) {
   hardware_info.SetBoardId(args[0].asString);
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetBoardId(buff);
@@ -276,14 +281,14 @@ void CmdSetBoardId(MyCommandParser::Argument *args, char *response) {
 }
 
 
-void CmdGetBoardId(MyCommandParser::Argument *args, char *response) { 
+void CmdGetBoardId(MyCommandParser::Argument *args, char *response) {
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetBoardId(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
 }
 
 
-void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) { 
+void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) {
   hardware_info.SetHardwareVersion(args[0].asString);
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetHardwareVersion(buff);
@@ -291,7 +296,7 @@ void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) {
 }
 
 
-void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response) { 
+void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response) {
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetHardwareVersion(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
