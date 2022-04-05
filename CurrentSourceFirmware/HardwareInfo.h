@@ -30,6 +30,7 @@ class HardwareInfo {
     int EepromAddressHardwareVersion();
     int EepromAddressBoardId();
     int EepromWriteString(int address, char *string, uint8_t length);
+    int EepromReadString(int address, char *dest, uint8_t length);
 };
 
 #endif

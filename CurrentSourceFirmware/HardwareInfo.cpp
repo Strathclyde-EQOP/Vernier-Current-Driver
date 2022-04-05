@@ -99,3 +99,16 @@ int HardwareInfo::EepromWriteString(int address, char *string, uint8_t length) {
   }
   return res;
 }
+
+
+int HardwareInfo::EepromReadString(int address, char *dest, uint8_t length) {
+  if (length > HardwareInfo::kMaxStringLength) {
+    length = HardwareInfo::kMaxStringLength;
+  }
+
+  for (int i = 0; i < length; i++) {
+    dest[i] = EEPROM.read(address + i);
+  }
+
+  return (dest[length] == '\0') ? 0 : -1;
+}
