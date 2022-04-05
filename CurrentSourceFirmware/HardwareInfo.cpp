@@ -36,11 +36,23 @@ int HardwareInfo::SetMaxCurrent(int32_t max_current_nA) {
 }
 
 
-int32_t HardwareInfo::GetMaxCurrentEeprom() {
-  int32_t max_current_na;
-  const int address = EepromAddressMaxCurrent();
-  EEPROM.get(address, max_current_na);
-  return max_current_na;
+int HardwareInfo::GetHardwareVersion(char *version) {
+  return 0;
+}
+
+
+int HardwareInfo::SetHardwareVersion(char *version, uint8_t length) {
+  return 0;
+}
+
+
+int HardwareInfo::GetBoardId(char *id) {
+  return 0;
+}
+
+
+int HardwareInfo::SetBoardId(char *id, uint8_t length) {
+  return 0;
 }
 
 
@@ -59,21 +71,9 @@ int HardwareInfo::EepromAddressBoardId() {
 }
 
 
-int HardwareInfo::GetHardwareVersion(char *version) {
-  return 0;
-}
-
-
-int HardwareInfo::SetHardwareVersion(char *version, uint8_t length) {
-  return 0;
-}
-
-
-int HardwareInfo::GetBoardId(char *id) {
-  return 0;
-}
-
-
-int HardwareInfo::SetBoardId(char *id, uint8_t length) {
-  return 0;
+int32_t HardwareInfo::GetMaxCurrentEeprom() {
+  int32_t max_current_na;
+  const int address = EepromAddressMaxCurrent();
+  EEPROM.get(address, max_current_na);
+  return max_current_na;
 }
