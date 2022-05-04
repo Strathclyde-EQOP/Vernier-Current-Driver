@@ -4,7 +4,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 7 7
-Title "\"Vernier Vamp\" Coil Driver - LCCD"
+Title "\"Vernier\" Low Current Driver - LCD"
 Date "2021-05-18"
 Rev "1.0D"
 Comp "Strathclyde University"
