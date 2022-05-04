@@ -4,7 +4,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 7
-Title "\"Vernier Vamp\" Coil Driver - HCCD"
+Title "\"Vernier\" High Current Driver - HCD"
 Date "2020-04-27"
 Rev "1.0D"
 Comp "Strathclyde University"
