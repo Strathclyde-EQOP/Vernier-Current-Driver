@@ -1,9 +1,9 @@
 #include <avr/pgmspace.h>
 
-#include "CurrentSource.h"
+#include "CurrentDriver.h"
 #include "calibration.h"
 
-void CurrentSource::Begin()
+void CurrentDriver::Begin()
 {
   digitalWrite(pin_cs, HIGH);
   pinMode(pin_cs, OUTPUT);
@@ -23,7 +23,7 @@ void CurrentSource::Begin()
   Reset();
 }
 
-void CurrentSource::Reset()
+void CurrentDriver::Reset()
 {
   digitalWrite(pin_reset, LOW);
   delayMicroseconds(100);
@@ -31,7 +31,7 @@ void CurrentSource::Reset()
   SetAllChannels(kResetSetpoint); // set all DAC to default setpoint
 }
 
-int8_t CurrentSource::SetChannelSetpoint(uint8_t channel, uint16_t code)
+int8_t CurrentDriver::SetChannelSetpoint(uint8_t channel, uint16_t code)
 {
   Channel *chan = GetChannel(channel);
   if (!chan)
@@ -47,7 +47,7 @@ int8_t CurrentSource::SetChannelSetpoint(uint8_t channel, uint16_t code)
   return 0;
 }
 
-uint16_t CurrentSource::GetChannelSetpoint(uint8_t channel)
+uint16_t CurrentDriver::GetChannelSetpoint(uint8_t channel)
 {
   Channel *chan = GetChannel(channel);
   if (!chan)
@@ -57,7 +57,7 @@ uint16_t CurrentSource::GetChannelSetpoint(uint8_t channel)
   return chan->setpoint;
 }
 
-int8_t CurrentSource::SetAllChannels(uint16_t code)
+int8_t CurrentDriver::SetAllChannels(uint16_t code)
 {
   int8_t error = 0;
 
@@ -68,7 +68,7 @@ int8_t CurrentSource::SetAllChannels(uint16_t code)
   return error;
 }
 
-uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code)
+uint16_t CurrentDriver::GetCalibratedCode(uint8_t channel, uint16_t code)
 {
   Channel *chan = GetChannel(channel);
   if (!chan)
@@ -91,12 +91,12 @@ uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code)
   return (uint16_t)temp_code;
 }
 
-bool CurrentSource::ValidateChannel(uint8_t channel)
+bool CurrentDriver::ValidateChannel(uint8_t channel)
 {
   return GetChannel(channel) ? true : false;
 }
 
-void CurrentSource::WriteDAC(uint8_t address, uint16_t code)
+void CurrentDriver::WriteDAC(uint8_t address, uint16_t code)
 {
   digitalWrite(pin_cs, LOW);
   SPI.transfer(address);
@@ -105,7 +105,7 @@ void CurrentSource::WriteDAC(uint8_t address, uint16_t code)
   digitalWrite(SS, HIGH);
 }
 
-Channel *CurrentSource::GetChannel(uint8_t channel)
+Channel *CurrentDriver::GetChannel(uint8_t channel)
 {
   for (int i = 0; i < kNumChannels; i++)
   {
@@ -117,7 +117,7 @@ Channel *CurrentSource::GetChannel(uint8_t channel)
   return NULL;
 }
 
-int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count)
+int CurrentDriver::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count)
 {
   Channel *chan = GetChannel(channel);
   if (!chan)
@@ -131,7 +131,7 @@ int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint
   return 0;
 }
 
-void CurrentSource::Next(uint8_t channel)
+void CurrentDriver::Next(uint8_t channel)
 {
   Channel *chan = GetChannel(channel);
   if (!chan)

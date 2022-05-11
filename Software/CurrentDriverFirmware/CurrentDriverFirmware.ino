@@ -1,5 +1,5 @@
 
-/* Control firmware for the EQOP Current Source.
+/* Control firmware for the EQOP Current Driver.
 
   This software uses the CommandParser library, which needs to be
   installed for this code to compile. See the library GitHub for
@@ -22,7 +22,7 @@
 #include <CommandParser.h>
 #include <string.h>
 
-#include "CurrentSource.h"
+#include "CurrentDriver.h"
 #include "HardwareInfo.h"
 
 /*******************************************************************
@@ -48,7 +48,7 @@ const uint8_t kPinChan3Trigger = 4;
 *******************************************************************/
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength];
-CurrentSource current_source(kPinCS, kPinLDAC, kPinReset, kPinMSB);
+CurrentDriver current_driver(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 HardwareInfo hardware_info(0);
 typedef CommandParser<> MyCommandParser;
 MyCommandParser command_parser;
@@ -61,7 +61,7 @@ void setup()
   SerialInUse.begin(kBaudrate);
   InitTriggers();
   RegisterCommands();
-  current_source.Begin();
+  current_driver.Begin();
 }
 
 /*******************************************************************
@@ -121,17 +121,17 @@ void InitTriggers()
 
 void IntTriggerChan1()
 {
-  current_source.Next(1);
+  current_driver.Next(1);
 }
 
 void IntTriggerChan2()
 {
-  current_source.Next(2);
+  current_driver.Next(2);
 }
 
 void IntTriggerChan3()
 {
-  current_source.Next(3);
+  current_driver.Next(3);
 }
 
 /*
@@ -229,7 +229,7 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response)
   uint16_t setpoint = (uint16_t)args[1].asUInt64;
   int res;
 
-  res = current_source.SetChannelSetpoint(channel, setpoint);
+  res = current_driver.SetChannelSetpoint(channel, setpoint);
   if (!res)
   {
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
@@ -260,9 +260,9 @@ void CmdGetChan(MyCommandParser::Argument *args, char *response)
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint;
 
-  if (current_source.ValidateChannel(channel))
+  if (current_driver.ValidateChannel(channel))
   {
-    setpoint = current_source.GetChannelSetpoint(channel);
+    setpoint = current_driver.GetChannelSetpoint(channel);
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
   else
@@ -298,9 +298,9 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response)
   int32_t ramp_step = (int32_t)args[2].asInt64;
   uint16_t ramp_count = (uint16_t)args[3].asUInt64;
 
-  if (current_source.ValidateChannel(channel))
+  if (current_driver.ValidateChannel(channel))
   {
-    current_source.InitRamp(channel, ramp_start, ramp_step, ramp_count);
+    current_driver.InitRamp(channel, ramp_start, ramp_step, ramp_count);
     /* For some reason, a 4-parameter snprintf is always returning a 0 for the 4th parameter.
         Workaround is to just print directly to serial port for now, rather than copy into
         the response.
@@ -345,7 +345,7 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response)
 void CmdChannelNext(MyCommandParser::Argument *args, char *response)
 {
   uint8_t channel = (uint8_t)args[0].asUInt64;
-  current_source.Next(channel);
+  current_driver.Next(channel);
 }
 
 /*
@@ -386,7 +386,7 @@ void CmdGetMaxCurrent(MyCommandParser::Argument *args, char *response)
   Command: '!current {max_current_nA}'
 
   Description:
-    Set the maximum output current for the current source in nanoamps.
+    Set the maximum output current for the current driver in nanoamps.
     The value is stored in EEPROM and persists between power cycles.
 
   Arguments:
@@ -533,6 +533,6 @@ void ProcessLegacyCommand()
     DAC_count = 0;
   }
 
-  current_source.SetChannelSetpoint(DAC_address, DAC_count);
+  current_driver.SetChannelSetpoint(DAC_address, DAC_count);
   SerialInUse.println(1);
 }

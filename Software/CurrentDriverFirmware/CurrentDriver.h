@@ -1,5 +1,5 @@
-#ifndef CURRRENTSOURCE_H_
-#define CURRRENTSOURCE_H_
+#ifndef CURRRENTDRIVER_H_
+#define CURRRENTDRIVER_H_
 
 #include <SPI.h>
 
@@ -41,13 +41,13 @@ public:
                                                                                                             state(State::STATIC){};
 };
 
-class CurrentSource
+class CurrentDriver
 {
 public:
   static const uint8_t kNumChannels = 3;
   static const uint16_t kResetSetpoint = 32768;
 
-  CurrentSource(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb) : pin_cs(cs),
+  CurrentDriver(uint8_t cs, uint8_t ldac, uint8_t reset, uint8_t msb) : pin_cs(cs),
                                                                         pin_ldac(ldac),
                                                                         pin_reset(reset),
                                                                         pin_msb(msb){};
