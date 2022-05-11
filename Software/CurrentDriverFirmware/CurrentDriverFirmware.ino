@@ -72,18 +72,9 @@ void loop()
 
   if (ReceivePacket())
   {
-    if (serial_rx_buffer[0] == '0' ||
-        serial_rx_buffer[0] == '1' ||
-        serial_rx_buffer[0] == '2')
-    {
-      ProcessLegacyCommand();
-    }
-    else
-    {
-      char response[MyCommandParser::MAX_RESPONSE_SIZE];
-      command_parser.processCommand(serial_rx_buffer, response);
-      SerialInUse.println(response);
-    }
+    char response[MyCommandParser::MAX_RESPONSE_SIZE];
+    command_parser.processCommand(serial_rx_buffer, response);
+    SerialInUse.println(response);
   }
 }
 
@@ -491,48 +482,4 @@ void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response)
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetHardwareVersion(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
-}
-
-/*
-  ***DEPRECIATED***
-  Command: '{channel}A{setpoint}'
-
-  Description:
-    Process legacy command for setting {channel} DAC to {setpoint}.
-
-    DECPRECIATED: New controllers should prefer the '!chan' command.
-
-  Arguments:
-    channel: the channel number, ZERO-BASE INDEXED.
-      For example, to set 'Channel 1' as labeled on the PCB, you would
-      have to set channel index 0.
-    setpoint: DAC code to set channel to, range 0 to 65535.
-
-  Response:
-     Always responds '1\r\n'.
-*/
-void ProcessLegacyCommand()
-{
-  char *token;
-  int DAC_address;
-  long DAC_count;
-
-  token = strtok(serial_rx_buffer, "A");
-  DAC_address = atoi(token);
-  // Legacy commands are 0-based indexing. Correct for 1-based indexing
-  DAC_address++;
-
-  token = strtok(NULL, "A");
-  DAC_count = atol(token);
-  if (DAC_count > 65535)
-  {
-    DAC_count = 65535;
-  }
-  if (DAC_count < 0)
-  {
-    DAC_count = 0;
-  }
-
-  current_driver.SetChannelSetpoint(DAC_address, DAC_count);
-  SerialInUse.println(1);
 }
