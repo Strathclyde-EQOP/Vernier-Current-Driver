@@ -3,38 +3,39 @@
 #include "CurrentSource.h"
 #include "calibration.h"
 
-
-void CurrentSource::Begin() {
+void CurrentSource::Begin()
+{
   digitalWrite(pin_cs, HIGH);
   pinMode(pin_cs, OUTPUT);
 
-  digitalWrite(pin_ldac, LOW); //Disable LDAC - transparent DAC registers
+  digitalWrite(pin_ldac, LOW); // Disable LDAC - transparent DAC registers
   pinMode(pin_ldac, OUTPUT);
 
   digitalWrite(pin_reset, HIGH);
   pinMode(pin_reset, OUTPUT);
 
-  digitalWrite(pin_msb, HIGH); //Hardware reset should output midrange
+  digitalWrite(pin_msb, HIGH); // Hardware reset should output midrange
   pinMode(pin_msb, OUTPUT);
 
   SPI.begin();
-  SPI.beginTransaction (SPISettings (2000000, MSBFIRST, SPI_MODE0));
+  SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE0));
 
   Reset();
 }
 
-
-void CurrentSource::Reset() {
+void CurrentSource::Reset()
+{
   digitalWrite(pin_reset, LOW);
   delayMicroseconds(100);
   digitalWrite(pin_reset, HIGH);
   SetAllChannels(kResetSetpoint); // set all DAC to default setpoint
 }
 
-
-int8_t CurrentSource::SetChannelSetpoint(uint8_t channel, uint16_t code) {
+int8_t CurrentSource::SetChannelSetpoint(uint8_t channel, uint16_t code)
+{
   Channel *chan = GetChannel(channel);
-  if (!chan) {
+  if (!chan)
+  {
     return -1;
   }
   uint16_t calibrated_code = GetCalibratedCode(channel, code);
@@ -46,29 +47,32 @@ int8_t CurrentSource::SetChannelSetpoint(uint8_t channel, uint16_t code) {
   return 0;
 }
 
-
-uint16_t CurrentSource::GetChannelSetpoint(uint8_t channel) {
+uint16_t CurrentSource::GetChannelSetpoint(uint8_t channel)
+{
   Channel *chan = GetChannel(channel);
-  if (!chan) {
+  if (!chan)
+  {
     return 0;
   }
   return chan->setpoint;
 }
 
-
-int8_t CurrentSource::SetAllChannels(uint16_t code) {
+int8_t CurrentSource::SetAllChannels(uint16_t code)
+{
   int8_t error = 0;
 
-  for (uint8_t i = 0; i < kNumChannels; i++) {
+  for (uint8_t i = 0; i < kNumChannels; i++)
+  {
     error += SetChannelSetpoint(channels[i].address, code);
   }
   return error;
 }
 
-
-uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code) {
+uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code)
+{
   Channel *chan = GetChannel(channel);
-  if (!chan) {
+  if (!chan)
+  {
     return 0;
   }
   uint16_t calibration_idx = code / kCalibrationStepSize;
@@ -76,22 +80,24 @@ uint16_t CurrentSource::GetCalibratedCode(uint8_t channel, uint16_t code) {
   long correction = (long)pgm_read_byte(&chan->calibration_table[calibration_idx]);
 
   temp_code = temp_code + correction;
-  if (temp_code < 0) {
+  if (temp_code < 0)
+  {
     temp_code = 0;
   }
-  if (temp_code > 65535) {
+  if (temp_code > 65535)
+  {
     temp_code = 65535;
   }
   return (uint16_t)temp_code;
 }
 
-
-bool CurrentSource::ValidateChannel(uint8_t channel) {
+bool CurrentSource::ValidateChannel(uint8_t channel)
+{
   return GetChannel(channel) ? true : false;
 }
 
-
-void CurrentSource::WriteDAC(uint8_t address, uint16_t code) {
+void CurrentSource::WriteDAC(uint8_t address, uint16_t code)
+{
   digitalWrite(pin_cs, LOW);
   SPI.transfer(address);
   SPI.transfer(highByte(code));
@@ -99,20 +105,23 @@ void CurrentSource::WriteDAC(uint8_t address, uint16_t code) {
   digitalWrite(SS, HIGH);
 }
 
-
-Channel* CurrentSource::GetChannel(uint8_t channel) {
-  for ( int i = 0; i < kNumChannels; i++) {
-    if (channel == channels[i].address) {
+Channel *CurrentSource::GetChannel(uint8_t channel)
+{
+  for (int i = 0; i < kNumChannels; i++)
+  {
+    if (channel == channels[i].address)
+    {
       return &channels[i];
     }
   }
   return NULL;
 }
 
-
-int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count) {
+int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count)
+{
   Channel *chan = GetChannel(channel);
-  if (!chan) {
+  if (!chan)
+  {
     return -1;
   }
   chan->ramp.Begin(start, step, count);
@@ -122,13 +131,15 @@ int CurrentSource::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint
   return 0;
 }
 
-
-void CurrentSource::Next(uint8_t channel) {
+void CurrentSource::Next(uint8_t channel)
+{
   Channel *chan = GetChannel(channel);
-  if (!chan) {
+  if (!chan)
+  {
     return;
   }
-  if (chan->state != Channel::State::RAMP) {
+  if (chan->state != Channel::State::RAMP)
+  {
     return;
   }
   uint16_t code = chan->ramp.Next();
@@ -136,17 +147,18 @@ void CurrentSource::Next(uint8_t channel) {
   chan->setpoint = code;
 }
 
-
-void Ramp::Begin(uint16_t start, uint16_t step, uint16_t count) {
+void Ramp::Begin(uint16_t start, uint16_t step, uint16_t count)
+{
   this->start = start;
   this->step = step;
   this->count = count;
   current = start;
 }
 
-
-uint16_t Ramp::Next() {
-  if (count > 0) {
+uint16_t Ramp::Next()
+{
+  if (count > 0)
+  {
     current += step;
     count--;
   }
