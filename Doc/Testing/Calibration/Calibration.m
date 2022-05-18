@@ -1,5 +1,4 @@
-load('calibration_2_5mA.mat');
-load('corrected_channels.mat');
+load('calibration_data.mat');
 
 plot(calibration_2_5mA);
 hold on
