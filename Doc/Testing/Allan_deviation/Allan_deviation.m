@@ -1,6 +1,3 @@
-clear
-close all
-
 load('LCD_1mA_5day.mat');
 load('HCD_75mA_2day.mat');
 
@@ -22,7 +19,3 @@ ylabel('Normalised Allan deviation (ppm)')
 set(gca,'FontSize',13)
 xlim([0.25 32768]) %Show 1 day of data 
 grid on
-text(1,2.1,'LCD');
-text(1,1.05,'HCD');
-
-
