@@ -1,17 +1,9 @@
-% signal details
-Fs = 10e3;
-
-% signals
-load('HCD_250mA_CH1.mat');
-load('HCD_250mA_CH2.mat');
-load('HCD_250mA_CH3.mat');
-load('shorted_probe.mat');
-
-N = length(HCD_250mA_CH1);
+load('noise_data.mat');
+N = length(HCD_250mA);
 
 % 250 mA probe
 figure
-[X, f, C] = lpsd(HCD_250mA_CH2,@hann,Fs/N,200,2048,256,8,Fs,0.5);
+[X, f, C] = lpsd(HCD_250mA(:,3),@hann,Fs/N,200,2048,256,8,Fs,0.5);
 result = sqrt(X.*C.PSD);
 loglog(f, result, 'color', [1 0.1 0.1], 'linewidth', 0.75);
 hold on

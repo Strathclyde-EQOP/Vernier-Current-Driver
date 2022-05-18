@@ -1,13 +1,8 @@
-load('LCD_2_5mA_CH3.mat');
-load('LCD_10mA_CH3.mat');
-load('LCD_10mA_2_5mA_CH3.mat');
-load('shorted_probe.mat');
-
-Fs = 10e3;
-N = 1e6;
+load('noise_data.mat');
+N = length(LCD_10mA);
 
 data = struct(...
-    'data', {LCD_2_5mA_CH3 LCD_10mA_2_5mA_CH3 LCD_10mA_CH3 shorted_probe}, ...
+    'data', {LCD_2_5mA_CH3 LCD_10ma_output_2_5ma_CH3 LCD_10mA(:,3) shorted_probe}, ...
     'color', {[0 0 1] [0.09,0.77,0.64] [1 0 0 ] [0.6 0.6 0.6]});
 
 fig = figure();
