@@ -14,12 +14,12 @@ probe_color = [0.6 0.6 0.6];
 
 %% HCD
 
-[nasd_HCD_250mA_CH3, f_HCD_250mA_CH3] = get_spectrum(HCD_250mA(:,3), Fs);
+[nasd_HCD_250mA, f_HCD_250mA] = get_spectrum(HCD_250mA, Fs);
 
 fig_hcd = figure();
 hold on
 loglog( ...
-    f_HCD_250mA_CH3, nasd_HCD_250mA_CH3, ...
+    f_HCD_250mA, nasd_HCD_250mA(:,3), ...
     'color', 'r');
 loglog( ...
     f_probe, nasd_probe, ...
@@ -29,14 +29,14 @@ format_fig(fig_hcd);
 
 %% LCD
 
-[nasd_LCD_10mA_CH3, f_LCD] = get_spectrum(LCD_10mA(:,3), Fs);
+[nasd_LCD_10mA, f_LCD_10mA] = get_spectrum(LCD_10mA, Fs);
 nasd_LCD_10ma_output_2_5ma_CH3 = get_spectrum(LCD_10ma_output_2_5ma_CH3, Fs);
 nasd_LCD_2_5mA_CH3 = get_spectrum(LCD_2_5mA_CH3, Fs);
 
 fig_lcd = figure();
 hold on
 loglog( ...
-    f_LCD, nasd_LCD_10mA_CH3, ...
+    f_LCD_10mA, nasd_LCD_10mA(:,3), ...
     'color', 'r')
 loglog( ...
     f_LCD, nasd_LCD_10ma_output_2_5ma_CH3, ...
@@ -50,6 +50,52 @@ loglog( ...
 format_fig(fig_lcd);
 
 
+%% Analysis Table
+bandwidth = [5 15];
+
+lcd_10mA_noise_average = get_average_noise(nasd_LCD_10mA, f_LCD_10mA, bandwidth);
+lcd_relative_noise_ppb = lcd_10mA_noise_average ./ 10.04e-3 .* 1e9;
+
+%TODO MISSING LCD 2.5 mA
+
+hcd_noise_average = get_average_noise(nasd_HCD_250mA, f_HCD_250mA, bandwidth);
+hcd_relative_noise_ppb = hcd_noise_average ./ 250e-3 .* 1e9;
+
+% Print latex formatted table of results
+pA_sqrt_hz_unit = "~pA/$\sqrt{\mathrm{Hz}}$";
+pbb_sqrt_hx_unit = "~ppb/$\sqrt{\mathrm{Hz}}$";
+
+fprintf("Configuration & CH1 & CH2 & CH3 \\\\\r\n")
+fprintf("\\hline\r\n")
+print_table_line( ...
+    "(LCD) 10~mA, ($10\pm5$~Hz average noise)", ...
+    lcd_10mA_noise_average * 10^12, ...
+    "%.01f", ...
+    pA_sqrt_hz_unit)
+
+%TODO MISSING LCD 2.5 mA
+
+print_table_line( ...
+    "(HCD) 250 mA, ($10\pm5$~Hz average noise)", ...
+    hcd_noise_average * 10^12, ...
+    "%.01f", ...
+    pA_sqrt_hz_unit)
+
+print_table_line( ...
+    "(LCD) 10~mA, ($10\pm5$~Hz relative noise)", ...
+    lcd_relative_noise_ppb, ...
+    "%.02f", ...
+    pbb_sqrt_hx_unit)
+
+%TODO MISSING LCD 2.5 mA
+
+print_table_line( ...
+    "(HCD) 250 mA, ($10\pm5$~Hz relative noise)", ...
+    hcd_relative_noise_ppb, ...
+    "%.02f", ...
+    pbb_sqrt_hx_unit)
+
+
 %% Helper Functions
 function [nasd, f] = get_spectrum(x, fs)
     [N, num_datasets] = size(x);
@@ -59,6 +105,22 @@ function [nasd, f] = get_spectrum(x, fs)
         [X, f, C] = lpsd(x(:,n), @hann, fs/N, 200, num_frequencies, 256, 8, fs, 0.5);
         nasd(:,n) = sqrt(X.*C.PSD);
     end
+end
+
+function [] = print_table_line(name, values, format, units)
+    fprintf("%s & ", name)
+    num_values = length(values);
+    for n = 1:num_values-1
+        fprintf(format + " %s & ", values(n), units)
+    end
+    fprintf(format + " %s \\\\", values(end), units)
+    fprintf("\r\n")
+end
+
+function [average_noise] = get_average_noise(x, f, band)
+    mask = (f > band(1)) & (f < band(2));
+    band_limited_x = x(mask,:);
+    average_noise = mean(band_limited_x);
 end
 
 function [] = format_fig(fig)
