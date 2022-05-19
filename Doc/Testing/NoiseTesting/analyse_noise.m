@@ -52,9 +52,13 @@ format_fig(fig_lcd);
 
 %% Helper Functions
 function [nasd, f] = get_spectrum(x, fs)
-    N = length(x);
-    [X, f, C] = lpsd(x, @hann, fs/N, 200, 2048, 256, 8, fs, 0.5);
-    nasd = sqrt(X.*C.PSD);
+    [N, num_datasets] = size(x);
+    num_frequencies = 2048;
+    nasd = zeros(num_frequencies, num_datasets);
+    for n=1:num_datasets
+        [X, f, C] = lpsd(x(:,n), @hann, fs/N, 200, num_frequencies, 256, 8, fs, 0.5);
+        nasd(:,n) = sqrt(X.*C.PSD);
+    end
 end
 
 function [] = format_fig(fig)
