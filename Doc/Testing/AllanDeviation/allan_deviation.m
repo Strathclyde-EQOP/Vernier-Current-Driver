@@ -1,14 +1,16 @@
 load("stability_data.mat")
 
 figure()
-[avar,tau] = allanvar(LCD_10mA_stability,'octave',Fs);
-adev = sqrt(avar)/0.001 * 1e6;      %ppm conversion, measurement range * 1e6                                                        
-loglog(tau,adev, 'color', [0 0 1],'LineWidth',0.75);
+[avar_lcd,tau_lcd] = allanvar(LCD_10mA_stability,'octave',Fs);
+adev_lcd = sqrt(avar_lcd);
+adev_lcd_ppm = adev_lcd / abs(mean(LCD_10mA_stability)) * 1e6;
+loglog(tau_lcd,adev_lcd_ppm, 'color', [0 0 1],'LineWidth',0.75);
 hold on;
 
-[avar,tau] = allanvar(HCD_250mA_stability,'octave',Fs); 
-adev = sqrt(avar)/0.1 * 1e6;        %ppm conversion, measurement range * 1e6                                                 
-loglog(tau,adev, 'color', [1 0 0],'LineWidth',0.75);
+[avar_hcd,tau_hcd] = allanvar(HCD_250mA_stability,'octave',Fs); 
+adev_hcd = sqrt(avar_hcd);
+adev_hcd_ppm = adev_hcd / abs(mean(HCD_250mA_stability)) * 1e6;                                     
+loglog(tau_hcd,adev_hcd_ppm, 'color', [1 0 0],'LineWidth',0.75);
 hold on;
 
 xlabel('\tau (s)')
