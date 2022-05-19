@@ -3,6 +3,7 @@ load('noise_data.mat');
 
 %% Shorted Probe
 [nasd_probe, f_probe] = get_spectrum(shorted_probe, Fs);
+probe_color = [0.6 0.6 0.6];
 
 
 %% HCD
@@ -11,25 +12,35 @@ load('noise_data.mat');
 
 fig_hcd = figure();
 hold on
-loglog(f_HCD_250mA_CH3, nasd_HCD_250mA_CH3, 'color', [1 0.1 0.1], 'linewidth', 0.75);
-loglog(f_probe, nasd_probe, 'color', [0.6 0.6 0.6], 'linewidth', 0.75);
+loglog( ...
+    f_HCD_250mA_CH3, nasd_HCD_250mA_CH3, ...
+    'color', [1 0.1 0.1]);
+loglog( ...
+    f_probe, nasd_probe, ...
+    'color', probe_color);
 format_fig(fig_hcd);
 
 
 %% LCD
-data = struct(...
-    'data', {LCD_2_5mA_CH3 LCD_10ma_output_2_5ma_CH3 LCD_10mA(:,3)}, ...
-    'color', {[0 0 1] [0.09,0.77,0.64] [1 0 0]});
+
+[nasd_LCD_10mA_CH3, f_LCD] = get_spectrum(LCD_10mA(:,3), Fs);
+nasd_LCD_10ma_output_2_5ma_CH3 = get_spectrum(LCD_10ma_output_2_5ma_CH3, Fs);
+nasd_LCD_2_5mA_CH3 = get_spectrum(LCD_2_5mA_CH3, Fs);
 
 fig_lcd = figure();
 hold on
-
-for this = data
-    [nasd, f] = get_spectrum(this.data, Fs);
-    loglog(f, nasd, 'color', this.color, 'linewidth', 0.75)
-end
-loglog(f_probe, nasd_probe, 'color', [0.6 0.6 0.6], 'linewidth', 0.75);
-
+loglog( ...
+    f_LCD, nasd_LCD_10mA_CH3, ...
+    'color', [1 0 0])
+loglog( ...
+    f_LCD, nasd_LCD_10ma_output_2_5ma_CH3, ...
+    'color', [0.09,0.77,0.64])
+loglog( ...
+    f_LCD, nasd_LCD_2_5mA_CH3, ...
+    'color', [0 0 1])
+loglog( ...
+    f_probe, nasd_probe, ...
+    'color', probe_color);
 format_fig(fig_lcd);
 
 
@@ -49,4 +60,8 @@ function [] = format_fig(fig)
     ax.XLim = [0.1 200];
     ax.XScale = "log";
     ax.YScale = "log";
+    lines = findobj(fig, 'Type', 'Line');
+    for n = 1:numel(lines)
+        lines(n).LineWidth = 0.75;
+    end
 end
