@@ -1,15 +1,12 @@
-load('LCD_1mA_5day.mat');
-load('HCD_75mA_2day.mat');
+load("stability_data.mat")
 
-Fs = 4;
-
-figure
-[avar,tau] = allanvar(LCD_1mA_5day,'octave',Fs);
+figure()
+[avar,tau] = allanvar(LCD_10mA_stability,'octave',Fs);
 adev = sqrt(avar)/0.001 * 1e6;      %ppm conversion, measurement range * 1e6                                                        
 loglog(tau,adev, 'color', [0 0 1],'LineWidth',0.75);
 hold on;
 
-[avar,tau] = allanvar(HCD_75mA_2day,'octave',Fs); 
+[avar,tau] = allanvar(HCD_250mA_stability,'octave',Fs); 
 adev = sqrt(avar)/0.1 * 1e6;        %ppm conversion, measurement range * 1e6                                                 
 loglog(tau,adev, 'color', [1 0 0],'LineWidth',0.75);
 hold on;
