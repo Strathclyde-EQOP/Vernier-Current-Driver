@@ -12,21 +12,6 @@ load('noise_data.mat');
 probe_color = [0.6 0.6 0.6];
 
 
-%% HCD
-
-[nasd_HCD_250mA, f_HCD_250mA] = get_spectrum(HCD_250mA, Fs);
-
-fig_hcd = figure();
-hold on
-loglog( ...
-    f_HCD_250mA, nasd_HCD_250mA(:,3), ...
-    'color', 'r');
-loglog( ...
-    f_probe, nasd_probe, ...
-    'color', probe_color);
-format_fig(fig_hcd);
-
-
 %% LCD
 
 [nasd_LCD_10mA, f_LCD_10mA] = get_spectrum(LCD_10mA, Fs);
@@ -48,6 +33,21 @@ loglog( ...
     f_probe, nasd_probe, ...
     'color', probe_color);
 format_fig(fig_lcd);
+
+
+%% HCD
+
+[nasd_HCD_250mA, f_HCD_250mA] = get_spectrum(HCD_250mA, Fs);
+
+fig_hcd = figure();
+hold on
+loglog( ...
+    f_HCD_250mA, nasd_HCD_250mA(:,3), ...
+    'color', 'r');
+loglog( ...
+    f_probe, nasd_probe, ...
+    'color', probe_color);
+format_fig(fig_hcd);
 
 
 %% Analysis Table
