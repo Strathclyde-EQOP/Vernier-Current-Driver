@@ -1,9 +1,4 @@
 %% Load data
-%
-% Due to the size of the data, it is not included in the git source.
-% Instead, missing file will be included in the archive for specific
-% releases. Copy the file "stability_data.mat" from the GitHub release to 
-% be able to run this script.
 load("stability_data.mat")
 
 
