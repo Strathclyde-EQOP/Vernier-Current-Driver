@@ -14,14 +14,14 @@ probe_color = [0.6 0.6 0.6];
 
 %% LCD
 
-[nasd_LCD_10mA, f_LCD_10mA] = get_spectrum(LCD_10mA, Fs);
+[nasd_LCD_10mA, f_LCD] = get_spectrum(LCD_10mA, Fs);
 nasd_LCD_10ma_output_2_5ma_CH3 = get_spectrum(LCD_10ma_output_2_5ma_CH3, Fs);
 nasd_LCD_2_5mA_CH3 = get_spectrum(LCD_2_5mA_CH3, Fs);
 
 fig_lcd = figure();
 hold on
 loglog( ...
-    f_LCD_10mA, nasd_LCD_10mA(:,3), ...
+    f_LCD, nasd_LCD_10mA(:,3), ...
     'color', 'r')
 loglog( ...
     f_LCD, nasd_LCD_10ma_output_2_5ma_CH3, ...
@@ -53,7 +53,7 @@ format_fig(fig_hcd);
 %% Analysis Table
 bandwidth = [5 15];
 
-lcd_10mA_noise_average = get_average_noise(nasd_LCD_10mA, f_LCD_10mA, bandwidth);
+lcd_10mA_noise_average = get_average_noise(nasd_LCD_10mA, f_LCD, bandwidth);
 lcd_relative_noise_ppb = lcd_10mA_noise_average ./ 10.04e-3 .* 1e9;
 
 %TODO MISSING LCD 2.5 mA
