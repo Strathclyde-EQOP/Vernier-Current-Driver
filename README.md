@@ -20,6 +20,8 @@ The headlines results:
 |LCD@2.5 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 7.47 ppb√Hz | 7.42 ppb√Hz | 7.68 ppb√Hz |
 |HCD@250 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 3.74 ppb√Hz | 3.66 ppb√Hz | 3.64 ppb√Hz |
 
+![noise_spectra](https://user-images.githubusercontent.com/9080690/170338036-da505953-d0da-49b6-9ed1-ae70d21b82e2.svg)
+
 # Manual
 
 For more information and a guide to getting started, checkout the [project wiki](https://github.com/Strathclyde-EQOP/Vernier_Vamp_Coil_Driver/wiki).
