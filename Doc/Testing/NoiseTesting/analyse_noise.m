@@ -106,6 +106,23 @@ print_table_line( ...
     pbb_sqrt_hx_unit)
 
 
+%% Graph for README
+fig_readme = figure();
+pos = fig_readme.Position;
+pos(3:4) = [800 450];
+fig_readme.Position = pos;
+hold on
+loglog(f_HCD_250mA, nasd_HCD_250mA(:,1));
+loglog(f_LCD, nasd_LCD_10mA(:,1));
+loglog(f_LCD, nasd_LCD_2_5mA(:,1));
+loglog( ...
+    f_probe, nasd_probe, ...
+    'color', probe_color);
+title('Current Source Noise Spectra', 'Interpreter','tex')
+legend(fig_readme.Children(1), 'HCD@250 mA', 'LCD@10 mA', 'LCD@2.5 mA', 'Test setup noise')
+format_fig(fig_readme);
+
+
 %% Helper Functions
 function [nasd, f] = get_spectrum(x, fs)
     [N, num_datasets] = size(x);
