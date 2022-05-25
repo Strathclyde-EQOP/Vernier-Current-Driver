@@ -121,9 +121,9 @@ function [] = print_table_line(name, values, format, units)
     fprintf("%s & ", name)
     num_values = length(values);
     for n = 1:num_values-1
-        fprintf(format + " %s & ", values(n), units)
+        fprintf(format + "%s & ", values(n), units)
     end
-    fprintf(format + " %s \\\\", values(end), units)
+    fprintf(format + "%s \\\\", values(end), units)
     fprintf("\r\n")
 end
 
