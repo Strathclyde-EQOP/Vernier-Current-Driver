@@ -58,7 +58,7 @@ public:
   void Reset();
   bool ValidateChannel(uint8_t channel);
   int InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint16_t count);
-  void Next(uint8_t channel);
+  int Next(uint8_t channel);
 
 private:
   const uint8_t pin_cs;

@@ -131,20 +131,21 @@ int CurrentDriver::InitRamp(uint8_t channel, uint16_t start, uint16_t step, uint
   return 0;
 }
 
-void CurrentDriver::Next(uint8_t channel)
+int CurrentDriver::Next(uint8_t channel)
 {
   Channel *chan = GetChannel(channel);
   if (!chan)
   {
-    return;
+    return -1;
   }
   if (chan->state != Channel::State::RAMP)
   {
-    return;
+    return -2;
   }
   uint16_t code = chan->ramp.Next();
   WriteDAC(chan->dac_channel, code);
   chan->setpoint = code;
+  return 0;
 }
 
 void Ramp::Begin(uint16_t start, uint16_t step, uint16_t count)

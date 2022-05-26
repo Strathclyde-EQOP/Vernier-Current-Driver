@@ -329,14 +329,24 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response)
     [0] - channel_number: Channel number to step, range 1 to 3. Must be an integer.
 
   Response:
-     Valid arguments result in a response in the form of '#{channel_number} {start} {step} {count}',
-     confirming the set values.
-     Invalid arguments result in a response of '#ERROR'.
+     Responds '#DONE' on success.
+     Responds '#ERROR {code}' on error. CodesL
+      -1: invalid channel
+      -2: channel not configured for stepping
 */
 void CmdChannelNext(MyCommandParser::Argument *args, char *response)
 {
+  int err;
   uint8_t channel = (uint8_t)args[0].asUInt64;
-  current_driver.Next(channel);
+  err = current_driver.Next(channel);
+  if (err)
+  {
+    snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#ERROR %i", err);
+  }
+  else
+  {
+    strlcpy(response, "#DONE", MyCommandParser::MAX_RESPONSE_SIZE);
+  }
 }
 
 /*

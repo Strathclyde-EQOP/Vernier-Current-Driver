@@ -84,8 +84,11 @@ Triggers the given channel to move to the next output code.
 [0] - channel_number: Channel number to query, range 1 to 3. Must be an integer.
 
 **Response:**
-Valid arguments result in a response in the form of `#{channel_number} {start} {step} {count}`, confirming the set values.
-Invalid arguments result in a reponse of `#ERROR`.
+Responds `#DONE` on success.
+Responds `#ERROR {code}` on error. Error codes:
+
+- -1: invalid channel.
+- -2: channel not configured for stepping.
 
 ### Command: `?software`
 
