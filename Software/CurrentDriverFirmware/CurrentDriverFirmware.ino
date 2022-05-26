@@ -212,7 +212,7 @@ void CmdCommsCheck(MyCommandParser::Argument *args, char *response)
   Response:
      Valid arguments result in a response in the form of '#{channel_number} {setpoint}',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
 void CmdSetChan(MyCommandParser::Argument *args, char *response)
 {
@@ -244,7 +244,7 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response)
   Response:
      Valid arguments result in a response in the form of '#{channel_number} {setpoint}',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
 void CmdGetChan(MyCommandParser::Argument *args, char *response)
 {
@@ -280,7 +280,7 @@ void CmdGetChan(MyCommandParser::Argument *args, char *response)
   Response:
      Valid arguments result in a response in the form of '#{channel_number} {start} {step} {count}',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
 void CmdSetRamp(MyCommandParser::Argument *args, char *response)
 {
@@ -326,12 +326,12 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response)
     Triggers the given channel to move to the next output code.
 
   Arguments:
-    [0] - channel_number: Channel number to query, range 1 to 3. Must be an integer.
+    [0] - channel_number: Channel number to step, range 1 to 3. Must be an integer.
 
   Response:
      Valid arguments result in a response in the form of '#{channel_number} {start} {step} {count}',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
 void CmdChannelNext(MyCommandParser::Argument *args, char *response)
 {
@@ -386,7 +386,7 @@ void CmdGetMaxCurrent(MyCommandParser::Argument *args, char *response)
   Response:
      Valid arguments result in a response in the form of '#{max_current_nA} nA',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
 void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response)
 {
