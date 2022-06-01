@@ -1,9 +1,9 @@
-# Vernier Current Source
+# Vernier Current Driver
 
-The Vernier Current source is an ultra low noise, programmable, bi-polar current source. It comes in two flavours:
+The Vernier Current Driver is an ultra low noise, programmable, bi-polar current source. It comes in two flavours:
 
-1. Low Current Source (LCD): designed to output current up to ~50 mA
-2. High Current Source (HCD): designed to output currents from ~50 mA to ~250 mA
+1. Low Current Driver (LCD): designed to output current up to ~50 mA
+2. High Current Driver (HCD): designed to output currents from ~50 mA to ~250 mA
 
 # Performance
 
