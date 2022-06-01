@@ -1,13 +1,13 @@
-# Vernier Current Source
+# Vernier Current Driver
 
-The Vernier Current source is an ultra low noise, programmable, bi-polar current source. It comes in two flavours:
+The Vernier Current Driver is an ultra low noise, programmable, bi-polar current source. It comes in two flavours:
 
-1. Low Current Source (LCD): designed to output current up to ~50 mA
-2. High Current Source (HCD): designed to output currents from ~50 mA to ~250 mA
+1. Low Current Driver (LCD): designed to output current up to ~50 mA
+2. High Current Driver (HCD): designed to output currents from ~50 mA to ~250 mA
 
 # Performance
 
-Three sample devices were tested. For full details, see the companion paper.
+Three sample devices were tested. For full details, see the companion paper or take a look a look in the [Testing](/Doc/Testing/) folder.
 
 The headlines results:
 
@@ -24,7 +24,7 @@ The headlines results:
 
 # Manual
 
-For more information and a guide to getting started, checkout the [project wiki](https://github.com/Strathclyde-EQOP/Vernier_Vamp_Coil_Driver/wiki).
+For more information checkout the [Getting Started Guide](Doc/README.md).
 
 # Publication
 
@@ -32,11 +32,11 @@ If you're the academic type, lots more detail on the design and testing of the V
 
 # Citing
 
-When citing this work in an academic paper, please cite the [paper]() as you normally would.
+When citing this work in an academic context, please cite the paper as you normally would.
 
 Outside of academic work, please link directly to this GitHub repo.
 
-Lastly, if you make one and you like it (or don't like it!), we could love to know!
+Lastly, if you make one and you like it (or don't like it), we could love to know!
 
 # Authors
 
