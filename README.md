@@ -1,34 +1,42 @@
 # Vernier Current Source
 
-This repository contains design files for two versions of the three channel current sources. Low Current Driver, LCD (<50 mA) and High Current Driver, HCD (>50 mA).
+The Vernier Current source is an ultra low noise, programmable, bi-polar current source. It comes in two flavours:
 
-# Specification brief
+1. Low Current Source (LCD): designed to output current up to ~50 mA
+2. High Current Source (HCD): designed to output currents from ~50 mA to ~250 mA
 
-LCD example configuration
-LCD configured to provide ± 10 mA
-- Step size : 306.396 nA
-- BW : 160 Hz
-- Noise @ 10 Hz : 35 pA/sqrt(Hz)
-- Noise @ 10 Hz over range : 3.5 ppb
+# Performance
 
-![LCCD_noise](https://user-images.githubusercontent.com/60606896/115631493-d6da7a00-a2fd-11eb-9170-588531c3b8c1.png)
+Three sample devices were tested. For full details, see the companion paper.
 
+The headlines results:
 
-HCD configured to provide ± 250 mA
-- Step size : 7.6294 uA
-- BW : 160 Hz
-- Noise @ 10 Hz : 1.28 nA/sqrt(Hz)
-- Noise @ 10 Hz over range : 5.15 ppb
+|Configuration|CH1|CH2|CH3|
+|---|---|---|---|
+|LCD@10 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 32.9 pA√Hz | 34.0 pA√Hz | 30.0 pA√Hz |
+|LCD@2.5 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 18.7 pA√Hz | 18.5 pA√Hz | 19.2 pA√Hz |
+|HCD@250 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 933.8 pA√Hz | 915.5 pA√Hz | 909.9 pA√Hz |
+|LCD@10 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 3.27 ppb√Hz | 3.39 ppb√Hz | 2.99 ppb√Hz |
+|LCD@2.5 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 7.47 ppb√Hz | 7.42 ppb√Hz | 7.68 ppb√Hz |
+|HCD@250 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 3.74 ppb√Hz | 3.66 ppb√Hz | 3.64 ppb√Hz |
 
-![HCCD_noise](https://user-images.githubusercontent.com/60606896/115631492-d641e380-a2fd-11eb-8413-b00a7e2631e1.png)
+![noise_spectra](https://user-images.githubusercontent.com/9080690/170338036-da505953-d0da-49b6-9ed1-ae70d21b82e2.svg)
 
 # Manual
 
-For more information and instruction manual you can access the project [wiki](https://github.com/Strathclyde-EQOP/Vernier_Vamp_Coil_Driver/wiki)
+For more information and a guide to getting started, checkout the [project wiki](https://github.com/Strathclyde-EQOP/Vernier_Vamp_Coil_Driver/wiki).
 
 # Publication
 
-Information about the project motivation and design procedure can be found in the [paper](https://)
+If you're the academic type, lots more detail on the design and testing of the Vernier Current Source can be found in our [open-access paper]().
+
+# Citing
+
+When citing this work in an academic paper, please cite the [paper]() as you normally would.
+
+Outside of academic work, please link directly to this GitHub repo.
+
+Lastly, if you make one and you like it (or don't like it!), we could love to know!
 
 # Authors
 
