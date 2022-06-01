@@ -1,4 +1,4 @@
-# Biasing The Drive Transistors
+# Biasing The Drive Transistors on HCDs
 
 To ensure the HCD works as intended and does not go into thermal runaway, it is important to bias the driving transistors correctly using the onboard potentiometers. This can be achieved by using the potentiometers pair on each channel.
 
