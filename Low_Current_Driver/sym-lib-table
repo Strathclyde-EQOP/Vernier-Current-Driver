@@ -8,4 +8,6 @@
   (lib (name LTC6655-2.5)(type Legacy)(uri ${KIPRJMOD}/comp_lib/LTC6655-2.5.lib)(options "")(descr ""))
   (lib (name SW_DPDT_Hirose)(type Legacy)(uri ${KIPRJMOD}/comp_lib/SW_DPDT_Hirose.lib)(options "")(descr ""))
   (lib (name custom_power_rails)(type Legacy)(uri ${KIPRJMOD}/comp_lib/custom_power_rails.lib)(options "")(descr ""))
+  (lib (name Low_Current_Driver-rescue)(type Legacy)(uri ${KIPRJMOD}/Low_Current_Driver-rescue.lib)(options "")(descr ""))
+  (lib (name OPA2210)(type Legacy)(uri ${KIPRJMOD}/comp_lib/OPA2210.lib)(options "")(descr ""))
 )
