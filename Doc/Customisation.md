@@ -1,4 +1,4 @@
-# Customising Vernier Current Sources
+# Customising Vernier Current Drivers
 
 To get the best noise performance, we recommend adapting the design to meet the requirements of specific applications. The two main specifications that can be adapted are the maximum output current and the output bandwidth.
 
