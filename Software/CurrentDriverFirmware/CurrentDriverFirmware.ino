@@ -1,5 +1,5 @@
 
-/* Control firmware for the EQOP Current Source.
+/* Control firmware for the EQOP Current Driver.
 
   This software uses the CommandParser library, which needs to be
   installed for this code to compile. See the library GitHub for
@@ -16,16 +16,14 @@
   Copyright University of Strathclyde, 2022
 */
 
-
 /*******************************************************************
   Includes
 *******************************************************************/
 #include <CommandParser.h>
 #include <string.h>
 
-#include "CurrentSource.h"
+#include "CurrentDriver.h"
 #include "HardwareInfo.h"
-
 
 /*******************************************************************
   Configuration
@@ -33,7 +31,6 @@
 const char software_version[] = "1.0.2";
 const uint32_t kBaudrate = 1000000;
 HardwareSerial &SerialInUse = Serial;
-
 
 /*******************************************************************
   Pin Mapping
@@ -46,17 +43,15 @@ const uint8_t kPinChan1Trigger = 2;
 const uint8_t kPinChan2Trigger = 3;
 const uint8_t kPinChan3Trigger = 4;
 
-
 /*******************************************************************
   Global Variables
 *******************************************************************/
 const uint8_t kSerialRxBufferLength = 32;
 char serial_rx_buffer[kSerialRxBufferLength];
-CurrentSource current_source(kPinCS, kPinLDAC, kPinReset, kPinMSB);
+CurrentDriver current_driver(kPinCS, kPinLDAC, kPinReset, kPinMSB);
 HardwareInfo hardware_info(0);
 typedef CommandParser<> MyCommandParser;
 MyCommandParser command_parser;
-
 
 /*******************************************************************
   Arduino Setup
@@ -66,35 +61,29 @@ void setup()
   SerialInUse.begin(kBaudrate);
   InitTriggers();
   RegisterCommands();
-  current_source.Begin();
+  current_driver.Begin();
 }
-
 
 /*******************************************************************
   Arduino Superloop
 *******************************************************************/
-void loop() {
+void loop()
+{
 
-  if (ReceivePacket()) {
-    if (serial_rx_buffer[0] == '0' ||
-        serial_rx_buffer[0] == '1' ||
-        serial_rx_buffer[0] == '2') {
-      ProcessLegacyCommand();
-    }
-    else {
-      char response[MyCommandParser::MAX_RESPONSE_SIZE];
-      command_parser.processCommand(serial_rx_buffer, response);
-      SerialInUse.println(response);
-    }
+  if (ReceivePacket())
+  {
+    char response[MyCommandParser::MAX_RESPONSE_SIZE];
+    command_parser.processCommand(serial_rx_buffer, response);
+    SerialInUse.println(response);
   }
 }
-
 
 /*******************************************************************
   Functions
 *******************************************************************/
 
-void RegisterCommands() {
+void RegisterCommands()
+{
   command_parser.registerCommand("?", "", &CmdCommsCheck);
   command_parser.registerCommand("!chan", "uu", &CmdSetChan);
   command_parser.registerCommand("?chan", "u", &CmdGetChan);
@@ -109,8 +98,8 @@ void RegisterCommands() {
   command_parser.registerCommand("?hardware", "", &CmdGetHardwareVersion);
 }
 
-
-void InitTriggers() {
+void InitTriggers()
+{
   pinMode(kPinChan1Trigger, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(kPinChan1Trigger), IntTriggerChan1, FALLING);
 
@@ -121,21 +110,20 @@ void InitTriggers() {
   attachInterrupt(digitalPinToInterrupt(kPinChan3Trigger), IntTriggerChan3, FALLING);
 }
 
-
-void IntTriggerChan1() {
-  current_source.Next(1);
+void IntTriggerChan1()
+{
+  current_driver.Next(1);
 }
 
-
-void IntTriggerChan2() {
-  current_source.Next(2);
+void IntTriggerChan2()
+{
+  current_driver.Next(2);
 }
 
-
-void IntTriggerChan3() {
-  current_source.Next(3);
+void IntTriggerChan3()
+{
+  current_driver.Next(3);
 }
-
 
 /*
   Receive packets on the serial interface. Should be called in the superloop to
@@ -151,32 +139,39 @@ void IntTriggerChan3() {
 */
 bool ReceivePacket()
 {
-  static boolean rx_in_prgress = false;  // Characters in the pipeline
+  static boolean rx_in_prgress = false; // Characters in the pipeline
   static byte rx_buffer_index = 0;
   char start_marker = '<';
   char end_marker = '>';
   char rx_character;
 
-  while (SerialInUse.available() > 0) {
+  while (SerialInUse.available() > 0)
+  {
     rx_character = SerialInUse.read();
-    if (rx_in_prgress == true) {
-      if (rx_character != end_marker) {
+    if (rx_in_prgress == true)
+    {
+      if (rx_character != end_marker)
+      {
         serial_rx_buffer[rx_buffer_index] = rx_character;
         rx_buffer_index++;
-        if (rx_buffer_index >= kSerialRxBufferLength) {
+        if (rx_buffer_index >= kSerialRxBufferLength)
+        {
           // The input buffer has overflowed, which can only be an invalid command.
           // Silently drop the buffer, and wait for a new start character.
           rx_in_prgress = false;
         }
       }
-      else {
+      else
+      {
         serial_rx_buffer[rx_buffer_index] = '\0'; // terminate the string
         rx_in_prgress = false;
         return true;
       }
     }
-    else {
-      if (rx_character == start_marker) {
+    else
+    {
+      if (rx_character == start_marker)
+      {
         rx_in_prgress = true;
         rx_buffer_index = 0;
       }
@@ -185,7 +180,6 @@ bool ReceivePacket()
 
   return false;
 }
-
 
 /*
   Command: '?'
@@ -199,11 +193,10 @@ bool ReceivePacket()
   Response:
     Always returns '#check'.
 */
-void CmdCommsCheck(MyCommandParser::Argument *args, char *response) {
+void CmdCommsCheck(MyCommandParser::Argument *args, char *response)
+{
   strlcpy(response, "#check", MyCommandParser::MAX_RESPONSE_SIZE);
 }
-
-
 
 /*
   Command: '!chan {channel_number} {setpoint}'
@@ -219,22 +212,24 @@ void CmdCommsCheck(MyCommandParser::Argument *args, char *response) {
   Response:
      Valid arguments result in a response in the form of '#{channel_number} {setpoint}',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
-void CmdSetChan(MyCommandParser::Argument *args, char *response) {
+void CmdSetChan(MyCommandParser::Argument *args, char *response)
+{
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint = (uint16_t)args[1].asUInt64;
   int res;
 
-  res = current_source.SetChannelSetpoint(channel, setpoint);
-  if (!res) {
+  res = current_driver.SetChannelSetpoint(channel, setpoint);
+  if (!res)
+  {
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
-  else {
+  else
+  {
     strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
   }
 }
-
 
 /*
   Command: '?chan {channel_number}'
@@ -249,21 +244,23 @@ void CmdSetChan(MyCommandParser::Argument *args, char *response) {
   Response:
      Valid arguments result in a response in the form of '#{channel_number} {setpoint}',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
-void CmdGetChan(MyCommandParser::Argument *args, char *response) {
+void CmdGetChan(MyCommandParser::Argument *args, char *response)
+{
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t setpoint;
 
-  if (current_source.ValidateChannel(channel)) {
-    setpoint = current_source.GetChannelSetpoint(channel);
+  if (current_driver.ValidateChannel(channel))
+  {
+    setpoint = current_driver.GetChannelSetpoint(channel);
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%u %u", channel, setpoint);
   }
-  else {
+  else
+  {
     strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
   }
 }
-
 
 /*
   Command: '!ramp {channel_number} {start} {step} {count}'
@@ -283,16 +280,18 @@ void CmdGetChan(MyCommandParser::Argument *args, char *response) {
   Response:
      Valid arguments result in a response in the form of '#{channel_number} {start} {step} {count}',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
-void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
+void CmdSetRamp(MyCommandParser::Argument *args, char *response)
+{
   uint8_t channel = (uint8_t)args[0].asUInt64;
   uint16_t ramp_start = (uint16_t)args[1].asUInt64;
   int32_t ramp_step = (int32_t)args[2].asInt64;
   uint16_t ramp_count = (uint16_t)args[3].asUInt64;
 
-  if (current_source.ValidateChannel(channel)) {
-    current_source.InitRamp(channel, ramp_start, ramp_step, ramp_count);
+  if (current_driver.ValidateChannel(channel))
+  {
+    current_driver.InitRamp(channel, ramp_start, ramp_step, ramp_count);
     /* For some reason, a 4-parameter snprintf is always returning a 0 for the 4th parameter.
         Workaround is to just print directly to serial port for now, rather than copy into
         the response.
@@ -314,11 +313,11 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
     SerialInUse.print(' ');
     SerialInUse.print(ramp_count);
   }
-  else {
+  else
+  {
     strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
   }
 }
-
 
 /*
   Command: '!next {channel_number}'
@@ -327,18 +326,28 @@ void CmdSetRamp(MyCommandParser::Argument *args, char *response) {
     Triggers the given channel to move to the next output code.
 
   Arguments:
-    [0] - channel_number: Channel number to query, range 1 to 3. Must be an integer.
+    [0] - channel_number: Channel number to step, range 1 to 3. Must be an integer.
 
   Response:
-     Valid arguments result in a response in the form of '#{channel_number} {start} {step} {count}',
-     confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Responds '#DONE' on success.
+     Responds '#ERROR {code}' on error. CodesL
+      -1: invalid channel
+      -2: channel not configured for stepping
 */
-void CmdChannelNext(MyCommandParser::Argument *args, char *response) {
+void CmdChannelNext(MyCommandParser::Argument *args, char *response)
+{
+  int err;
   uint8_t channel = (uint8_t)args[0].asUInt64;
-  current_source.Next(channel);
+  err = current_driver.Next(channel);
+  if (err)
+  {
+    snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#ERROR %i", err);
+  }
+  else
+  {
+    strlcpy(response, "#DONE", MyCommandParser::MAX_RESPONSE_SIZE);
+  }
 }
-
 
 /*
   Command: '?software'
@@ -352,10 +361,10 @@ void CmdChannelNext(MyCommandParser::Argument *args, char *response) {
   Response:
      The software version string in the form '#{version_string}'.
 */
-void CmdGetSoftwareVersion(MyCommandParser::Argument *args, char *response) {
+void CmdGetSoftwareVersion(MyCommandParser::Argument *args, char *response)
+{
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", software_version);
 }
-
 
 /*
   Command: '?current'
@@ -369,16 +378,16 @@ void CmdGetSoftwareVersion(MyCommandParser::Argument *args, char *response) {
   Response:
      The maximum output current in the form '#{max_current} nA'.
 */
-void CmdGetMaxCurrent(MyCommandParser::Argument *args, char *response) {
+void CmdGetMaxCurrent(MyCommandParser::Argument *args, char *response)
+{
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%ld nA", hardware_info.GetMaxCurrent());
 }
-
 
 /*
   Command: '!current {max_current_nA}'
 
   Description:
-    Set the maximum output current for the current source in nanoamps.
+    Set the maximum output current for the current driver in nanoamps.
     The value is stored in EEPROM and persists between power cycles.
 
   Arguments:
@@ -387,21 +396,23 @@ void CmdGetMaxCurrent(MyCommandParser::Argument *args, char *response) {
   Response:
      Valid arguments result in a response in the form of '#{max_current_nA} nA',
      confirming the set values.
-     Invalid arguments result in a reponse of '#ERROR'.
+     Invalid arguments result in a response of '#ERROR'.
 */
-void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response) {
+void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response)
+{
   int res;
   int32_t max_current_nA = (int32_t)args[0].asInt64;
 
   res = hardware_info.SetMaxCurrent(max_current_nA);
-  if (!res) {
+  if (!res)
+  {
     snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%ld nA", max_current_nA);
   }
-  else {
+  else
+  {
     strlcpy(response, "#ERROR", MyCommandParser::MAX_RESPONSE_SIZE);
   }
 }
-
 
 /*
   Command: '!boardid {id}'
@@ -416,13 +427,13 @@ void CmdSetMaxCurrent(MyCommandParser::Argument *args, char *response) {
   Response:
      The board id in the form '#{board_id}'.
 */
-void CmdSetBoardId(MyCommandParser::Argument *args, char *response) {
+void CmdSetBoardId(MyCommandParser::Argument *args, char *response)
+{
   hardware_info.SetBoardId(args[0].asString);
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetBoardId(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
 }
-
 
 /*
   Command: '?boardid'
@@ -436,13 +447,12 @@ void CmdSetBoardId(MyCommandParser::Argument *args, char *response) {
   Response:
      The board id string in the form '#{board_id}'.
 */
-void CmdGetBoardId(MyCommandParser::Argument *args, char *response) {
+void CmdGetBoardId(MyCommandParser::Argument *args, char *response)
+{
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetBoardId(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
 }
-
-
 
 /*
   Command: '!hardware {version_string}'
@@ -457,13 +467,13 @@ void CmdGetBoardId(MyCommandParser::Argument *args, char *response) {
   Response:
      The hardware version in the form '#{version_string}'.
 */
-void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) {
+void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response)
+{
   hardware_info.SetHardwareVersion(args[0].asString);
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetHardwareVersion(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
 }
-
 
 /*
   Command: '?hardware'
@@ -477,51 +487,9 @@ void CmdSetHardwareVersion(MyCommandParser::Argument *args, char *response) {
   Response:
      The hardware version string in the form '#{version_string}'.
 */
-void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response) {
+void CmdGetHardwareVersion(MyCommandParser::Argument *args, char *response)
+{
   char buff[HardwareInfo::kMaxStringLength];
   hardware_info.GetHardwareVersion(buff);
   snprintf(response, MyCommandParser::MAX_RESPONSE_SIZE, "#%s", buff);
-}
-
-
-/*
-  ***DEPRECIATED***
-  Command: '{channel}A{setpoint}'
-
-  Description:
-    Process legacy command for setting {channel} DAC to {setpoint}.
-
-    DECPRECIATED: New controllers should prefer the '!chan' command.
-
-  Arguments:
-    channel: the channel number, ZERO-BASE INDEXED.
-      For example, to set 'Channel 1' as labeled on the PCB, you would
-      have to set channel index 0.
-    setpoint: DAC code to set channel to, range 0 to 65535.
-
-  Response:
-     Always responds '1\r\n'.
-*/
-void ProcessLegacyCommand()
-{
-  char *token;
-  int DAC_address;
-  long DAC_count;
-
-  token = strtok(serial_rx_buffer, "A");
-  DAC_address = atoi(token);
-  // Legacy commands are 0-based indexing. Correct for 1-based indexing
-  DAC_address++;
-
-  token = strtok(NULL, "A");
-  DAC_count = atol(token);
-  if (DAC_count > 65535) {
-    DAC_count = 65535;
-  }
-  if (DAC_count < 0) {
-    DAC_count = 0;
-  }
-
-  current_source.SetChannelSetpoint(DAC_address, DAC_count);
-  SerialInUse.println(1);
 }
