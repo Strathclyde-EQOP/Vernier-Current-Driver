@@ -752,13 +752,13 @@ F 3 "~" H 9500 2950 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U10
+L OPA2210:OPA2210 U10
 U 2 1 5EEB1B26
 P 9500 3450
 F 0 "U10" H 9500 3083 50  0000 C CNN
-F 1 "OPA2277" H 9500 3174 50  0000 C CNN
+F 1 "OPA2210" H 9500 3174 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 9500 3450 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 9500 3450 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 9500 3450 50  0001 C CNN
 	2    9500 3450
 	1    0    0    1   
 $EndComp
@@ -990,35 +990,35 @@ F 3 "" H 5300 2750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U9
+L OPA2210:OPA2210 U9
 U 1 1 5EED36F2
 P 7700 1950
 F 0 "U9" H 7850 2200 50  0000 C CNN
-F 1 "OPA2277" H 7850 2100 50  0000 C CNN
+F 1 "OPA2210" H 7850 2100 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7700 1950 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 7700 1950 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 7700 1950 50  0001 C CNN
 	1    7700 1950
 	1    0    0    1   
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U9
+L OPA2210:OPA2210 U9
 U 3 1 5EED36FE
 P 7700 1950
 F 0 "U9" H 7950 1900 50  0001 L CNN
-F 1 "OPA2277" H 7658 1905 50  0001 L CNN
+F 1 "OPA2210" H 7658 1905 50  0001 L CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7700 1950 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 7700 1950 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 7700 1950 50  0001 C CNN
 	3    7700 1950
 	1    0    0    -1  
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U11
+L OPA2210:OPA2210 U11
 U 2 1 5EED36F8
 P 9500 4850
 F 0 "U11" H 9500 4483 50  0000 C CNN
-F 1 "OPA2277" H 9500 4574 50  0000 C CNN
+F 1 "OPA2210" H 9500 4574 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 9500 4850 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 9500 4850 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 9500 4850 50  0001 C CNN
 	2    9500 4850
 	1    0    0    1   
 $EndComp
@@ -1027,53 +1027,53 @@ L Amplifier_Operational:OPA2277 U11
 U 3 1 5EECED43
 P 7700 4750
 F 0 "U11" H 7950 4700 50  0001 L CNN
-F 1 "OPA2277" H 7658 4705 50  0001 L CNN
+F 1 "OPA2210" H 7658 4705 50  0001 L CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7700 4750 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 7700 4750 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 7700 4750 50  0001 C CNN
 	3    7700 4750
 	1    0    0    -1  
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U9
+L OPA2210:OPA2210 U9
 U 2 1 5EECED3D
 P 9500 2050
 F 0 "U9" H 9500 1683 50  0000 C CNN
-F 1 "OPA2277" H 9500 1774 50  0000 C CNN
+F 1 "OPA2210" H 9500 1774 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 9500 2050 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 9500 2050 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 9500 2050 50  0001 C CNN
 	2    9500 2050
 	1    0    0    1   
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U11
+L OPA2210:OPA2210 U11
 U 1 1 5EECED37
 P 7700 4750
 F 0 "U11" H 7850 5000 50  0000 C CNN
-F 1 "OPA2277" H 7850 4900 50  0000 C CNN
+F 1 "OPA2210" H 7850 4900 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7700 4750 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 7700 4750 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 7700 4750 50  0001 C CNN
 	1    7700 4750
 	1    0    0    1   
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U10
+L OPA2210:OPA2210 U10
 U 3 1 5EEB2ED9
 P 7700 3350
 F 0 "U10" H 7950 3300 50  0001 L CNN
-F 1 "OPA2277" H 7658 3305 50  0001 L CNN
+F 1 "OPA2210" H 7658 3305 50  0001 L CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7700 3350 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 7700 3350 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 7700 3350 50  0001 C CNN
 	3    7700 3350
 	1    0    0    -1  
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U10
+L OPA2210:OPA2210 U10
 U 1 1 5EEB021E
 P 7700 3350
 F 0 "U10" H 7850 3600 50  0000 C CNN
-F 1 "OPA2277" H 7850 3500 50  0000 C CNN
+F 1 "OPA2210" H 7850 3500 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7700 3350 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/opa2277.pdf" H 7700 3350 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210" H 7700 3350 50  0001 C CNN
 	1    7700 3350
 	1    0    0    1   
 $EndComp
