@@ -1,9 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP OPA2210
-D 2.2-nV/√Hz Precision, Low-Power, 36-V Operational Amplifiers
-K Precision Operational Amplifiers
-F https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA2210
-$ENDCMP
-#
-#End Doc Library
