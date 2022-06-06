@@ -253,7 +253,7 @@ Wire Wire Line
 	5450 2300 5450 2650
 Connection ~ 5450 2650
 Wire Wire Line
-	5450 2650 5750 2650
+	5450 2650 5550 2650
 Text HLabel 4700 4400 0    50   Output ~ 0
 SDO
 Text HLabel 4700 4300 0    50   Output ~ 0
@@ -377,6 +377,7 @@ F 0 "D2" H 6450 2900 50  0000 C CNN
 F 1 "MBR0520LT" H 6450 2800 50  0000 C CNN
 F 2 "Diode_SMD:D_SOD-123" H 6450 2475 50  0001 C CNN
 F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 6450 2650 50  0001 C CNN
+F 4 "DNP" H 6450 2650 50  0000 C CNN "DNP"
 	1    6450 2650
 	1    0    0    -1  
 $EndComp
@@ -422,4 +423,20 @@ Wire Notes Line
 	1950 5900 750  5900
 Text Notes 750  5800 0    50   ~ 0
 Trigger output for calibration
+$Comp
+L power:PWR_FLAG #FLG0108
+U 1 1 62A04722
+P 5550 2200
+F 0 "#FLG0108" H 5550 2275 50  0001 C CNN
+F 1 "PWR_FLAG" H 5550 2373 50  0000 C CNN
+F 2 "" H 5550 2200 50  0001 C CNN
+F 3 "~" H 5550 2200 50  0001 C CNN
+	1    5550 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 2200 5550 2650
+Connection ~ 5550 2650
+Wire Wire Line
+	5550 2650 5750 2650
 $EndSCHEMATC
