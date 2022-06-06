@@ -291,7 +291,7 @@ F 3 "" H 5850 4950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Vernier_Vamp-2mA-rescue:Arduino_Nano_Every-MCU_Module-Vernier_Vamp-2mA-rescue A1
+L MCU_Module:Arduino_Nano_Every A1
 U 1 1 5FA2A758
 P 5850 3800
 AR Path="/5FA2A758" Ref="A1"  Part="1" 
