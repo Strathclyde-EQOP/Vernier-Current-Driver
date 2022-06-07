@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 3 7
 Title "\"Vernier\" Low Current Driver - LCD"
 Date "2021-05-18"
-Rev "1.0D"
+Rev "1.1.0"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
