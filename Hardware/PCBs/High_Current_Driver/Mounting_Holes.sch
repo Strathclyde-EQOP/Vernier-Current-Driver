@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 7 7
 Title "\"Vernier\" High Current Driver - HCD"
 Date "2020-04-27"
-Rev "1.0D"
+Rev "1.1.0"
 Comp "Strathclyde University"
 Comment1 "Designed by: Marcin Mrozowski"
 Comment2 "Checked by: "
