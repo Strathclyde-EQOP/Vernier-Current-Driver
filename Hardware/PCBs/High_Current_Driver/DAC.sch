@@ -1023,7 +1023,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    1   
 $EndComp
 $Comp
-L Amplifier_Operational:OPA2277 U11
+L vernier_current_driver:OPA2210 U11
 U 3 1 5EECED43
 P 7700 4750
 F 0 "U11" H 7950 4700 50  0001 L CNN
