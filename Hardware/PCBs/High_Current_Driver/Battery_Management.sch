@@ -512,7 +512,7 @@ F 4 "MC36225" V 4000 1200 50  0000 C CNN "Recommended component"
 	0    1    1    0   
 $EndComp
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EB425D6
 P 4200 1600
 AR Path="/5E1DD6A9/5EB425D6" Ref="D?"  Part="1" 
@@ -584,7 +584,7 @@ F 3 "" H 4200 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L IRF8707PbF:IRF8707PbF Q?
+L vernier_current_driver:IRF8707PbF Q?
 U 1 1 5EB425F5
 P 2950 2950
 AR Path="/5E1DD6A9/5EB425F5" Ref="Q?"  Part="1" 
@@ -598,7 +598,7 @@ F 3 "" H 2950 3450 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Si4447ADY:Si4447ADY Q?
+L vernier_current_driver:Si4447ADY Q?
 U 1 1 5EB425FB
 P 2950 1200
 AR Path="/5E1DD6A9/5EB425FB" Ref="Q?"  Part="1" 
@@ -630,7 +630,7 @@ $EndComp
 Wire Wire Line
 	4200 3700 4200 3450
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EB4260A
 P 4200 3300
 AR Path="/5E1DD6A9/5EB4260A" Ref="D?"  Part="1" 
@@ -671,7 +671,7 @@ Wire Wire Line
 Wire Wire Line
 	1850 2900 2750 2900
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EB4261D
 P 3400 1400
 AR Path="/5E1DD6A9/5EB4261D" Ref="D?"  Part="1" 
@@ -743,7 +743,7 @@ F 3 "~" H 2950 3450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EB4263E
 P 3400 3100
 AR Path="/5E1DD6A9/5EB4263E" Ref="D?"  Part="1" 
@@ -1120,7 +1120,7 @@ Wire Wire Line
 	7350 1950 7350 1850
 Connection ~ 7350 1850
 $Comp
-L SW_DPDT_Hirose:DPDT_Hirose SW?
+L vernier_current_driver:DPDT_Hirose SW?
 U 2 1 5EB42722
 P 7050 1000
 AR Path="/5E1DD6A9/5EB42722" Ref="SW?"  Part="2" 
@@ -1647,7 +1647,7 @@ Text HLabel 4400 1000 2    50   Output ~ 0
 Text Label 1500 4700 2    50   ~ 0
 +12VDC_bat
 $Comp
-L custom_power_rails:+12V_batt_post #PWR0176
+L vernier_current_driver:+12V_batt_post #PWR0176
 U 1 1 5ECA0162
 P 7350 1000
 F 0 "#PWR0176" H 7350 950 50  0001 C CNN
@@ -1658,7 +1658,7 @@ F 3 "" H 7350 1000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:+7.5V #PWR?
+L vernier_current_driver:+7.5V #PWR?
 U 1 1 5EFE147B
 P 8500 1000
 AR Path="/5E1DD6A9/5EFE147B" Ref="#PWR?"  Part="1" 
@@ -1672,7 +1672,7 @@ F 3 "" H 8500 1000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:-7.5V #PWR?
+L vernier_current_driver:-7.5V #PWR?
 U 1 1 5EFFB5B2
 P 10150 1000
 AR Path="/5E1DD6A9/5EFFB5B2" Ref="#PWR?"  Part="1" 
@@ -1685,7 +1685,7 @@ F 3 "" H 10150 1000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L SW_DPDT_Hirose:DPDT_Hirose SW?
+L vernier_current_driver:DPDT_Hirose SW?
 U 1 1 5EB4271C
 P 7050 1650
 AR Path="/5E1DD6A9/5EB4271C" Ref="SW?"  Part="1" 

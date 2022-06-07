@@ -59,7 +59,7 @@ F 4 "MC36225" V 3900 1200 50  0000 C CNN "Recommended component"
 	0    1    1    0   
 $EndComp
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EC3DDB6
 P 4100 1600
 AR Path="/5E1DD6A9/5EC3DDB6" Ref="D?"  Part="1" 
@@ -126,7 +126,7 @@ F 3 "" H 4100 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L IRF8707PbF:IRF8707PbF Q?
+L vernier_current_driver:IRF8707PbF Q?
 U 1 1 5EC3DDD5
 P 2850 2950
 AR Path="/5E1DD6A9/5EC3DDD5" Ref="Q?"  Part="1" 
@@ -139,7 +139,7 @@ F 3 "" H 2850 3450 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Si4447ADY:Si4447ADY Q?
+L vernier_current_driver:Si4447ADY Q?
 U 1 1 5EC3DDDB
 P 2850 1200
 AR Path="/5E1DD6A9/5EC3DDDB" Ref="Q?"  Part="1" 
@@ -169,7 +169,7 @@ $EndComp
 Wire Wire Line
 	4100 3700 4100 3450
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EC3DDEA
 P 4100 3300
 AR Path="/5E1DD6A9/5EC3DDEA" Ref="D?"  Part="1" 
@@ -208,7 +208,7 @@ Wire Wire Line
 Wire Wire Line
 	1750 2900 2650 2900
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EC3DDFD
 P 3300 1400
 AR Path="/5E1DD6A9/5EC3DDFD" Ref="D?"  Part="1" 
@@ -276,7 +276,7 @@ F 3 "~" H 2850 3400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SMBJ15A:SMBJ15A D?
+L vernier_current_driver:SMBJ15A D?
 U 1 1 5EC3DE1E
 P 3300 3100
 AR Path="/5E1DD6A9/5EC3DE1E" Ref="D?"  Part="1" 
@@ -695,7 +695,7 @@ Connection ~ 7650 1750
 Wire Wire Line
 	7650 1750 7700 1750
 $Comp
-L SW_DPDT_Hirose:DPDT_Hirose SW?
+L vernier_current_driver:DPDT_Hirose SW?
 U 1 1 5EC516F5
 P 7350 1550
 AR Path="/5E1DD6A9/5EC516F5" Ref="SW?"  Part="1" 
@@ -708,7 +708,7 @@ F 3 "" H 7350 1550 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L SW_DPDT_Hirose:DPDT_Hirose SW?
+L vernier_current_driver:DPDT_Hirose SW?
 U 2 1 5EC516FB
 P 7350 900
 AR Path="/5E1DD6A9/5EC516FB" Ref="SW?"  Part="2" 
@@ -1288,7 +1288,7 @@ Wire Wire Line
 Wire Wire Line
 	5250 4850 5950 4850
 $Comp
-L custom_power_rails:-7.5V #PWR0140
+L vernier_current_driver:-7.5V #PWR0140
 U 1 1 5ECB7631
 P 10300 850
 F 0 "#PWR0140" H 10300 800 50  0001 C CNN
@@ -1299,7 +1299,7 @@ F 3 "" H 10300 850 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L custom_power_rails:+7.5V #PWR0141
+L vernier_current_driver:+7.5V #PWR0141
 U 1 1 5ECB832C
 P 8700 950
 F 0 "#PWR0141" H 8700 900 50  0001 C CNN
@@ -1310,7 +1310,7 @@ F 3 "" H 8700 950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:+12V_batt_post #PWR0142
+L vernier_current_driver:+12V_batt_post #PWR0142
 U 1 1 5ECBF1C0
 P 7650 900
 F 0 "#PWR0142" H 7650 850 50  0001 C CNN

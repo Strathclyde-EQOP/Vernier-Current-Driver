@@ -509,7 +509,7 @@ Wire Wire Line
 Wire Wire Line
 	6650 5350 7050 5350
 $Comp
-L TPS7A33:TPS7A33 U6
+L vernier_current_driver:TPS7A33 U6
 U 1 1 5E321ECA
 P 5750 5250
 F 0 "U6" H 5750 5415 50  0000 C CNN
@@ -535,7 +535,7 @@ Connection ~ 4350 5350
 Wire Wire Line
 	5250 5350 4350 5350
 $Comp
-L TPS74A4700:TPS7A470x U5
+L vernier_current_driver:TPS7A470x U5
 U 1 1 5E4EDE9C
 P 5750 3300
 F 0 "U5" H 5750 3700 50  0000 C CNN
@@ -546,7 +546,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/tps7a47.pdf" H 5650 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L TPS74A4700:TPS7A470x U4
+L vernier_current_driver:TPS7A470x U4
 U 1 1 5E30DC9B
 P 5750 1200
 F 0 "U4" H 5750 1600 50  0000 C CNN
@@ -697,7 +697,7 @@ Text Label 2950 1600 0    50   ~ 0
 Wire Wire Line
 	2950 1600 2800 1600
 $Comp
-L custom_power_rails:+7.5V #PWR?
+L vernier_current_driver:+7.5V #PWR?
 U 1 1 5EF1688E
 P 7300 800
 AR Path="/5E1DD6A9/5EC279B2/5EF1688E" Ref="#PWR?"  Part="1" 
@@ -710,7 +710,7 @@ F 3 "" H 7300 800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:-7.5V #PWR?
+L vernier_current_driver:-7.5V #PWR?
 U 1 1 5EF16888
 P 7400 5650
 AR Path="/5E1DD6A9/5EC279B2/5EF16888" Ref="#PWR?"  Part="1" 

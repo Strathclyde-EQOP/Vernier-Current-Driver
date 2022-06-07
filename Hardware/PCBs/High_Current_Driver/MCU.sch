@@ -222,7 +222,7 @@ $EndComp
 Wire Wire Line
 	4600 2550 4600 2650
 $Comp
-L custom_power_rails:+12V_batt_post #PWR?
+L vernier_current_driver:+12V_batt_post #PWR?
 U 1 1 5ECA4E39
 P 4600 2550
 AR Path="/5E1DD6A9/5EA9C7F8/5ECA4E39" Ref="#PWR?"  Part="1" 

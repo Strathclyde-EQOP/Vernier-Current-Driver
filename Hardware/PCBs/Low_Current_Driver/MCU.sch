@@ -194,7 +194,7 @@ Wire Wire Line
 	6050 2550 5850 2550
 Connection ~ 6050 2550
 $Comp
-L custom_power_rails:+12V_batt_post #PWR?
+L vernier_current_driver:+12V_batt_post #PWR?
 U 1 1 5EE2FEC9
 P 4700 2550
 AR Path="/5E1DD6A9/5EC279B2/5EE2FEC9" Ref="#PWR?"  Part="1" 

@@ -50,7 +50,7 @@ Wire Wire Line
 Wire Wire Line
 	5900 4550 5450 4700
 $Comp
-L OPA2210:OPA2210 U10
+L vernier_current_driver:OPA2210 U10
 U 1 1 5EEB021E
 P 7700 3350
 F 0 "U10" H 7850 3600 50  0000 C CNN
@@ -72,7 +72,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    -1  
 $EndComp
 $Comp
-L OPA2210:OPA2210 U11
+L vernier_current_driver:OPA2210 U11
 U 1 1 5EECED37
 P 7700 4750
 F 0 "U11" H 7850 5000 50  0000 C CNN
@@ -83,7 +83,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    1   
 $EndComp
 $Comp
-L OPA2210:OPA2210 U9
+L vernier_current_driver:OPA2210 U9
 U 2 1 5EECED3D
 P 9500 2050
 F 0 "U9" H 9500 1683 50  0000 C CNN
@@ -94,7 +94,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    1   
 $EndComp
 $Comp
-L OPA2210:OPA2210 U11
+L vernier_current_driver:OPA2210 U11
 U 3 1 5EECED43
 P 7700 4750
 F 0 "U11" H 7950 4700 50  0001 L CNN
@@ -105,7 +105,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    -1  
 $EndComp
 $Comp
-L OPA2210:OPA2210 U11
+L vernier_current_driver:OPA2210 U11
 U 2 1 5EED36F8
 P 9500 4850
 F 0 "U11" H 9500 4483 50  0000 C CNN
@@ -116,7 +116,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    1   
 $EndComp
 $Comp
-L OPA2210:OPA2210 U9
+L vernier_current_driver:OPA2210 U9
 U 3 1 5EED36FE
 P 7700 1950
 F 0 "U9" H 7950 1900 50  0001 L CNN
@@ -127,7 +127,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    -1  
 $EndComp
 $Comp
-L OPA2210:OPA2210 U9
+L vernier_current_driver:OPA2210 U9
 U 1 1 5EED36F2
 P 7700 1950
 F 0 "U9" H 7850 2200 50  0000 C CNN
@@ -138,7 +138,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/opa2210.pdf?ts=1654084373938&ref_url=http
 	1    0    0    1   
 $EndComp
 $Comp
-L DAC8814:DAC8814 U8
+L vernier_current_driver:DAC8814 U8
 U 1 1 5EE568AF
 P 5650 2750
 F 0 "U8" H 6250 2950 50  0000 C CNN
@@ -365,7 +365,7 @@ Wire Wire Line
 Wire Wire Line
 	9900 2950 9900 3450
 $Comp
-L OPA2210:OPA2210 U10
+L vernier_current_driver:OPA2210 U10
 U 2 1 5EEB1B26
 P 9500 3450
 F 0 "U10" H 9500 3083 50  0000 C CNN
@@ -536,7 +536,7 @@ Connection ~ 5500 2550
 Wire Wire Line
 	5500 2550 5550 2550
 $Comp
-L DAC8814:LTC6655-2.5 U7
+L vernier_current_driver:LTC6655-2.5 U7
 U 1 1 5F056C56
 P 1700 1150
 F 0 "U7" H 1700 1315 50  0000 C CNN
@@ -1653,7 +1653,7 @@ Wire Wire Line
 	5150 4550 5250 4550
 Connection ~ 5250 4550
 $Comp
-L custom_power_rails:+7.5V #PWR?
+L vernier_current_driver:+7.5V #PWR?
 U 1 1 5EF43E88
 P 750 1100
 AR Path="/5E1DD6A9/5EC279B2/5EF43E88" Ref="#PWR?"  Part="1" 
@@ -1666,7 +1666,7 @@ F 3 "" H 750 1100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:+7.5V #PWR?
+L vernier_current_driver:+7.5V #PWR?
 U 1 1 5EF6397B
 P 7600 4450
 AR Path="/5E1DD6A9/5EC279B2/5EF6397B" Ref="#PWR?"  Part="1" 
@@ -1679,7 +1679,7 @@ F 3 "" H 7600 4450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:+7.5V #PWR?
+L vernier_current_driver:+7.5V #PWR?
 U 1 1 5EF73240
 P 7600 3050
 AR Path="/5E1DD6A9/5EC279B2/5EF73240" Ref="#PWR?"  Part="1" 
@@ -1692,7 +1692,7 @@ F 3 "" H 7600 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:+7.5V #PWR?
+L vernier_current_driver:+7.5V #PWR?
 U 1 1 5EF92C6D
 P 7600 1650
 AR Path="/5E1DD6A9/5EC279B2/5EF92C6D" Ref="#PWR?"  Part="1" 
@@ -1705,7 +1705,7 @@ F 3 "" H 7600 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:+7.5V #PWR?
+L vernier_current_driver:+7.5V #PWR?
 U 1 1 5EFB1CFC
 P 950 6100
 AR Path="/5E1DD6A9/5EC279B2/5EFB1CFC" Ref="#PWR?"  Part="1" 
@@ -1718,7 +1718,7 @@ F 3 "" H 950 6100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L custom_power_rails:-7.5V #PWR?
+L vernier_current_driver:-7.5V #PWR?
 U 1 1 5EFF5F28
 P 950 7350
 AR Path="/5E1DD6A9/5EC279B2/5EFF5F28" Ref="#PWR?"  Part="1" 
@@ -1732,7 +1732,7 @@ F 3 "" H 950 7350 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L custom_power_rails:-7.5V #PWR?
+L vernier_current_driver:-7.5V #PWR?
 U 1 1 5F015856
 P 7600 5050
 AR Path="/5E1DD6A9/5EC279B2/5F015856" Ref="#PWR?"  Part="1" 
@@ -1746,7 +1746,7 @@ F 3 "" H 7600 5050 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L custom_power_rails:-7.5V #PWR?
+L vernier_current_driver:-7.5V #PWR?
 U 1 1 5F0250E3
 P 7600 3650
 AR Path="/5E1DD6A9/5EC279B2/5F0250E3" Ref="#PWR?"  Part="1" 
@@ -1760,7 +1760,7 @@ F 3 "" H 7600 3650 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L custom_power_rails:-7.5V #PWR?
+L vernier_current_driver:-7.5V #PWR?
 U 1 1 5F0349B1
 P 7600 2250
 AR Path="/5E1DD6A9/5EC279B2/5F0349B1" Ref="#PWR?"  Part="1" 
