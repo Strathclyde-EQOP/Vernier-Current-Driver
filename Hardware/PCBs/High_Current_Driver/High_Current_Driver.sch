@@ -53,7 +53,7 @@ U 1 1 5E62FDF4
 P 8700 4200
 F 0 "J1" H 8780 4192 50  0000 L CNN
 F 1 "Conn_01x02" H 8780 4101 50  0000 L CNN
-F 2 "Dummy_conn_01x02:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD" H 8700 4200 50  0001 C CNN
+F 2 "vernier_current_driver:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD" H 8700 4200 50  0001 C CNN
 F 3 "~" H 8700 4200 50  0001 C CNN
 	1    8700 4200
 	1    0    0    -1  
@@ -255,7 +255,7 @@ AR Path="/5E1DEB8C/60B16851" Ref="J?"  Part="1"
 AR Path="/60B16851" Ref="J8"  Part="1" 
 F 0 "J8" H 2030 6014 50  0000 L CNN
 F 1 "RF_Shield_Two_Pieces" H 2030 5923 50  0000 L CNN
-F 2 "MS570-10F:MS570-10S" H 1300 5850 50  0001 C CNN
+F 2 "vernier_current_driver:MS570-10S" H 1300 5850 50  0001 C CNN
 F 3 "~" H 1300 5850 50  0001 C CNN
 	1    1300 5950
 	1    0    0    -1  

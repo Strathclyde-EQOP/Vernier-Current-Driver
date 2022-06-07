@@ -434,7 +434,7 @@
     )
   )
 
-  (module MS548-10F:MS548-10C (layer F.Cu) (tedit 607DDAE5) (tstamp 5FAD7B05)
+  (module vernier_current_driver:MS548-10C (layer F.Cu) (tedit 607DDAE5) (tstamp 5FAD7B05)
     (at 111.6425 82.27 90)
     (path /5FC43AD0)
     (fp_text reference J8 (at 0 2.83 90) (layer F.SilkS)
@@ -537,7 +537,7 @@
       (net 9 GND))
   )
 
-  (module Dummy_conn_01x02:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD (layer F.Cu) (tedit 5FC13B28) (tstamp 5EB4293A)
+  (module vernier_current_driver:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD (layer F.Cu) (tedit 5FC13B28) (tstamp 5EB4293A)
     (at 115.5065 84.1375)
     (descr "Through hole straight socket strip, 1x02, 1.00mm pitch, single row (https://gct.co/files/drawings/bc065.pdf), script generated")
     (tags "Through hole socket strip THT 1x02 1.00mm single row")

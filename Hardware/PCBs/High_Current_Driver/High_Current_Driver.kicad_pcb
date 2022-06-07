@@ -795,7 +795,7 @@
       (net 42 /Channel_Outputs/Coil_Iout_R2))
   )
 
-  (module "WSM2-13R0-FTR-LF:WSM2 13R0 FTR-LF" (layer F.Cu) (tedit 60A2BD54) (tstamp 60A1B3D2)
+  (module "vernier_current_driver:WSM2_13R0_FTR-LF" (layer F.Cu) (tedit 60A2BD54) (tstamp 60A1B3D2)
     (at 160.2 118.8 90)
     (path /5E1E279E/615FDB9B)
     (fp_text reference R55 (at -3.7 2.15 90) (layer F.SilkS)
@@ -822,7 +822,7 @@
       (net 40 /Channel_Outputs/Coil_Iout_R3))
   )
 
-  (module "WSM2-13R0-FTR-LF:WSM2 13R0 FTR-LF" (layer F.Cu) (tedit 60A2BD54) (tstamp 60A1B3D2)
+  (module "vernier_current_driver:WSM2_13R0_FTR-LF" (layer F.Cu) (tedit 60A2BD54) (tstamp 60A1B3D2)
     (at 160.1 92.65 90)
     (path /5E1E279E/60ED81BE)
     (fp_text reference R49 (at -3.7 2.15 90) (layer F.SilkS)
@@ -849,7 +849,7 @@
       (net 42 /Channel_Outputs/Coil_Iout_R2))
   )
 
-  (module "WSM2-13R0-FTR-LF:WSM2 13R0 FTR-LF" (layer F.Cu) (tedit 60A2BD0E) (tstamp 60A1B3D2)
+  (module "vernier_current_driver:WSM2_13R0_FTR-LF" (layer F.Cu) (tedit 60A2BD0E) (tstamp 60A1B3D2)
     (at 160.1 66.65 90)
     (path /5E1E279E/6139A7E9)
     (fp_text reference R48 (at -3.7 2.15 90) (layer F.SilkS)
@@ -876,7 +876,7 @@
       (net 9 GND))
   )
 
-  (module MS570-10F:MS570-10S (layer F.Cu) (tedit 60A23C8E) (tstamp 609E6897)
+  (module vernier_current_driver:MS570-10S (layer F.Cu) (tedit 60A23C8E) (tstamp 609E6897)
     (at 111.2 53.9 90)
     (path /60B16851)
     (fp_text reference J8 (at 0.6935 -2.404 180) (layer F.SilkS)
@@ -6090,7 +6090,7 @@
       (net 16 /DAC/Vref_2.5V))
   )
 
-  (module Dummy_conn_01x02:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD (layer F.Cu) (tedit 5FC13B28) (tstamp 609E68FF)
+  (module vernier_current_driver:PinSocket_1x02_P1.00mm_Vertical_CUSTOM_CYD (layer F.Cu) (tedit 5FC13B28) (tstamp 609E68FF)
     (at 109.0815 85.0125)
     (descr "Through hole straight socket strip, 1x02, 1.00mm pitch, single row (https://gct.co/files/drawings/bc065.pdf), script generated")
     (tags "Through hole socket strip THT 1x02 1.00mm single row")
