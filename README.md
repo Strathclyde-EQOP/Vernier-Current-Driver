@@ -5,9 +5,15 @@ The Vernier Current Driver is an ultra low noise, programmable, bi-polar current
 1. Low Current Driver (LCD): designed to output current up to ~50 mA
 2. High Current Driver (HCD): designed to output currents from ~50 mA to ~250 mA
 
+# Releases
+
+Checkout the [latest release](https://github.com/Strathclyde-EQOP/Vernier-Current-Driver/releases/latest) to download the latest verified version of the design. Releases include PDF schematics and gerber files, so there is no need to install/understand KiCAD in order to make a board.
+
+Checkout the [dev branch](https://github.com/Strathclyde-EQOP/Vernier-Current-Driver/tree/dev) for the most up to date (but probably untested!) design.
+
 # Performance
 
-Three sample devices were tested. For full details, see the companion paper or take a look a look in the [Testing](/Doc/Testing/) folder.
+Three sample devices have been tested. For full details, see the companion paper or take a look a look in the [Testing](/Doc/Testing/) folder.
 
 The headlines results:
 
