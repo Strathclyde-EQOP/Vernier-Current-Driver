@@ -5,13 +5,13 @@ The Vernier Current Driver is an ultra low noise, programmable, bi-polar current
 1. Low Current Driver (LCD): designed to output current up to ~50 mA
 2. High Current Driver (HCD): designed to output currents from ~50 mA to ~250 mA
 
-# Releases
+## Releases
 
 Checkout the [latest release](https://github.com/Strathclyde-EQOP/Vernier-Current-Driver/releases/latest) to download the latest verified version of the design. Releases include PDF schematics and gerber files, so there is no need to install/understand KiCAD in order to make a board.
 
 Checkout the [dev branch](https://github.com/Strathclyde-EQOP/Vernier-Current-Driver/tree/dev) for the most up to date (but probably untested!) design.
 
-# Performance
+## Performance
 
 Three sample devices have been tested. For full details, see the companion paper or take a look a look in the [Testing](/Doc/Testing/) folder.
 
@@ -28,15 +28,15 @@ The headlines results:
 
 ![noise_spectra](https://user-images.githubusercontent.com/9080690/170338036-da505953-d0da-49b6-9ed1-ae70d21b82e2.svg)
 
-# Manual
+## Manual
 
 For more information checkout the [Getting Started Guide](Doc/README.md).
 
-# Publication
+## Publication
 
 If you're the academic type, lots more detail on the design and testing of the Vernier Current Source can be found in our [open-access paper]().
 
-# Citing
+## Citing
 
 When citing this work in an academic context, please cite the paper as you normally would.
 
@@ -44,11 +44,11 @@ Outside of academic work, please link directly to this GitHub repo.
 
 Lastly, if you make one and you like it (or don't like it), we could love to know!
 
-# License
+## License
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
-# Authors
+## Authors
 
 This work was created by [Marcin Mrozowski](https://eqop.phys.strath.ac.uk/people/marcin-mrozowski/) and [Iain Chalmers](https://eqop.phys.strath.ac.uk/people/iain-chalmers/)
 from the [Experimental Quantum Optics and Photonics](http://photonics.phys.strath.ac.uk/)
