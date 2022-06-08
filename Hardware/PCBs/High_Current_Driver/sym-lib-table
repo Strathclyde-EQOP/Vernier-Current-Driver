@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "vernier_current_driver")(type "Legacy")(uri "${KIPRJMOD}/../common/vernier_current_driver.lib")(options "")(descr ""))
+)

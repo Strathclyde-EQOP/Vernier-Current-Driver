@@ -28,7 +28,7 @@
 /*******************************************************************
   Configuration
 *******************************************************************/
-const char software_version[] = "1.0.2";
+const char software_version[] = "1.1.0";
 const uint32_t kBaudrate = 1000000;
 HardwareSerial &SerialInUse = Serial;
 
