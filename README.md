@@ -44,6 +44,10 @@ Outside of academic work, please link directly to this GitHub repo.
 
 Lastly, if you make one and you like it (or don't like it), we could love to know!
 
+# License
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+
 # Authors
 
 This work was created by [Marcin Mrozowski](https://eqop.phys.strath.ac.uk/people/marcin-mrozowski/) and [Iain Chalmers](https://eqop.phys.strath.ac.uk/people/iain-chalmers/)
