@@ -19,14 +19,14 @@ The headlines results:
 
 |Configuration|CH1|CH2|CH3|
 |---|---|---|---|
-|LCD@10 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 32.9 pA√Hz | 34.0 pA√Hz | 30.0 pA√Hz |
-|LCD@2.5 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 18.7 pA√Hz | 18.5 pA√Hz | 19.2 pA√Hz |
-|HCD@250 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 933.8 pA√Hz | 915.5 pA√Hz | 909.9 pA√Hz |
-|LCD@10 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 3.27 ppb√Hz | 3.39 ppb√Hz | 2.99 ppb√Hz |
-|LCD@2.5 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 7.47 ppb√Hz | 7.42 ppb√Hz | 7.68 ppb√Hz |
-|HCD@250 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 3.74 ppb√Hz | 3.66 ppb√Hz | 3.64 ppb√Hz |
+|LCD@10 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 151.1 pA√Hz | 147.4 pA√Hz | 146.3 pA√Hz |
+|LCD@2.5 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 37.6 pA√Hz | 38.2 pA√Hz | 37.7 pA√Hz |
+|HCD@250 mA<sub>MAX</sub> (10 ± 5 Hz average noise) | 4114.2 pA√Hz | 4125.3 pA√Hz | 4124.1 pA√Hz |
+|LCD@10 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 15.05 ppb√Hz | 14.68 ppb√Hz | 14.57 ppb√Hz |
+|LCD@2.5 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 15.06 ppb√Hz | 15.29 ppb√Hz | 15.10 ppb√Hz |
+|HCD@250 mA<sub>MAX</sub> (10 ± 5 Hz relative average noise) | 16.46 ppb√Hz | 16.50 ppb√Hz | 16.50 ppb√Hz |
 
-![noise_spectra](https://user-images.githubusercontent.com/9080690/170338036-da505953-d0da-49b6-9ed1-ae70d21b82e2.svg)
+![noise_spectra](https://user-images.githubusercontent.com/9080690/178984223-829c2031-2b9f-4e59-92e7-14322450444f.svg)
 
 ## Manual
 
