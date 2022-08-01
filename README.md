@@ -34,7 +34,7 @@ For more information checkout the [Getting Started Guide](Doc/README.md).
 
 ## Publication
 
-If you're the academic type, lots more detail on the design and testing of the Vernier Current Source can be found in our [open-access paper]().
+If you're the academic type, lots more detail on the design and testing of the Vernier Current Source can be found in our open-access paper, available as a pre-print on [arXiv](https://arxiv.org/abs/2207.10348).
 
 ## Citing
 
@@ -42,7 +42,7 @@ When citing this work in an academic context, please cite the paper as you norma
 
 Outside of academic work, please link directly to this GitHub repo.
 
-Lastly, if you make one and you like it (or don't like it), we could love to know!
+Lastly, if you make one and you like it (or don't like it), we would love to know!
 
 ## License
 
@@ -50,6 +50,6 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 ## Authors
 
-This work was created by [Marcin Mrozowski](https://eqop.phys.strath.ac.uk/people/marcin-mrozowski/) and [Iain Chalmers](https://eqop.phys.strath.ac.uk/people/iain-chalmers/)
+This work was created by [Marcin Mrozowski](https://eqop.phys.strath.ac.uk/people/marcin-mrozowski/) and [Iain Chalmers](https://www.linkedin.com/in/iain-chalmers-0394753b)
 from the [Experimental Quantum Optics and Photonics](http://photonics.phys.strath.ac.uk/)
 group at the University of Strathclyde.
